@@ -1,0 +1,75 @@
+---
+layout: default
+title: Do I need a referral for physical therapy?
+seo_title: "Do I Need a Referral for PT in California? | Mobility PT"
+description: In California you can often start physical therapy without a doctor's referral, but your insurance plan may still need one. Here's how it works and how we help.
+heading: Do I need a referral for physical therapy?
+intro: Often not to start, under California law. But your insurance plan may have its own rules. Here's the short version.
+breadcrumbs:
+  - name: Patient resources
+    url: /resources/
+  - name: Do I need a referral?
+    url: /resources/do-i-need-a-referral/
+faq:
+  - q: Can I see a physical therapist in California without a doctor's referral?
+    a: In many cases, yes. California allows "direct access" to physical therapy for a limited time. Your insurance plan may still require a referral before it will pay, so call us and we'll check.
+  - q: Does my HMO or medical group need a referral?
+    a: Most HMO and medical group plans need a referral and an authorization before physical therapy is covered. Ask your primary care doctor, or call us and we'll help you find out.
+  - q: How do I get a referral to Mobility Physical Therapy?
+    a: Ask your doctor to fax a referral to the clinic closest to you. Once we have it, we'll call you to schedule. Both clinic fax numbers are listed on this page.
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap with-aside">
+    <div class="prose">
+      {% if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+      <h2>The short answer</h2>
+      <p>There are two separate questions. First, does the law let you see a physical therapist without a referral? Second, will your insurance pay for it without one? The answers can be different.</p>
+
+      <h2>What California law allows</h2>
+      <p>California allows "direct access" to physical therapy. That means a licensed physical therapist can evaluate and treat you without a doctor's referral or diagnosis first, within limits.</p>
+      <p>Under California Business and Professions Code section 2620.1, a physical therapist can treat you without a diagnosis for up to 45 calendar days or 12 visits, whichever comes first. After that, a physician and surgeon (or a podiatrist, for foot and ankle care) must sign your plan of care to keep going. {% if site.draft %}<span class="ph-tag">Placeholder</span> Clinic to confirm current rules.{% endif %}</p>
+      <p>Your therapist will also refer you to a doctor if your symptoms suggest something that needs a doctor's care first.</p>
+
+      <h2>What your insurance may require</h2>
+      <p>Insurance rules are separate from the law, and they decide what your plan will pay for.</p>
+      <ul>
+        <li><strong>HMO and medical group plans</strong> usually need a referral and an authorization from your doctor or medical group before physical therapy is covered.</li>
+        <li><strong>PPO plans and Medicare</strong> often don't need a referral to start, but coverage varies from plan to plan. Medicare also needs a doctor or other approved provider to sign off on your plan of care.</li>
+        <li><strong>Auto MedPay and workers' compensation</strong> each have their own steps. Bring your claim information when you call.</li>
+      </ul>
+      <p>You don't have to figure this out alone. Call us with your insurance card in hand and we'll check what your plan needs before your first visit.</p>
+
+      <h2>If you need a referral</h2>
+      <p>Ask your doctor to fax a referral to the clinic closest to you. When we receive it, we'll call you to schedule.</p>
+      <ul>
+        {%- for l in c.locations %}
+        <li>{{ l.name }} fax: {{ l.fax }}</li>
+        {%- endfor %}
+      </ul>
+
+      <h2>Common questions</h2>
+      {% include faq.html %}
+
+      <h2>Related pages</h2>
+      <ul class="link-list">
+        <li><a href="{{ '/insurance/' | relative_url }}">Insurance plans we accept</a></li>
+        <li><a href="{{ '/resources/first-visit-what-to-expect/' | relative_url }}">Your first visit: what to expect</a></li>
+        <li><a href="{{ '/physicians/' | relative_url }}">Information for referring physicians</a></li>
+        <li><a href="{{ '/new-patients-center/' | relative_url }}">New patient center</a></li>
+      </ul>
+    </div>
+    <aside class="aside-card" aria-label="Check your coverage">
+      <h2>Not sure what your plan needs?</h2>
+      <p>Call us with your insurance card and we'll check for you.</p>
+      {%- for l in c.locations %}
+      <a class="btn btn-secondary" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call {{ l.name }} {{ l.phone }}</a>
+      {%- endfor %}
+      <a class="btn btn-primary" href="{{ '/insurance/' | relative_url }}">See accepted insurance</a>
+    </aside>
+  </div>
+</section>
+
+{% include cta.html heading="Ready to get started?" text="Book your first visit online, or call and we'll check your referral and coverage for you." %}

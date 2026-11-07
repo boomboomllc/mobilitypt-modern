@@ -1,0 +1,115 @@
+{%- assign c = site.data.clinic -%}
+{%- if page.location -%}{%- assign loc = c.locations | where: "key", page.location | first -%}{%- endif -%}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- if site.draft or page.sitemap == false %}
+<meta name="robots" content="noindex, nofollow">
+{%- endif %}
+<title>{% if page.seo_title %}{{ page.seo_title }}{% elsif page.title %}{{ page.title }} | {{ c.name }}{% else %}{{ c.name }}{% endif %}</title>
+<meta name="description" content="{{ page.description | default: 'Orthopedic, post-surgery and spine physical therapy in Tustin and Lake Forest, CA since 2002.' | escape }}">
+{%- unless page.sitemap == false %}
+<link rel="canonical" href="{{ site.production_url }}{{ page.url | replace: 'index.html', '' }}">
+{%- endunless %}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ c.name }}">
+<meta property="og:title" content="{{ page.seo_title | default: page.title | default: c.name | escape }}">
+<meta property="og:description" content="{{ page.description | escape }}">
+<meta property="og:url" content="{{ site.production_url }}{{ page.url | replace: 'index.html', '' }}">
+<meta property="og:image" content="{{ page.og_image | default: c.photos.hero }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
+{% include schema.html %}
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+{% include icons.html %}
+
+{%- if site.draft %}
+<div class="draft-banner">
+  <div class="wrap">Design draft for {{ c.name }}. Not the live site. <span class="ph-tag">Placeholder</span> = real content needed. <span class="demo-tag">Demo</span> = a feature shown but not connected yet. <a href="{{ '/whats-possible/' | relative_url }}">See what each demo could do</a>.</div>
+</div>
+{%- endif %}
+
+<div class="top-bar">
+  <div class="wrap top-row">
+    <div class="top-contact">
+      <a href="mailto:{{ c.email }}"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>{{ c.email }}</a>
+      <span><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>{% for l in c.locations %}{{ l.name }}: <a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a>{% unless forloop.last %}&nbsp;&middot;&nbsp;{% endunless %}{% endfor %}</span>
+    </div>
+    <div class="top-social">
+      <a href="{{ c.social.facebook }}" target="_blank" rel="noopener">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+      <a href="{{ c.social.instagram }}" target="_blank" rel="noopener">Instagram<span class="sr-only"> (opens in a new tab)</span></a>
+      <a href="{{ c.social.yelp_tustin }}" target="_blank" rel="noopener">Yelp<span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="{{ '/' | relative_url }}"><img src="{{ c.logo }}" alt="{{ c.name }}, home" width="240" height="123"></a>
+    <nav class="main-nav" id="main-nav" aria-label="Main">
+      {%- assign nav = "What we treat|/services/,Insurance|/insurance/,New patients|/new-patients-center/,Locations|/locations/,About|/about/,For physicians|/physicians/" | split: "," -%}
+      {%- for item in nav -%}
+        {%- assign parts = item | split: "|" -%}
+        <a href="{{ parts[1] | relative_url }}"{% if page.url contains parts[1] or page.location and parts[1] == "/locations/" %} aria-current="page"{% endif %}>{{ parts[0] }}</a>
+      {%- endfor %}
+      <a class="btn btn-primary nav-cta" href="{{ '/book/' | relative_url }}">Book online</a>
+    </nav>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+{{ content }}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <img class="footer-logo" src="{{ c.logo }}" alt="{{ c.name }}" width="160" height="82" loading="lazy">
+      <p class="muted">{{ c.tagline }} Serving Orange County since {{ c.founded }}.</p>
+      <p><a href="mailto:{{ c.email }}">{{ c.email }}</a></p>
+    </div>
+    {%- for l in c.locations %}
+    <div>
+      <p class="footer-h"><a href="{{ l.url | relative_url }}">{{ l.name }}</a></p>
+      <p class="muted">{{ l.street }}<br>{{ l.city }}, {{ l.state }} {{ l.zip }}<br><a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a><br>{{ c.hours_short }}</p>
+    </div>
+    {%- endfor %}
+    <div>
+      <p class="footer-h">Patients</p>
+      <p>
+        <a href="{{ '/book/' | relative_url }}">Book online</a><br>
+        <a href="{{ '/new-patients-center/' | relative_url }}">New patients</a><br>
+        <a href="{{ '/insurance/' | relative_url }}">Insurance</a><br>
+        <a href="{{ '/resources/' | relative_url }}">Patient resources</a><br>
+        <a href="{{ '/contact/' | relative_url }}">Contact us</a>
+      </p>
+    </div>
+  </div>
+  <div class="wrap footer-base muted">
+    <span>© {{ 'now' | date: '%Y' }} {{ c.legal_name }}</span>
+    <span class="footer-links">
+      <a href="{{ '/privacy/' | relative_url }}">Privacy and HIPAA notice</a>
+      <a href="{{ '/accessibility/' | relative_url }}">Accessibility</a>
+      <a href="{{ '/physicians/' | relative_url }}">For physicians</a>
+      {%- if site.draft %}<a href="{{ '/whats-possible/' | relative_url }}">What this site could do</a>{% endif %}
+    </span>
+  </div>
+</footer>
+
+<nav class="mobile-bar" aria-label="Quick actions">
+  {%- for l in c.locations %}
+  <a href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>{{ l.name }}</a>
+  {%- endfor %}
+  <a class="mobile-bar-primary" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book</a>
+</nav>
+
+<script src="{{ '/assets/script.js' | relative_url }}"></script>
+</body>
+</html>

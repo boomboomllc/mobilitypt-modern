@@ -1,0 +1,379 @@
+---
+layout: default
+title: What this website could do
+description: A plain-language guide for the clinic to every Demo feature on this draft website, with what each one does, how it could be set up, cost level and privacy.
+heading: What this website could do
+intro: This draft shows the new design plus some features marked Demo. None of them send anything yet. Each one below can be turned on later, and the most useful ones are listed first.
+sitemap: false
+breadcrumbs:
+  - name: What this website could do
+    url: /whats-possible/
+---
+{%- assign c = site.data.clinic -%}
+{%- assign tustin = c.locations | where: "key", "tustin" | first -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="notice">
+      <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+      <p>This page is only for the clinic team. While the site is in draft mode, this page is hidden from Google and left out of the sitemap. Wherever you see a <span class="demo-tag">Demo</span> tag on the draft site, the feature looks real but nothing is sent or saved. A <span class="ph-tag">Placeholder</span> tag marks text or photos only the clinic can supply.</p>
+    </div>
+    <div class="notice">
+      <svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
+      <p><strong>One term you'll see a lot: BAA.</strong> It stands for Business Associate Agreement, the contract HIPAA requires when a vendor handles patient information for you. If a tool will see patient names, appointments or health details, the vendor needs to sign one. Many popular tools won't, so that question comes first.</p>
+    </div>
+
+    <div class="section-head">
+      <h2>Start here</h2>
+      <p class="lead">Most of your patients come by doctor referral. For a clinic like that, these three give the most value for the least effort.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+        <h3>1. Online booking and text reminders</h3>
+        <p>Patients book their first visit without waiting for a call back, and reminders go out on their own instead of by hand.</p>
+        <a class="text-link" href="#booking">Read about online booking</a>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+        <h3>2. Online intake forms</h3>
+        <p>New patients fill in their paperwork at home, so the first visit starts on time and the front desk types less.</p>
+        <a class="text-link" href="#intake">Read about intake forms</a>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></span>
+        <h3>3. Google profile and review requests</h3>
+        <p>Most people check Google before they call. Correct listings for both clinics and a steady flow of honest reviews help them choose you.</p>
+        <a class="text-link" href="#google-profile">Read about the Google profile</a>
+      </div>
+    </div>
+
+    <h3>Jump to a feature</h3>
+    <ul class="link-list">
+      <li><a href="#booking">Online booking</a></li>
+      <li><a href="#reminders">Appointment reminders</a></li>
+      <li><a href="#intake">Online intake forms</a></li>
+      <li><a href="#insurance-check">Insurance check requests</a></li>
+      <li><a href="#callback">Call-back requests</a></li>
+      <li><a href="#referrals">Online referrals from doctors</a></li>
+      <li><a href="#reviews">Review requests</a></li>
+      <li><a href="#home-exercise">Home exercise programs</a></li>
+      <li><a href="#chat">Website chat</a></li>
+      <li><a href="#payments">Online payments</a></li>
+      <li><a href="#analytics">Visitor statistics</a></li>
+      <li><a href="#google-profile">Google Business Profile</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt" id="booking">
+  <div class="wrap prose">
+    <h2>Online booking <span class="demo-tag">Demo</span></h2>
+    <div class="panel">
+      <dl class="loc-facts">
+          <dt>What it does</dt><dd>New patients pick an open time for their first visit, any time of day. You decide which times are offered, so follow-up visits can still be booked at the front desk.</dd>
+          <dt>What patients see</dt><dd>A choice of clinic, day and time, then a short form with name and phone. See the sample on the <a href="{{ '/book/' | relative_url }}">Book online page</a>. The times shown in the draft are samples.</dd>
+          <dt>Ways to set it up</dt><dd>
+            <ul>
+              <li>Google Calendar appointment schedules on a paid Google Workspace account, with Google's BAA accepted in the admin settings.</li>
+              <li>A clinic scheduling system (many PT practice systems include one) that signs a BAA. Best if you already use or plan to use one.</li>
+              <li>Keep the call-back form only: patients ask for a time and the front desk calls to confirm. Simplest, but slower for patients.</li>
+            </ul>
+          </dd>
+          <dt>Cost</dt><dd>Low monthly fee</dd>
+          <dt>Privacy</dt><dd>Yes, this touches patient information. A name with an appointment at a clinic counts as protected health information, even with no diagnosis. The tool needs a BAA.</dd>
+          <dt>Effort</dt><dd>Medium</dd>
+        </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reminders">
+  <div class="wrap prose">
+    <h2>Appointment reminders <span class="demo-tag">Demo</span></h2>
+    <div class="panel">
+      <dl class="loc-facts">
+          <dt>What it does</dt><dd>Sends a text (and email, if you like) before each visit, with a way to confirm. Reminders are widely used to cut no-shows. If the front desk reminds patients by hand today, this also gives that time back.</dd>
+          <dt>What patients see</dt><dd>A choice to get text reminders when they book. See the <a href="{{ '/book/' | relative_url }}">Book online page</a>. Then a short text before each visit.</dd>
+          <dt>Ways to set it up</dt><dd>
+            <ul>
+              <li>Use the reminders built into a clinic scheduling system that signs a BAA. Usually the easiest, since it already knows the appointments.</li>
+              <li>A separate HIPAA-ready texting service that signs a BAA and connects to your calendar.</li>
+              <li>Keep reminding by hand.</li>
+            </ul>
+          </dd>
+          <dt>Cost</dt><dd>Low monthly fee (often included with a scheduling system)</dd>
+          <dt>Privacy</dt><dd>Yes. Keep texts short and plain, for example the clinic name, day and time, with no reason for the visit. Patients should agree to texts, and replying STOP must work. The vendor needs a BAA.</dd>
+          <dt>Effort</dt><dd>Small, once booking is set up</dd>
+        </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="intake">
+  <div class="wrap prose">
+    <h2>Online intake forms <span class="demo-tag">Demo</span></h2>
+    <div class="panel">
+      <dl class="loc-facts">
+          <dt>What it does</dt><dd>New patients fill in their history, insurance details and consent forms online before the first visit. The answers arrive ready to read, with no retyping from paper.</dd>
+          <dt>What patients see</dt><dd>Buttons to start the forms online or download the paper version. See the <a href="{{ '/new-patients-center/#forms' | relative_url }}">New Patients Center forms</a>.</dd>
+          <dt>Ways to set it up</dt><dd>
+            <ul>
+              <li>The intake forms built into a clinic scheduling or records system.</li>
+              <li>A HIPAA e-forms service that signs a BAA and lets patients sign online.</li>
+              <li>Keep paper forms as downloadable PDFs for now.</li>
+            </ul>
+          </dd>
+          <dt>Cost</dt><dd>Low monthly fee</dd>
+          <dt>Privacy</dt><dd>Yes, and this one holds the most health detail of anything here. It must be a HIPAA e-forms tool with a BAA. A regular website form or a general survey tool is not enough.</dd>
+          <dt>Effort</dt><dd>Medium (most of the work is copying your current forms)</dd>
+        </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="insurance-check">
+  <div class="wrap prose">
+    <h2>Insurance check requests <span class="demo-tag">Demo</span></h2>
+    <div class="panel">
+      <dl class="loc-facts">
+          <dt>What it does</dt><dd>A patient asks the clinic to check their coverage, and the front desk calls back with the answer. This is a call-back request, not an instant answer.</dd>
+          <dt>What patients see</dt><dd>A search of the plans you accept, plus a short request form. See the <a href="{{ '/insurance/' | relative_url }}">Insurance page</a>. The plan search already works.</dd>
+          <dt>Ways to set it up</dt><dd>
+            <ul>
+              <li>Send the request to the front desk through the same secure form tool used for call-backs.</li>
+              <li>Real-time eligibility checks (the website asks the insurer directly) need a billing system that offers it. This is a bigger project and usually not worth it on the website.</li>
+              <li>Keep the plan list and the "call us" note only.</li>
+            </ul>
+          </dd>
+          <dt>Cost</dt><dd>Free to low monthly fee for a request form. Depends on vendor for real-time checks.</dd>
+          <dt>Privacy</dt><dd>Yes. Insurance details with a name are patient information, so the form tool needs a BAA. Ask for the plan name only and keep member ID numbers off the form.</dd>
+          <dt>Effort</dt><dd>Small for the request form, Large for real-time checks</dd>
+        </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="callback">
+  <div class="wrap prose">
+    <h2>Call-back requests <span class="demo-tag">Demo</span></h2>
+    <div class="panel">
+      <dl class="loc-facts">
+          <dt>What it does</dt><dd>A visitor leaves a name, phone number and best time to call. The front desk gets an alert and calls back during clinic hours.</dd>
+          <dt>What patients see</dt><dd>A short form with a note not to include medical details. See the <a href="{{ '/contact/' | relative_url }}">Contact page</a>.</dd>
+          <dt>Ways to set it up</dt><dd>
+            <ul>
+              <li>A HIPAA-ready form service that signs a BAA and emails the front desk a secure link.</li>
+              <li>The contact form built into a clinic scheduling system, if you choose one.</li>
+              <li>Remove the form and show phone numbers only.</li>
+            </ul>
+          </dd>
+          <dt>Cost</dt><dd>Free to low monthly fee</dd>
+          <dt>Privacy</dt><dd>A name and phone number sent to a clinic can count as patient information, so the safe choice is a tool with a BAA. Keep the form short and ask people not to describe their condition.</dd>
+          <dt>Effort</dt><dd>Small</dd>
+        </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="referrals">
+  <div class="wrap prose">
+    <h2>Online referrals from doctors <span class="demo-tag">Demo</span></h2>
+    <div class="panel">
+      <dl class="loc-facts">
+          <dt>What it does</dt><dd>Doctors' offices send a referral and notes through the website instead of by fax. Since most of your patients come by referral, this can make it easier for offices to choose you.</dd>
+          <dt>What patients see</dt><dd>Patients don't use it. Doctors' offices see a short referral form (contact details only in this draft) plus the fax numbers for each clinic. A file upload could be added once a HIPAA-secure tool with a BAA is chosen. See the <a href="{{ '/physicians/' | relative_url }}">For Physicians page</a>.</dd>
+          <dt>Ways to set it up</dt><dd>
+            <ul>
+              <li>A HIPAA-secure upload form that signs a BAA and stores files encrypted.</li>
+              <li>The referral inbox in a clinic records system, if it offers one.</li>
+              <li>Keep fax, which offices already use. The page then just lists the fax numbers and a printable referral form.</li>
+            </ul>
+          </dd>
+          <dt>Cost</dt><dd>Free (keep fax) or low monthly fee</dd>
+          <dt>Privacy</dt><dd>Yes, referrals hold diagnoses and notes. This must be HIPAA-secure with a BAA. Never use plain email or a regular website form for it.</dd>
+          <dt>Effort</dt><dd>Medium</dd>
+        </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="reviews">
+  <div class="wrap prose">
+    <h2>Review requests <span class="demo-tag">Demo</span></h2>
+    <div class="panel">
+      <dl class="loc-facts">
+          <dt>What it does</dt><dd>After a course of care, patients get a short note thanking them and inviting a Google review. More recent reviews help new patients feel sure about calling.</dd>
+          <dt>What patients see</dt><dd>Reviews from patients and a "Leave a review" button. See the <a href="{{ '/reviews/' | relative_url }}">Reviews page</a>.</dd>
+          <dt>Ways to set it up</dt><dd>
+            <ul>
+              <li>A card or sign at the front desk with a QR code to each clinic's Google review page. Free and simple.</li>
+              <li>Automatic review texts from a scheduling system or review service that signs a BAA.</li>
+              <li>Show selected reviews on the website and update them by hand a few times a year.</li>
+            </ul>
+          </dd>
+          <dt>Cost</dt><dd>Free (front desk card) or low monthly fee (automatic texts)</dd>
+          <dt>Privacy</dt><dd>Sending texts to your patient list uses patient information, so an automatic service needs a BAA. When replying to reviews online, never confirm that someone is a patient or mention their care.</dd>
+          <dt>Effort</dt><dd>Small</dd>
+        </dl>
+    </div>
+    <div class="notice">
+      <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+      <p><strong>Ask every patient the same way.</strong> Don't ask only happy patients, and don't hide or filter out bad reviews. Google's rules and the FTC both forbid this. Never offer anything in return for a review.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="home-exercise">
+  <div class="wrap prose">
+    <h2>Home exercise programs <span class="demo-tag">Demo</span></h2>
+    <div class="panel">
+      <dl class="loc-facts">
+          <dt>What it does</dt><dd>Therapists send each patient their exercises with videos and instructions. Patients can follow them at home on their phone instead of a paper handout.</dd>
+          <dt>What patients see</dt><dd>A link to sign in to their exercise program. See the <a href="{{ '/new-patients-center/#current-patients' | relative_url }}">Current Patients section</a>.</dd>
+          <dt>Ways to set it up</dt><dd>
+            <ul>
+              <li>An exercise app built for PT clinics, with patient logins. The website just links to it.</li>
+              <li>The exercise tool included in some clinic records systems.</li>
+              <li>Keep printed handouts.</li>
+            </ul>
+          </dd>
+          <dt>Cost</dt><dd>Depends on vendor</dd>
+          <dt>Privacy</dt><dd>Yes, programs are tied to a patient and their condition. Choose an app that signs a BAA. The website itself stores nothing.</dd>
+          <dt>Effort</dt><dd>Small for the website (one link). The work is in the clinic adopting the app.</dd>
+        </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="chat">
+  <div class="wrap prose">
+    <h2>Website chat <span class="demo-tag">Demo</span></h2>
+    <div class="panel">
+      <dl class="loc-facts">
+          <dt>What it does</dt><dd>Answers common questions at any hour, such as hours, locations, parking, which plans you accept, and whether a referral is needed. It points people to the phone or booking for anything else.</dd>
+          <dt>What patients see</dt><dd>A small "Questions?" panel with quick answers, linked from the <a href="{{ '/contact/' | relative_url }}">Contact page</a>.</dd>
+          <dt>Ways to set it up</dt><dd>
+            <ul>
+              <li>A simple chat tool that only answers from the facts on this website, with set answers you approve.</li>
+              <li>A clinic FAQ page instead (no chat). Much of this already exists on the condition and resource pages.</li>
+              <li>Skip it. A clear phone number often works just as well.</li>
+            </ul>
+          </dd>
+          <dt>Cost</dt><dd>Free to low monthly fee</dd>
+          <dt>Privacy</dt><dd>It must never ask for or collect health details, and it should say so. If it only answers general questions and stores no names, it does not need a BAA. Most chat tools add tracking scripts, so pick carefully.</dd>
+          <dt>Effort</dt><dd>Small to Medium</dd>
+        </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="payments">
+  <div class="wrap prose">
+    <h2>Online payments <span class="demo-tag">Demo</span></h2>
+    <div class="panel">
+      <dl class="loc-facts">
+          <dt>What it does</dt><dd>Patients pay a copay or a bill online by card, instead of by phone or at the desk.</dd>
+          <dt>What patients see</dt><dd>A "Pay a bill" link that opens a secure payment page. See the <a href="{{ '/new-patients-center/#current-patients' | relative_url }}">Current Patients section</a>.</dd>
+          <dt>Ways to set it up</dt><dd>
+            <ul>
+              <li>The online bill pay built into your billing system, if it has one.</li>
+              <li>A card payment page from a payment processor, linked from the website.</li>
+              <li>Keep taking payments by phone and in person.</li>
+            </ul>
+          </dd>
+          <dt>Cost</dt><dd>Depends on vendor (usually a fee per payment)</dd>
+          <dt>Privacy</dt><dd>Card processors handle the payment itself, but take care with health information. Keep diagnoses and visit details out of payment notes, receipts and item names. The website never sees card numbers.</dd>
+          <dt>Effort</dt><dd>Small to Medium</dd>
+        </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="analytics">
+  <div class="wrap prose">
+    <h2>Visitor statistics <span class="demo-tag">Demo</span></h2>
+    <div class="panel">
+      <dl class="loc-facts">
+          <dt>What it does</dt><dd>Shows how many people visit, which pages they read, and how often they tap to call or book. This tells you whether the website is bringing in patients.</dd>
+          <dt>What patients see</dt><dd>Nothing. It runs quietly and should not slow the site or follow people around the web.</dd>
+          <dt>Ways to set it up</dt><dd>
+            <ul>
+              <li>A privacy-friendly analytics service that uses no cookies and keeps no personal data.</li>
+              <li>The basic visitor counts your web host may already provide.</li>
+              <li>Track only calls and bookings in your scheduling system.</li>
+            </ul>
+          </dd>
+          <dt>Cost</dt><dd>Free to low monthly fee</dd>
+          <dt>Privacy</dt><dd>Use privacy-friendly analytics only. Do not add Meta (Facebook) or Google ad pixels to a healthcare site. HHS has warned healthcare providers that tracking tools can send visitor information to tech companies, and some healthcare providers have faced lawsuits over it. This draft has no tracking scripts at all.</dd>
+          <dt>Effort</dt><dd>Small</dd>
+        </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="google-profile">
+  <div class="wrap prose">
+    <h2>Google Business Profile</h2>
+    <div class="panel">
+      <dl class="loc-facts">
+          <dt>What it does</dt><dd>Controls what people see when they search for you on Google and Google Maps: address, phone, hours, photos and reviews. For a local clinic, this often matters as much as the website.</dd>
+          <dt>What patients see</dt><dd>Your listing in Google search and Maps, which links back to the right clinic page. Compare it with the <a href="{{ '/locations/' | relative_url }}">Locations page</a>.</dd>
+          <dt>Ways to set it up</dt><dd>
+            <ul>
+              <li>Claim and verify a separate profile for each clinic, Tustin and Lake Forest, then add hours, photos and a link to each clinic's page.</li>
+              <li>Use the exact same name, address and phone everywhere: Google, Yelp, insurance directories and this website.</li>
+              <li>Check both profiles a few times a year and answer questions people post there.</li>
+            </ul>
+          </dd>
+          <dt>Cost</dt><dd>Free</dd>
+          <dt>Privacy</dt><dd>No patient information. Just never confirm someone is a patient when replying to reviews.</dd>
+          <dt>Effort</dt><dd>Small</dd>
+        </dl>
+    </div>
+    <div class="notice">
+      <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+      <p><strong>Fix first:</strong> current online listings disagree on the Tustin suite number. This site uses {{ tustin.street }}, {{ tustin.city }}, {{ tustin.state }} {{ tustin.zip }}. Please confirm that is right, then make every listing match it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Also built into this draft (working now)</h2>
+      <p>These need no extra setup or monthly fee.</p>
+      <ul class="check-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Insurance search: patients type their plan and see if it's on your list.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Open and closed badges based on clinic hours.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Tap-to-call buttons on phones.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A page for each clinic and each condition, so people searching for help near them can find you.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Google structured data, which tells Google your addresses, hours and phone numbers in a format it reads directly.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A sitemap that lists every page for search engines.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>The same page addresses as today where possible, so the rankings your current pages have earned are less likely to be lost.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Accessibility basics: readable text, keyboard use, labeled forms and photo descriptions for screen readers.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Fast loading, with no tracking scripts.</span></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h2>Before launch</h2>
+      <p>A checklist for going live on the real address.</p>
+      <ul class="check-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Send real photos and team bios (names, credentials, short intros).</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Confirm the Google review counts and ratings shown for each clinic.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Send the intake and referral forms as PDFs.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Send your Notice of Privacy Practices.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Check every clinic fact: addresses, phones, faxes, hours, insurance plans and services.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Review every section marked Draft copy.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Remove this page before launch (set published: false in its front matter).</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Fill in or remove every Placeholder FAQ answer.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Point the domain at the new site.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Switch draft mode off, which removes the "hide from Google" setting and the Demo notes.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Submit the sitemap in Google Search Console.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Set up redirects for any old page addresses that change.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Test the site on a few phones, iPhone and Android.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>

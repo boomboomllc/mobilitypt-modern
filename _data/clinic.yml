@@ -1,0 +1,134 @@
+# Single source of clinic facts. Every page reads from here; change a fact once.
+# Source: the clinic's current site mobilitypt.net (read 2026-10-29). Confirm with the clinic before launch.
+
+name: Mobility Physical Therapy
+legal_name: Mobility Physical Therapy Inc.
+email: mobility@mobilitypt.info
+founded: 2002
+tagline: Healing today, thriving tomorrow.
+specialties:
+  - Orthopedic rehabilitation
+  - Post-operative recovery
+  - Spine care
+social:
+  facebook: https://www.facebook.com/MobilityPT/
+  instagram: https://www.instagram.com/mobilityphysicaltherapy
+  yelp_tustin: https://www.yelp.com/biz/mobility-physical-therapy-tustin
+  yelp_lake_forest: https://www.yelp.com/biz/mobility-physical-therapy-inc-lake-forest
+logo: https://mobilitypt.net/wp-content/uploads/2019/05/cropped-Mobility_Physical_Therapy-Logo-3.png
+
+hours_text: Monday to Thursday, 8 am to 7 pm. Friday to Sunday, closed. By appointment.
+hours_short: Mon to Thu, 8 am to 7 pm
+hours_closed: Fri to Sun, closed
+
+locations:
+  - key: tustin
+    name: Tustin
+    url: /tustin/
+    opened: 2013
+    street: 3002 Dow Ave, Suite 318
+    city: Tustin
+    state: CA
+    zip: "92780"
+    phone: (714) 389-9306
+    phone_tel: "+17143899306"
+    fax: (714) 389-9375
+    maps: https://www.google.com/maps/search/?api=1&query=3002+Dow+Ave+Suite+318+Tustin+CA+92780
+    photo: https://mobilitypt.net/wp-content/uploads/2019/05/7-1000x500.jpg
+    photo_alt: Mobility Physical Therapy sign over the Tustin clinic entrance
+    gallery:
+      - src: https://mobilitypt.net/wp-content/uploads/2019/05/2-1000x500.jpg
+        alt: Front desk with the Mobility logo on the wall
+      - src: https://mobilitypt.net/wp-content/uploads/2019/05/6-1-1000x500.jpg
+        alt: Row of treatment tables
+      - src: https://mobilitypt.net/wp-content/uploads/2019/05/3-1-1000x500.jpg
+        alt: Exercise area with bikes, a cable machine and a mirror
+      - src: https://mobilitypt.net/wp-content/uploads/2019/05/4-1-1000x500.jpg
+        alt: Cable machine, exercise balls and weights
+  - key: lake-forest
+    name: Lake Forest
+    url: /lake-forest/
+    opened: 2002
+    street: 23161 Lake Center Dr, Suite 230
+    city: Lake Forest
+    state: CA
+    zip: "92630"
+    phone: (949) 540-0301
+    phone_tel: "+19495400301"
+    fax: (949) 540-0334
+    maps: https://www.google.com/maps/search/?api=1&query=23161+Lake+Center+Dr+Suite+230+Lake+Forest+CA+92630
+    photo: https://mobilitypt.net/wp-content/uploads/2025/04/Front-view-1-1000x500.jpg
+    photo_alt: The Lake Center Drive building that houses the Lake Forest clinic
+    gallery:
+      - src: https://mobilitypt.net/wp-content/uploads/2025/04/CLINIC1-1000x500.jpg
+        alt: Treatment tables by the big windows
+      - src: https://mobilitypt.net/wp-content/uploads/2025/04/CLINIC2-1000x500.jpg
+        alt: Exercise area with bikes and equipment
+      - src: https://mobilitypt.net/wp-content/uploads/2025/04/Entry-view-1-1000x500.jpg
+        alt: Front steps and entrance of the building
+
+# Exactly as listed on the current site (Anthem Blue shown as Anthem Blue Cross).
+insurance:
+  - Medicare Part B
+  - Aetna PPO
+  - Anthem Blue Cross
+  - Blue Cross Blue Shield PPO
+  - Blue Shield of California PPO
+  - United Healthcare PPO
+  - TRICARE
+  - Optum
+  - Monarch
+  - Regal Medical Group
+  - MemorialCare Medical Group
+  - HealthCare Partners Medical Group
+  - Prospect Medical
+  - Affiliated Doctors of Orange County
+  - Auto MedPay (all carriers)
+  - Workers' compensation
+insurance_note: Don't see your plan? Call us and we'll check. Cash rates are also available.
+
+# Published on the current site's homepage slider (as images). Confirm they may stay.
+# Left out on purpose: Brian (medication claim) and Lucia ("miracles"): outcome claims a health site shouldn't feature.
+testimonials:
+  - name: Candice
+    text: If you are looking for actual results and people that truly care about your wellbeing, look no further. I have been to several physical therapists before, but Mobility P.T. is the only one that has provided results and pain relief!
+  - name: Tom
+    text: My wife has been to many physical therapists over the last 30 years. No one even comes close to Mobility Physical Therapy in care. They have a five-star recommendation!
+  - name: Susan
+    text: Wonderful people who clearly love what they do. And I'm back to participating in the sports I love with confidence.
+  - name: Gina
+    text: If you need PT please ask your Dr. for a referral to Mobility Physical Therapy. I promise, you will not regret it!
+  - name: Samantha
+    text: Awesome physical therapy spot! All of the staff are very knowledgeable and helpful.
+
+photos:
+  hero: https://mobilitypt.net/wp-content/uploads/2025/04/CLINIC1-1000x500.jpg
+  hero_alt: Treatment tables by the big windows at the Lake Forest clinic
+  group: https://mobilitypt.net/wp-content/uploads/2025/04/CLINIC2-1000x500.jpg
+  group_alt: Exercise area with bikes and equipment at the Lake Forest clinic
+
+services:
+  - slug: back-neck-pain
+    url: /services/back-neck-pain/
+    title: Back and neck pain
+    summary: Spine care for the neck, mid-back and low back. Less pain now, and habits that protect your back for life.
+  - slug: post-surgery-rehab
+    url: /services/post-surgery-rehab/
+    title: Recovery after surgery
+    summary: Safe, structured progressions after surgery to get your movement back and return to daily life with confidence.
+  - slug: joint-pain-sprains-strains
+    url: /services/joint-pain-sprains-strains/
+    title: Joint pain, sprains and strains
+    summary: Individual programs to restore mobility, improve strength and get you back to doing what you love.
+  - slug: car-accident-injuries
+    url: /services/car-accident-injuries/
+    title: Car accident injuries
+    summary: Back and neck injuries after a crash. We work with auto MedPay coverage.
+  - slug: work-injuries
+    url: /services/work-injuries/
+    title: Work injuries
+    summary: Rehab for on-the-job injuries, with workers' compensation accepted.
+  - slug: education-prevention
+    url: /about/#approach
+    title: Education and prevention
+    summary: You leave with your own exercises, stretches and health strategies to prevent the next injury.

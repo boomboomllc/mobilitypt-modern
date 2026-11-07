@@ -1,0 +1,92 @@
+---
+layout: default
+title: Joint pain, sprains and strains
+seo_title: "Joint Pain and Sprain Physical Therapy | Mobility PT"
+description: Physical therapy for knee, shoulder, hip and ankle pain, sprains, strains, arthritis and sports injuries at our Tustin and Lake Forest, CA clinics.
+heading: Joint pain, sprains and strains
+intro: Individual programs to restore mobility, improve strength and get you back to doing what you love.
+breadcrumbs:
+  - name: What we treat
+    url: /services/
+  - name: Joint pain, sprains and strains
+    url: /services/joint-pain-sprains-strains/
+schema_all_locations: true
+faq:
+  - q: Should I use ice or heat?
+    a: It depends on the injury and how you feel. Many people use ice for a fresh injury and heat for stiffness, but ask your therapist or doctor what is right for you.
+  - q: Can physical therapy help with arthritis?
+    a: Physical therapists commonly help people with arthritis move more easily and build strength around sore joints. Your therapist will tell you what to expect after your evaluation.
+  - q: Do I need a doctor's referral for a sprain or joint pain?
+    a: It depends on your insurance. Many HMO and medical-group plans need a referral, and some other plans don't. Call either clinic and we'll check your plan for you.
+  - q: When can I get back to my sport?
+    a: Your therapist works with you on the strength, balance and control your sport needs, and tells you when you're ready for each step. Follow your therapist or doctor's advice before going back.
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap with-aside">
+    <div class="prose">
+      {% if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+      <h2>Common joint and soft-tissue problems</h2>
+      <p>A sore knee, a rolled ankle or a stiff shoulder can get in the way of work, sleep and the things you enjoy. Problems physical therapists commonly treat include:</p>
+      <ul>
+        <li>Ankle sprains and other ligament sprains</li>
+        <li>Muscle strains, such as a pulled hamstring, calf or back muscle</li>
+        <li>Knee pain, including pain around the kneecap</li>
+        <li>Shoulder pain and stiffness, including rotator cuff problems</li>
+        <li>Hip pain</li>
+        <li>Elbow, wrist and hand pain from overuse, such as tennis elbow</li>
+        <li>Joint stiffness and pain from arthritis</li>
+        <li>Sports injuries</li>
+      </ul>
+
+      <h2>What your visits look like</h2>
+      <p>Your first visit is an evaluation. Your therapist asks how the problem started, checks your motion, strength and balance, and explains what they find in plain words. Together you set goals that matter to you.</p>
+      <p>Visits then mix hands-on care with exercises to restore motion and build strength. As you improve, your program moves toward the activities you want to get back to, and you get a home program to keep progress going between visits.</p>
+
+      <h2>How long recovery takes</h2>
+      <p>Every injury and every person is different. Your therapist will give you a plan after your evaluation and update it as you improve.</p>
+
+      <h2>When to call a doctor or 911 instead</h2>
+      <div class="notice">
+        <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+        <p><strong>Get emergency care or call 911</strong> if a joint looks out of place or bent, a bone may be broken, or the limb is cold, pale, or numb.</p>
+      </div>
+      <p>See your doctor soon if you can't put weight on the leg or use the arm, swelling is severe or keeps getting worse, or a joint is red, hot and swollen, especially with a fever. This page is general information, not medical advice. Always follow your therapist or doctor's advice.</p>
+
+      <h2>Insurance notes</h2>
+      <p>We work with Medicare Part B, many PPO plans and several local medical groups. If your plan is an HMO or medical group, you'll likely need a referral from your doctor first. We'll check your coverage before your first visit. <a href="{{ '/insurance/' | relative_url }}">See the plans we work with</a> or <a href="{{ '/resources/do-i-need-a-referral/' | relative_url }}">read whether you need a referral</a>.</p>
+    </div>
+
+    <aside class="aside-card" aria-labelledby="aside-h">
+      <h2 id="aside-h">Start with an evaluation</h2>
+      <p>Book online, or call the clinic closest to you. We'll check your coverage first.</p>
+      <a class="btn btn-primary" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book online</a>
+      {%- for l in c.locations %}
+      <a class="btn btn-secondary" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call {{ l.name }} {{ l.phone }}</a>
+      {%- endfor %}
+      <p class="muted small">{{ c.hours_short }}</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Questions about joint pain and sprains</h2>
+    </div>
+    {% include faq.html %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Other conditions we treat</h2>
+    </div>
+    {% include services-grid.html exclude="joint-pain-sprains-strains" %}
+  </div>
+</section>
+
+{% include cta.html heading="Ready to get back to what you love?" %}

@@ -1,0 +1,105 @@
+---
+layout: default
+title: Car accident injuries
+seo_title: Car Accident Injury Physical Therapy in Tustin and Lake Forest | Mobility PT
+description: Physical therapy after a car accident in Tustin and Lake Forest, CA. Care for whiplash, neck and back injuries. We work with auto MedPay coverage.
+heading: Car accident injuries
+intro: Back and neck injuries after a crash. We work with auto MedPay coverage.
+breadcrumbs:
+  - name: What we treat
+    url: /services/
+  - name: Car accident injuries
+    url: /services/car-accident-injuries/
+schema_all_locations: true
+faq:
+  - q: Should I see a doctor before physical therapy after a crash?
+    a: Yes. Get checked by a doctor first, even if you feel fine. Some injuries take hours or days to show symptoms, and a doctor can rule out anything serious.
+  - q: What is auto MedPay?
+    a: MedPay, or medical payments coverage, is an optional part of some auto insurance policies that can help pay medical bills after a crash. Check your policy or ask your auto insurer whether you have it and how much it covers.
+  - q: What should I have ready when I call?
+    a: Your auto insurance company name, the claim number if you have one, and your doctor's referral or prescription if you were given one. Please don't email medical details.
+  - q: My pain started days after the accident. Is that normal?
+    a: It can happen. Soreness and stiffness sometimes show up a day or more after a crash. Tell your doctor about any new or worsening symptoms.
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap with-aside">
+    <div class="prose">
+      {% if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+      <h2>Common injuries after a crash</h2>
+      <p>Even a low-speed crash can strain the neck and back. Problems physical therapists commonly treat after car accidents include:</p>
+      <ul>
+        <li>Whiplash and neck pain or stiffness</li>
+        <li>Low back and mid-back pain</li>
+        <li>Shoulder pain, including from the seat belt</li>
+        <li>Headaches that start in the neck, once your doctor has checked you</li>
+        <li>Knee, hip or wrist pain from bracing for the impact</li>
+      </ul>
+
+      <h2>What your visits look like</h2>
+      <p>Your first visit is an evaluation. Your therapist asks about the accident and your symptoms, checks how you move, and explains what they find in plain words. Together you set goals for getting back to work, driving and daily life.</p>
+      <p>Visits then mix hands-on care, gentle exercises to restore motion, and strength work as you're ready. You also get a home program to keep progress going between visits. <a href="{{ '/resources/after-a-car-accident/' | relative_url }}">Read our guide on what to do after a car accident</a>.</p>
+
+      <h2>How long recovery takes</h2>
+      <p>Recovery after a crash varies a lot from person to person. Your therapist will give you a plan after your evaluation and update it as you improve.</p>
+
+      <h2>When to call a doctor or 911 instead</h2>
+      <div class="notice">
+        <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+        <p><strong>Call 911 or go to the emergency room</strong> after a crash if you have a severe headache, confusion, fainting, repeated vomiting, trouble speaking, chest pain, trouble breathing, or numbness or weakness in your arms or legs.</p>
+      </div>
+      <p>See a doctor before starting physical therapy, even if you feel fine. Call your doctor if your pain, dizziness or headaches get worse. This page is general information, not medical advice. Always follow your therapist or doctor's advice.</p>
+
+      <h2>Insurance notes</h2>
+      <p>We work with auto MedPay coverage from all carriers. When you call, have your auto insurance company name and claim number ready. We'll check what your policy covers before your first visit. Your health insurance may also cover physical therapy. <a href="{{ '/insurance/' | relative_url }}">See the plans we work with</a>.</p>
+
+      <h3>Have us check your MedPay coverage</h3>
+      <form class="demo-form" data-demo-form data-ok="Thanks. We'll call you during clinic hours about your coverage." novalidate>
+        <div class="field-row">
+          <label>First name<input name="first" autocomplete="given-name" required></label>
+          <label>Last name<input name="last" autocomplete="family-name" required></label>
+        </div>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+        <label>Auto insurance company<input name="carrier" required></label>
+        <label>Claim number, if you have it<input name="claim"></label>
+        <p class="form-note">Please don't include medical details here. We'll go over everything by phone.</p>
+        <button class="btn btn-primary" type="submit">Ask us to check</button>
+        <p class="form-msg" role="status"></p>
+      </form>
+      {% include demo.html title="Coverage check request" does="Patients send their auto insurer and claim number ahead of time, so the front desk can check MedPay coverage before calling back." needs="A secure form service with a HIPAA business associate agreement, sending requests to the front desk." anchor="insurance-check" %}
+      <p class="muted small"><span class="ph-tag">Placeholder</span> The clinic confirms whether it also works with attorney liens or third-party claims.</p>
+    </div>
+
+    <aside class="aside-card" aria-labelledby="aside-h">
+      <h2 id="aside-h">Start with an evaluation</h2>
+      <p>Have your auto insurance claim number handy. We'll check your coverage first.</p>
+      <a class="btn btn-primary" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book online</a>
+      {%- for l in c.locations %}
+      <a class="btn btn-secondary" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call {{ l.name }} {{ l.phone }}</a>
+      {%- endfor %}
+      <p class="muted small">{{ c.hours_short }}</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Questions about car accident injuries</h2>
+    </div>
+    {% include faq.html %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Other conditions we treat</h2>
+    </div>
+    {% include services-grid.html exclude="car-accident-injuries" %}
+  </div>
+</section>
+
+{% include cta.html heading="Hurt in a car accident?" text="Book your evaluation online, or call the clinic closest to you. We'll check your MedPay coverage first." %}

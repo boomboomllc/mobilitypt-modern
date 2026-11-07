@@ -1,0 +1,83 @@
+---
+layout: default
+title: Physical therapy after a car accident
+seo_title: "Physical Therapy After a Car Accident | Mobility PT"
+description: Hurt in a car accident? When to see a doctor, why neck and back soreness can show up days later, how PT may help with whiplash and how auto MedPay may help.
+heading: Physical therapy after a car accident
+intro: Neck and back injuries are common after a crash, even a small one. Here's what to do first and how physical therapy may help.
+breadcrumbs:
+  - name: Patient resources
+    url: /resources/
+  - name: After a car accident
+    url: /resources/after-a-car-accident/
+faq:
+  - q: Should I see a doctor before physical therapy after a car accident?
+    a: Yes. Get checked by a doctor first so serious injuries are ruled out. For an emergency, call 911.
+  - q: Does auto insurance pay for physical therapy?
+    a: Many auto policies include medical payments coverage (MedPay), which may cover physical therapy. Coverage depends on your policy, so bring your claim information and we'll help check.
+  - q: Why do I feel worse a few days after the accident?
+    a: Soreness and stiffness from neck and back injuries like whiplash can show up hours or days later. If new or worsening symptoms appear, contact your doctor.
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap with-aside">
+    <div class="prose">
+      {% if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+      <div class="notice">
+        <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+        <p><strong>In an emergency, call 911.</strong> Go to the emergency room or call 911 for severe pain, numbness or weakness, trouble breathing, confusion, a bad headache, or loss of bladder or bowel control.</p>
+      </div>
+
+      <h2>See a doctor first</h2>
+      <p>After any accident, get checked by a doctor, even if you feel fine. A doctor can look for injuries that need medical care first and tell you when it's safe to start physical therapy.</p>
+
+      <h2>Soreness can show up days later</h2>
+      <p>It's common to feel okay at the scene and then notice neck pain, back pain, stiffness or headaches in the hours or days after. If new symptoms appear or get worse, let your doctor know.</p>
+
+      <h2>How physical therapy may help</h2>
+      <p>Physical therapy is often part of recovery from neck and back injuries such as whiplash and muscle strains. Depending on your injury, your therapist may use:</p>
+      <ul>
+        <li>Gentle exercises to help you move more easily</li>
+        <li>Hands-on treatment</li>
+        <li>Strengthening and posture work to support your neck and back</li>
+        <li>A home program so you can keep improving between visits</li>
+      </ul>
+      <p>Everyone heals differently. Your therapist will build a plan around your injury and your doctor's guidance, and adjust it as you go. Follow your therapist's and doctor's advice about what's safe for you.</p>
+      <p>Learn more about our <a href="{{ '/services/car-accident-injuries/' | relative_url }}">care for car accident injuries</a>.</p>
+
+      <h2>Paying for care: auto MedPay</h2>
+      <p>Many auto insurance policies include medical payments coverage, often called MedPay. It may cover physical therapy after a crash, no matter who was at fault. We accept auto MedPay from all carriers.</p>
+      <p>When you call to book, have your claim information ready:</p>
+      <ul class="check-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Auto insurance company and claim number</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Claims adjuster's name and phone number</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Date of the accident</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your health insurance card, too</span></li>
+      </ul>
+      <p>We can't give legal advice. For questions about your claim or settlement, talk to your insurer or attorney.</p>
+
+      <h2>Common questions</h2>
+      {% include faq.html %}
+
+      <h2>Related pages</h2>
+      <ul class="link-list">
+        <li><a href="{{ '/services/car-accident-injuries/' | relative_url }}">Car accident injury care</a></li>
+        <li><a href="{{ '/services/back-neck-pain/' | relative_url }}">Back and neck pain</a></li>
+        <li><a href="{{ '/insurance/' | relative_url }}">Insurance plans we accept</a></li>
+        <li><a href="{{ '/resources/first-visit-what-to-expect/' | relative_url }}">Your first visit: what to expect</a></li>
+      </ul>
+    </div>
+    <aside class="aside-card" aria-label="Get started">
+      <h2>Hurt in an accident?</h2>
+      <p>After your doctor checks you, call us with your claim information and we'll help you get started.</p>
+      {%- for l in c.locations %}
+      <a class="btn btn-secondary" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call {{ l.name }} {{ l.phone }}</a>
+      {%- endfor %}
+      <a class="btn btn-primary" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book online</a>
+    </aside>
+  </div>
+</section>
+
+{% include cta.html heading="Ready to start feeling better?" text="Book your first visit online, or call the clinic closest to you." %}

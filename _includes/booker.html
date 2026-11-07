@@ -1,0 +1,48 @@
+{%- comment -%}
+Booking widget (demo): book a first visit online, or request a call back. Use once per page.
+Optional param: clinic (tustin | lake-forest) to preselect a clinic.
+{%- endcomment -%}
+{%- assign c = site.data.clinic -%}
+<div class="booker" data-booker>
+  <div class="tabs" role="tablist" aria-label="How to book">
+    <button class="tab is-active" role="tab" id="tab-book" aria-selected="true" aria-controls="book-pane" data-tab="book-pane">Book online</button>
+    <button class="tab" role="tab" id="tab-call" aria-selected="false" aria-controls="call-pane" tabindex="-1" data-tab="call-pane">Request a call back</button>
+  </div>
+
+  <div class="pane" id="book-pane" role="tabpanel" aria-labelledby="tab-book">
+    <form id="book-form" novalidate>
+      <fieldset>
+        <legend><span class="lg-num">1</span>Clinic</legend>
+        <div class="choice-row">
+          {%- for l in c.locations %}
+          <label class="choice"><input type="radio" name="clinic" value="{{ l.name }}"{% if include.clinic == l.key or include.clinic == nil and forloop.first %} checked{% endif %}>{{ l.name }}</label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend><span class="lg-num">2</span>Day</legend>
+        <div class="chip-row" id="day-row"></div>
+      </fieldset>
+      <fieldset>
+        <legend><span class="lg-num">3</span>Time</legend>
+        <div class="chip-grid" id="time-row"><p class="muted small">Pick a day first.</p></div>
+      </fieldset>
+      <fieldset>
+        <legend><span class="lg-num">4</span>Your details</legend>
+        <div class="field-row">
+          <label>First name<input name="first" autocomplete="given-name" required></label>
+          <label>Last name<input name="last" autocomplete="family-name" required></label>
+        </div>
+        <label>Mobile phone<input name="phone" type="tel" autocomplete="tel" required></label>
+        <label class="check"><input type="checkbox" name="sms"> Text me appointment reminders (optional). Message and data rates may apply. Reply STOP to opt out.</label>
+      </fieldset>
+      <p class="form-note">Please don't include medical details here. We'll go over everything by phone.</p>
+      <button class="btn btn-primary btn-lg" type="submit">Book evaluation</button>
+      <p class="form-msg" id="book-msg" role="status"></p>
+    </form>
+  </div>
+
+  <div class="pane" id="call-pane" role="tabpanel" aria-labelledby="tab-call" hidden>
+    {% include callback-form.html clinic=include.clinic %}
+  </div>
+</div>

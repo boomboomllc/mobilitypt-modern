@@ -1,0 +1,78 @@
+---
+layout: default
+title: Your first visit
+seo_title: "Your First PT Visit: What to Expect | Mobility PT"
+description: What happens at your first physical therapy evaluation in Tustin or Lake Forest, plus what to bring, what to wear and how we plan your visits with you.
+heading: "Your first visit: what to expect"
+intro: Your first visit is an evaluation. We listen, we look at how you move, and we make a plan together. Here's what to expect.
+breadcrumbs:
+  - name: Patient resources
+    url: /resources/
+  - name: Your first visit
+    url: /resources/first-visit-what-to-expect/
+faq:
+  - q: What should I wear to physical therapy?
+    a: Wear comfortable clothes you can move in, and supportive shoes. If we're working on a knee or hip, shorts or loose pants help. For a shoulder or neck, a T-shirt or tank top works well.
+  - q: Do I need to fill out forms before my first visit?
+    a: Filling out your new patient forms before you come saves time at check-in. You can find them in the New patient center on this website.
+  - q: Will I exercise at my first visit?
+    a: Usually you'll learn a few starting exercises so you can begin at home right away. Your therapist will keep them at a level that is right for you today.
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap with-aside">
+    <div class="prose">
+      {% if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+      <h2>What happens at your evaluation</h2>
+      <h3>1. We talk about your history</h3>
+      <p>Your therapist asks what happened, what hurts, what makes it better or worse, and what you want to get back to doing. Tell us about past injuries, surgeries and any medicines you take.</p>
+      <h3>2. We test how you move</h3>
+      <p>We check your range of motion, strength, balance and posture, and how the problem area handles everyday movements. Tell us if anything feels like too much. We'll adjust.</p>
+      <h3>3. We make a plan together</h3>
+      <p>Your therapist explains what they found in plain words and sets goals with you. The plan covers how often to come in and what we'll work on.</p>
+      <h3>4. You start your exercises</h3>
+      <p>Most people leave with a few starting exercises to do at home, so your progress begins on day one.</p>
+
+      <h2>How long it takes</h2>
+      <p><span class="ph-tag">Placeholder</span> Clinic to add how long a first evaluation usually lasts and how early to arrive.</p>
+
+      <h2>What to bring</h2>
+      <ul class="check-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A photo ID</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your insurance card, or your claim information for auto MedPay or workers' comp</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your <a href="{{ '/new-patients-center/#forms' | relative_url }}">new patient forms</a>, filled out</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your doctor's referral or prescription, if your plan needs one</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A list of your medicines</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Any imaging reports or surgery notes you have</span></li>
+      </ul>
+
+      <h2>What to wear</h2>
+      <p>Wear comfortable clothes you can move in, and supportive shoes. We may need to see and move the area we're treating, so shorts help for a knee or hip, and a T-shirt or tank top helps for a shoulder or neck.</p>
+
+      <h2>Book your whole plan before you leave</h2>
+      <p>At the end of your evaluation, we schedule all your visits with you. That way your times are saved, and it's easier to keep going and finish strong. Need to change a visit later? Just call the clinic.</p>
+
+      <h2>Common questions</h2>
+      {% include faq.html %}
+
+      <h2>Related pages</h2>
+      <ul class="link-list">
+        <li><a href="{{ '/new-patients-center/' | relative_url }}">New patient center and forms</a></li>
+        <li><a href="{{ '/resources/do-i-need-a-referral/' | relative_url }}">Do I need a referral?</a></li>
+        <li><a href="{{ '/insurance/' | relative_url }}">Insurance plans we accept</a></li>
+        <li><a href="{{ '/locations/' | relative_url }}">Our two locations</a></li>
+      </ul>
+    </div>
+    <aside class="aside-card" aria-label="Before your visit">
+      <h2>Save time at check-in</h2>
+      <p>Fill out your new patient forms before you come.</p>
+      <a class="btn btn-primary" href="{{ '/new-patients-center/#forms' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg>New patient forms</a>
+      <a class="btn btn-secondary" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book your first visit</a>
+      {% include demo.html title="Appointment reminders" does="Patients could get a text the day before each visit, with the clinic address and a reminder to bring forms and their insurance card." needs="A HIPAA-covered texting tool with a signed BAA, connected to the clinic's schedule." anchor="reminders" %}
+    </aside>
+  </div>
+</section>
+
+{% include cta.html heading="Ready for your first visit?" text="Book online in about a minute, or call the clinic closest to you." %}

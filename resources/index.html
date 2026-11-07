@@ -1,0 +1,54 @@
+---
+layout: default
+title: Patient resources
+seo_title: Patient Resources and Physical Therapy Guides | Mobility Physical Therapy
+description: Plain answers to common physical therapy questions, like whether you need a referral, what happens at your first visit, and PT after a car accident.
+heading: Patient resources
+intro: Plain answers to the questions we hear most. For advice about your own care, always talk with your therapist or doctor.
+breadcrumbs:
+  - name: Patient resources
+    url: /resources/
+---
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Guides for patients</h2>
+    </div>
+    <div class="cards cards-3">
+      <a class="card card-link" href="{{ '/resources/do-i-need-a-referral/' | relative_url }}">
+        <h3>Do I need a referral for physical therapy?</h3>
+        <p>What California law allows, and why your insurance plan may still ask for a referral.</p>
+        <span class="card-more">Read the guide <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="card card-link" href="{{ '/resources/first-visit-what-to-expect/' | relative_url }}">
+        <h3>Your first visit: what to expect</h3>
+        <p>What happens at your evaluation, what to bring and what to wear.</p>
+        <span class="card-more">Read the guide <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="card card-link" href="{{ '/resources/after-a-car-accident/' | relative_url }}">
+        <h3>Physical therapy after a car accident</h3>
+        <p>When to get checked, why soreness can show up later and how auto MedPay may help.</p>
+        <span class="card-more">Read the guide <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{%- if site.draft %}
+<section class="section section-alt">
+  <div class="wrap prose">
+    <h2>Ideas for future articles</h2>
+    <p><span class="ph-tag">Placeholder</span> These are ideas only, not written yet. Each one would answer a question patients search for and give the clinic a helpful page to share.</p>
+    <ul>
+      <li>Simple home exercise tips between visits</li>
+      <li>Desk posture and setting up a home office</li>
+      <li>Returning to sport after an injury</li>
+    </ul>
+    {% include demo.html title="Home exercise programs" does="Therapists could send each patient their own exercise program with short videos, viewable on a phone, instead of paper handouts." needs="A home exercise program tool (many PT software suites include one), with a BAA if it stores patient details." anchor="home-exercise" %}
+  </div>
+</section>
+{%- endif %}
+
+{% include cta.html heading="Have a question we didn't answer?" text="Call the clinic closest to you. We're happy to help, even if you're not a patient yet." %}

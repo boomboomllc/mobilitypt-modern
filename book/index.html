@@ -1,0 +1,73 @@
+---
+layout: default
+title: Book online
+seo_title: Book Physical Therapy in Tustin or Lake Forest, CA
+description: Book your first physical therapy visit online at our Tustin or Lake Forest clinic. Pick a day and time, and we'll call to confirm your insurance and referral.
+heading: Book your first visit
+intro: Pick a clinic, a day and a time. We'll take care of the rest by phone.
+breadcrumbs:
+  - name: Book online
+    url: /book/
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap split split-top">
+    <div>
+      <h2>What happens after you book</h2>
+      <div class="split-points">
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <div>
+            <h3>We call to confirm</h3>
+            <p>We check your insurance and whether your plan needs a doctor's referral or authorization. If it does, we'll tell you what to do next.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+          <div>
+            <h3>Your evaluation</h3>
+            <p>Your therapist listens, looks at how you move and talks through a plan with you. Bring a photo ID, your insurance card and your <a href="{{ '/new-patients-center/#forms' | relative_url }}">new patient forms</a>.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+          <div>
+            <h3>We book your full plan together</h3>
+            <p>Before you leave, we schedule the rest of your visits with you, so your times are saved.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Rather call?</h3>
+      <ul class="check-list">
+        {%- for l in c.locations %}
+        <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>{{ l.name }}: <a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a></span></li>
+        {%- endfor %}
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span>{{ c.hours_text }}</span></li>
+      </ul>
+
+      {% include demo.html title="Online booking" does="Patients pick a real open time for their first evaluation, day or night, and the front desk sees it right away. Times shown here are samples." needs="A HIPAA-covered scheduler or calendar that signs a BAA, set up with the clinic's real evaluation slots." anchor="booking" %}
+      {% include demo.html title="Text reminders" does="Patients get a text before each visit and can reply to confirm, which can help cut down on missed visits." needs="A HIPAA-covered texting or reminder service with a BAA, plus each patient's OK to receive texts." anchor="reminders" %}
+    </div>
+    <div>
+      {% include booker.html %}
+      <p class="form-note">This form is for scheduling only. In a medical emergency, call 911.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Prefer to talk to someone?</h2>
+      <p class="lead">Call the clinic closest to you. We're happy to answer questions before you book.</p>
+    </div>
+    <div class="locations">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>

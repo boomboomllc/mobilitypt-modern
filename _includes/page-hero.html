@@ -1,0 +1,30 @@
+{%- comment -%}
+Top of every inner page. Uses front matter: heading (h1, falls back to title), intro, breadcrumbs [{name, url}].
+Optional include params: photo, photo_alt (shows a photo beside the text).
+{%- endcomment -%}
+<section class="page-hero">
+  <div class="wrap{% if include.photo %} page-hero-grid{% endif %}">
+    <div>
+      {%- if page.breadcrumbs %}
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        {%- for b in page.breadcrumbs %}
+        <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg>
+        {%- if b.url and forloop.last == false %}<a href="{{ b.url | relative_url }}">{{ b.name }}</a>{% else %}<span aria-current="page">{{ b.name }}</span>{% endif %}
+        {%- endfor %}
+      </nav>
+      {%- endif %}
+      <h1>{{ page.heading | default: page.title }}</h1>
+      {%- if page.intro %}<p class="lead">{{ page.intro }}</p>{% endif %}
+      {%- if include.actions %}
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book your first visit</a>
+        <a class="btn btn-secondary btn-lg" href="{{ '/locations/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call a clinic</a>
+      </div>
+      {%- endif %}
+    </div>
+    {%- if include.photo %}
+    <figure class="page-hero-photo"><img src="{{ include.photo }}" alt="{{ include.photo_alt }}"></figure>
+    {%- endif %}
+  </div>
+</section>

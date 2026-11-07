@@ -1,0 +1,126 @@
+---
+layout: default
+title: Insurance
+seo_title: Insurance We Accept | Mobility Physical Therapy
+description: See the insurance plans Mobility Physical Therapy works with, including Medicare Part B, PPOs, local medical groups, auto MedPay and workers' comp.
+heading: Insurance we work with
+intro: We work with Medicare Part B, many PPO plans and local medical groups. Search for your plan below, and we'll confirm your coverage before your first visit.
+breadcrumbs:
+  - name: Insurance
+    url: /insurance/
+faq:
+  - q: Do you take my insurance?
+    a: "<p>Search for your plan on this page. If you don't see it, call either clinic and we'll check for you. Cash rates are also available.</p>"
+  - q: Do I need a referral with an HMO or medical group plan?
+    a: "<p>Usually, yes. HMO and medical group plans often need a referral and an authorization from your doctor before physical therapy starts. Ask your doctor's office to send the referral to the clinic you're visiting. We'll let you know if anything else is needed.</p>"
+  - q: What will I pay for each visit?
+    a: "<p>It depends on your plan. Copays, coinsurance and deductibles are set by your insurance. We'll check your benefits and go over them with you before your first visit.</p>"
+  - q: Can I come in without insurance?
+    a: "<p>Yes. Cash rates are available. Call either clinic to ask about them.</p>"
+  - q: I was hurt in a car accident. Who pays?
+    a: "<p>Many auto policies include medical payments coverage, often called MedPay, which can help pay for physical therapy. We work with auto MedPay from all carriers. Bring your claim number and your adjuster's contact details to your first visit.</p>"
+  - q: Do you treat work injuries?
+    a: "<p>Yes, we accept workers' compensation. Bring your claim number, your claims adjuster's name and phone number, and your employer's details to your first visit.</p>"
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section" id="plans">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Plans we work with</h2>
+      <p class="lead">Start typing your plan's name to check the list.</p>
+    </div>
+    {% include insurance-list.html search=true %}
+  </div>
+</section>
+
+<section class="section section-alt" id="check-benefits">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Check my benefits</h2>
+      <p class="lead">Not sure what your plan covers? Leave your name and number, and we'll call you with your benefits.</p>
+      <ul class="trust">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>No member ID needed here. We'll ask for it by phone.</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>We'll tell you if your plan needs a referral or authorization.</li>
+      </ul>
+      {% include demo.html title="Online benefits check" does="Patients ask for a benefits check from the website, and staff call back with their coverage, copay and referral needs. Later, an eligibility tool could check some plans automatically." needs="A secure form tool with a signed HIPAA business associate agreement (BAA), since a name with an insurance plan is patient information. An automatic eligibility check would need a HIPAA-covered eligibility service, usually through the clinic's billing software." anchor="insurance-check" %}
+    </div>
+    <div class="panel">
+      <form class="demo-form" data-demo-form data-ok="Thanks. We'll call you with your benefits during clinic hours." novalidate>
+        <label>Full name<input name="name" autocomplete="name" required></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+        <label>Insurance company
+          <select name="insurance" required>
+            <option value="">Choose your plan</option>
+            {%- for i in c.insurance %}
+            <option>{{ i }}</option>
+            {%- endfor %}
+            <option>Other</option>
+          </select>
+        </label>
+        <p class="form-note">Please don't include your member ID or any medical details here.</p>
+        <button class="btn btn-primary btn-lg" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Check my benefits</button>
+        <p class="form-msg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="billing">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How billing works</h2>
+      <p class="lead">Every plan is a little different. Here's the general picture. We'll confirm the details for your plan.</p>
+      {%- if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+        <h3>HMO and medical group plans</h3>
+        <p>These plans often need a referral and an authorization from your doctor before physical therapy starts. Ask your doctor's office to send the referral to the clinic you're visiting.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+        <h3>PPO plans</h3>
+        <p>PPO plans usually don't need a referral. Your copay, coinsurance or deductible still applies. We'll check your benefits before your first visit.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+        <h3>Medicare Part B</h3>
+        <p>You usually don't need a referral to start, but your doctor will need to sign off on your plan of care. Your Part B deductible and coinsurance apply.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg></span>
+        <h3>Auto MedPay after a car accident</h3>
+        <p>We work with auto MedPay from all carriers. Bring your claim number and adjuster's contact details. <a href="{{ '/resources/after-a-car-accident/' | relative_url }}">What to do after a car accident</a></p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+        <h3>Workers' compensation</h3>
+        <p>Hurt on the job? Bring your claim number, your adjuster's name and phone, and your employer's details. <a href="{{ '/services/work-injuries/' | relative_url }}">How we treat work injuries</a></p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-dollar"/></svg></span>
+        <h3>Cash rates</h3>
+        <p>No insurance, or prefer to pay yourself? Cash rates are available. <span class="ph-tag">Placeholder</span> Cash price per visit: $[amount].</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Insurance questions</h2>
+    </div>
+    {% include faq.html %}
+    <ul class="link-list">
+      <li><a href="{{ '/resources/do-i-need-a-referral/' | relative_url }}">Do I need a referral for physical therapy?</a></li>
+      <li><a href="{{ '/new-patients-center/' | relative_url }}">Getting ready for your first visit</a></li>
+      <li><a href="{{ '/locations/' | relative_url }}">Call a clinic</a></li>
+    </ul>
+  </div>
+</section>
+
+{% include cta.html heading="Questions about your coverage?" text="Book online and we'll check your insurance before your first visit, or call the clinic closest to you." %}

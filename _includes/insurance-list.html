@@ -1,0 +1,15 @@
+{%- comment -%}Insurance list. Param: search=true adds the live filter box (works client-side).{%- endcomment -%}
+{%- assign c = site.data.clinic -%}
+{%- if include.search %}
+<div class="ins-search">
+  <label for="ins-q"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><span class="sr-only">Search your insurance plan</span></label>
+  <input id="ins-q" type="search" placeholder="Type your insurance plan, like Aetna or Medicare" autocomplete="off" data-ins-search>
+</div>
+<p class="ins-result muted" data-ins-result role="status"></p>
+{%- endif %}
+<ul class="ins-list" data-ins-list>
+  {%- for i in c.insurance %}
+  <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>{{ i }}</li>
+  {%- endfor %}
+</ul>
+<p class="ins-note">{{ c.insurance_note }}</p>

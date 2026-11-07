@@ -1,0 +1,13 @@
+---
+layout: null
+permalink: /robots.txt
+---
+{% if site.draft -%}
+User-agent: *
+Disallow: /
+{%- else -%}
+User-agent: *
+Allow: /
+
+Sitemap: {{ site.production_url }}/sitemap.xml
+{%- endif %}

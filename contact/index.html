@@ -1,0 +1,100 @@
+---
+layout: default
+title: Contact us
+seo_title: Contact Mobility Physical Therapy | Tustin and Lake Forest, CA
+description: "Call, email or visit Mobility Physical Therapy in Tustin or Lake Forest. Addresses, phone and fax numbers, hours, and a quick way to ask for a call back."
+heading: Contact us
+intro: "Call the clinic closest to you, ask us to call you back, or send us an email. We're glad to help."
+breadcrumbs:
+  - name: Contact us
+    url: /contact/
+schema_all_locations: true
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Our clinics</h2>
+      <p class="lead">Two locations in Orange County. Call either one.</p>
+    </div>
+    <div class="locations">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="callback">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Ask us to call you back</h2>
+      <p class="lead">Leave your name and number and we'll call you during clinic hours.</p>
+      <p>Good for questions about insurance, referrals, scheduling or what to expect.</p>
+      {% include demo.html title="Call-back requests" does="Requests land in the clinic's inbox or front desk screen, so nobody has to wait on hold. Only a name, phone and preferred clinic are collected." needs="A secure form service that signs a HIPAA business associate agreement (BAA), and a front desk routine to call back the same day the clinic is open." anchor="callback" %}
+    </div>
+    <div class="panel">
+      {% include callback-form.html %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Email us</h2>
+      <p class="lead"><a href="mailto:{{ c.email }}">{{ c.email }}</a></p>
+      <p>Email is best for general questions. For anything about an appointment, calling the clinic is fastest.</p>
+      <div class="notice" role="note">
+        <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
+        <p><strong>Please don't email medical information.</strong> Regular email isn't a secure way to share health details. We'll go over everything with you by phone or in person.</p>
+      </div>
+      <p class="muted small">If you have a medical emergency, call 911.</p>
+    </div>
+    <div>
+      <h2>Hours</h2>
+      <table class="hours-table">
+        <caption class="sr-only">Hours for both clinics</caption>
+        <tbody>
+          {%- assign hparts = c.hours_text | split: ". " %}
+          {%- for h in hparts %}
+          {%- if h contains ", " %}
+          {%- assign cells = h | split: ", " %}
+          <tr><th scope="row">{{ cells[0] }}</th><td>{{ cells[1] | remove: "." | capitalize }}</td></tr>
+          {%- endif %}
+          {%- endfor %}
+        </tbody>
+      </table>
+      <p class="muted">Both clinics keep the same hours. Visits are by appointment.</p>
+      <p>Follow us: <a href="{{ c.social.facebook }}" target="_blank" rel="noopener">Facebook</a> &middot; <a href="{{ c.social.instagram }}" target="_blank" rel="noopener">Instagram</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="chat">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Questions? Ask us</h2>
+      <p class="lead">Quick answers to common questions, any time of day.</p>
+      {% include demo.html title="Questions assistant" does="A small chat box that answers general questions using only what's on this website: hours, locations, insurance, referrals and forms. It never asks for health details and hands anything else to the front desk." needs="A chat tool limited to the site's own pages, with a clear notice not to share medical information, reviewed by the clinic before it goes live." anchor="chat" %}
+    </div>
+    <div class="panel" aria-label="Example chat (demo)" role="group">
+      <div class="chat">
+        <p class="chat-msg chat-user"><strong>You:</strong> Are you open on Fridays?</p>
+        <p class="chat-msg chat-bot"><strong>Assistant:</strong> Both clinics are open {{ c.hours_short }}, and closed Friday to Sunday. You can still <a href="{{ '/book/' | relative_url }}">book online</a> any time.</p>
+        <p class="chat-msg chat-user"><strong>You:</strong> Do you take Medicare?</p>
+        <p class="chat-msg chat-bot"><strong>Assistant:</strong> Yes, we accept {{ c.insurance[0] }}. <a href="{{ '/insurance/' | relative_url }}">See every plan we accept</a>, or call and we'll check yours.</p>
+      </div>
+      <form class="demo-form" data-demo-form data-ok="Thanks for your question." novalidate>
+        <label>Your question<input name="question" required placeholder="Ask about hours, insurance or locations"></label>
+        <p class="form-note">General questions only. Please don't share medical details.</p>
+        <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>Ask</button>
+        <p class="form-msg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% include cta.html %}

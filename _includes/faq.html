@@ -1,0 +1,9 @@
+{%- comment -%}FAQ accordion from page.faq [{q, a}] (a may contain HTML). Also emitted as FAQ structured data by schema.html.{%- endcomment -%}
+<div class="faq">
+  {%- for f in page.faq %}
+  <details>
+    <summary>{{ f.q }}</summary>
+    <div class="faq-a">{{ f.a }}</div>
+  </details>
+  {%- endfor %}
+</div>

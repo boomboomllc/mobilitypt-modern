@@ -1,0 +1,13 @@
+{%- comment -%}Cards for every service in _data/clinic.yml. Optional: exclude (slug to skip).{%- endcomment -%}
+{%- assign c = site.data.clinic -%}
+<div class="cards cards-3">
+  {%- for s in c.services %}
+  {%- unless s.slug == include.exclude %}
+  <a class="card card-link" href="{{ s.url | relative_url }}">
+    <h3>{{ s.title }}</h3>
+    <p>{{ s.summary }}</p>
+    <span class="card-more">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+  </a>
+  {%- endunless %}
+  {%- endfor %}
+</div>

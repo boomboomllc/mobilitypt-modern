@@ -1,0 +1,188 @@
+---
+layout: default
+title: New patients
+seo_title: New Patients and Forms | Mobility Physical Therapy
+description: New to Mobility Physical Therapy? See what to bring and wear, fill out your new patient forms, and find help with rescheduling and home exercises.
+heading: New patient center
+intro: Everything you need for your first visit, in one place. If anything is unclear, call the clinic and we'll walk you through it.
+breadcrumbs:
+  - name: New patients
+    url: /new-patients-center/
+faq:
+  - q: Do I need a doctor's referral?
+    a: "<p>It depends on your insurance. California law lets you start physical therapy without a doctor's referral, within limits. But many insurance plans have their own rules. HMO and medical group plans usually need a referral and an authorization from your doctor before your first visit. When you book, we check what your plan needs and let you know.</p>"
+  - q: How many visits will I need?
+    a: "<p>It's different for everyone. It depends on your injury or surgery, your goals and your insurance. After your evaluation, your therapist recommends a plan of care and talks it through with you. Your plan may change as you progress.</p>"
+  - q: Can I choose one-on-one or small-group sessions?
+    a: "<p>We offer both. Some patients do best with focused one-on-one time, and some enjoy the encouragement of a small group. Tell us what you prefer, and your therapist will help you decide what fits your care.</p>"
+  - q: What if I'm running late?
+    a: "<p>Please call the clinic you're visiting as soon as you can. We'll let you know your options for that day.</p>"
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html actions=true %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Your first visit, step by step</h2>
+      <p class="lead">From booking to your full plan of care.</p>
+    </div>
+    {% include steps.html %}
+    <p><a class="text-link" href="{{ '/resources/first-visit-what-to-expect/' | relative_url }}">Read more about what to expect at your first visit <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+  </div>
+</section>
+
+<section class="section section-alt" id="prepare">
+  <div class="wrap split split-top">
+    <div>
+      <h2>What to bring</h2>
+      <ul class="check-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A photo ID</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your insurance card</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your completed <a href="#forms">new patient forms</a></span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your calendar, so we can schedule your visits together</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A list of the medications you take{% if site.draft %} <span class="ph-tag">Draft copy</span>{% endif %}</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your doctor's prescription or referral for physical therapy, if you have one{% if site.draft %} <span class="ph-tag">Draft copy</span>{% endif %}</span></li>
+      </ul>
+      <div class="notice">
+        <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+        <p><strong>How long it takes:</strong> <span class="ph-tag">Placeholder</span> Your first visit takes about [number] minutes. Please arrive [number] minutes early to check in.</p>
+      </div>
+    </div>
+    <div>
+      <h2>What to wear</h2>
+      {%- if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+      <p>Wear comfortable clothes you can move in. Your therapist will want to see how the sore area moves.</p>
+      <ul class="check-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>For a knee, hip or ankle: shorts or loose pants that roll up easily</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>For a shoulder, neck or back: a T-shirt or loose top</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Supportive shoes, like sneakers</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="forms">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>New patient forms</h2>
+      <p class="lead">Fill out your forms before your visit and spend less time at check-in.</p>
+    </div>
+    <div class="split split-top">
+      <div class="panel">
+        <h3>Online forms</h3>
+        <p class="muted">Takes a few minutes. You can stop and come back later.</p>
+        <label class="small" for="intake-progress">Step 1 of 4</label>
+        <progress id="intake-progress" value="1" max="4">Step 1 of 4</progress>
+        <ol class="check-list">
+          <li><span class="lg-num">1</span><span><strong>Personal info</strong><br><span class="muted">Name, date of birth and contact details</span></span></li>
+          <li><span class="lg-num">2</span><span><strong>Insurance</strong><br><span class="muted">Your plan and a photo of your card</span></span></li>
+          <li><span class="lg-num">3</span><span><strong>Health history</strong><br><span class="muted">Your injury, past surgeries and medications</span></span></li>
+          <li><span class="lg-num">4</span><span><strong>Consent and signature</strong><br><span class="muted">Review and sign the clinic's forms</span></span></li>
+        </ol>
+        <form class="demo-form" data-demo-form data-ok="Your secure forms would open here." novalidate>
+          <button class="btn btn-primary btn-lg" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg>Start online forms</button>
+          <p class="form-msg" role="status"></p>
+        </form>
+      </div>
+      <div>
+        {% include demo.html title="Online intake forms" does="New patients fill out and sign their paperwork on their phone before the first visit. Answers go straight to the clinic, so the front desk doesn't retype them." needs="A HIPAA-compliant e-forms or intake tool that signs a Business Associate Agreement (BAA). Health history must never go through a plain web form or email." anchor="intake" %}
+        <h3>Prefer paper?</h3>
+        <p>Print the forms, fill them out at home and bring them to your first visit.</p>
+        <p><button class="btn btn-secondary" type="button" disabled><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>Download printable forms (PDF)</button></p>
+        {%- if site.draft %}
+        <p class="muted small"><span class="ph-tag">Placeholder</span> The clinic's current new patient forms (PDF) go here.</p>
+        {%- endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="attendance">
+  <div class="wrap prose">
+    <h2>Why your full plan matters</h2>
+    {%- if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+    <p>Most of the progress in physical therapy comes from steady work over time. Each visit builds on the last one, and coming regularly helps you get the most out of your plan.</p>
+    <p>That's why we book your whole plan with you at your first visit. Your times are saved, and you can keep your momentum going. If something comes up, call us and we'll help you find a new time.</p>
+    <div class="notice">
+      <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+      <p><span class="ph-tag">Placeholder</span> The clinic's cancellation and missed-visit policy goes here, for example how much notice to give when you need to cancel.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="current-patients">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>For current patients</h2>
+      <p class="lead">Quick help between visits.</p>
+    </div>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>Request to reschedule</h3>
+        <p>Leave your details and we'll call you to find a new time.</p>
+        <form class="demo-form" data-demo-form data-ok="Thanks. We'll call you during clinic hours to find a new time." novalidate>
+          <label>Full name<input name="name" autocomplete="name" required></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+          <label>Clinic
+            <select name="clinic">
+              {%- for l in c.locations %}
+              <option>{{ l.name }}</option>
+              {%- endfor %}
+            </select>
+          </label>
+          <fieldset>
+            <legend>Days that work for you</legend>
+            <label class="check"><input type="checkbox" name="days" value="Monday"> Monday</label>
+            <label class="check"><input type="checkbox" name="days" value="Tuesday"> Tuesday</label>
+            <label class="check"><input type="checkbox" name="days" value="Wednesday"> Wednesday</label>
+            <label class="check"><input type="checkbox" name="days" value="Thursday"> Thursday</label>
+          </fieldset>
+          <p class="form-note">Please don't include medical details here. Need to cancel today? Please call your clinic.</p>
+          <button class="btn btn-primary" type="submit">Send request</button>
+          <p class="form-msg" role="status"></p>
+        </form>
+        {% include demo.html title="Reschedule requests" does="Requests land in one shared inbox or task list for the front desk, so nothing gets lost between phone calls." needs="A secure form tool with a signed BAA that sends to the front desk. Even a name and phone from a current patient count as patient information." anchor="callback" %}
+      </div>
+      <div class="card">
+        <h3>Your home exercise program</h3>
+        <p>See the exercises your therapist gave you, with pictures and videos.</p>
+        <form class="demo-form" data-demo-form data-ok="Your exercise program would open here." novalidate>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          <label>Access code from your therapist<input name="code" autocomplete="off" required></label>
+          <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg>Open my exercises</button>
+          <p class="form-msg" role="status"></p>
+        </form>
+        {% include demo.html title="Home exercise program" does="Patients log in to see their own exercises with videos, and therapists update them after each visit." needs="A home exercise program service the clinic signs up for, with a BAA. This box would link to its patient login." anchor="home-exercise" %}
+      </div>
+      <div class="card">
+        <h3>Pay a bill</h3>
+        <p>Pay your balance online with the number on your statement.</p>
+        <form class="demo-form" data-demo-form data-ok="Your bill and secure payment page would open here." novalidate>
+          <label>Statement number<input name="statement" autocomplete="off" required></label>
+          <label>Last name<input name="last" autocomplete="family-name" required></label>
+          <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-dollar"/></svg>Find my bill</button>
+          <p class="form-msg" role="status"></p>
+        </form>
+        <p class="form-note">Questions about a bill? Call the clinic that treated you.</p>
+        {% include demo.html title="Online bill pay" does="Patients pay a statement online any time, which can cut down on billing calls and mailed checks." needs="The clinic's billing or payment provider's secure payment page. Card details are only ever entered on the provider's page, never on this site." anchor="payments" %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>New patient questions</h2>
+    </div>
+    {% include faq.html %}
+    <ul class="link-list">
+      <li><a href="{{ '/resources/do-i-need-a-referral/' | relative_url }}">More on whether you need a referral</a></li>
+      <li><a href="{{ '/insurance/' | relative_url }}">Insurance plans we work with</a></li>
+      <li><a href="{{ '/services/' | relative_url }}">Conditions we treat</a></li>
+    </ul>
+  </div>
+</section>
+
+{% include cta.html heading="Ready for your first visit?" %}

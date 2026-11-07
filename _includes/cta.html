@@ -1,0 +1,16 @@
+{%- comment -%}Closing call-to-action band. Optional params: heading, text.{%- endcomment -%}
+{%- assign c = site.data.clinic -%}
+<section class="cta-band">
+  <div class="wrap cta-inner">
+    <div>
+      <h2>{{ include.heading | default: "Ready to feel better?" }}</h2>
+      <p>{{ include.text | default: "Book your first visit online in about a minute, or call the clinic closest to you." }}</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn btn-light btn-lg" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book online</a>
+      {%- for l in c.locations %}
+      <a class="btn btn-ghost" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>{{ l.name }} {{ l.phone }}</a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

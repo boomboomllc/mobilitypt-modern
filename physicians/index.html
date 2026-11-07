@@ -1,0 +1,163 @@
+---
+layout: default
+title: For physicians
+seo_title: "Refer a Patient to Physical Therapy | Mobility PT"
+description: "Referring a patient for physical therapy in Tustin or Lake Forest? Fax numbers for both clinics, what we treat and what happens after you send a referral."
+heading: Referring a patient?
+intro: "Thank you for trusting us with your patients. Fax a referral to either clinic and we'll contact your patient to schedule."
+breadcrumbs:
+  - name: For physicians
+    url: /physicians/
+schema_all_locations: true
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Send a referral by fax</h2>
+      <p class="lead">Send it to the clinic closest to your patient. Either clinic can help them choose.</p>
+    </div>
+    <div class="locations">
+      {%- for l in c.locations %}
+      <div class="panel">
+        <h3><a href="{{ l.url | relative_url }}">{{ l.name }} clinic</a></h3>
+        <dl class="loc-facts">
+          <dt>Fax</dt><dd>{{ l.fax }}</dd>
+          <dt>Phone</dt><dd><a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a></dd>
+          <dt>Address</dt><dd>{{ l.street }}<br>{{ l.city }}, {{ l.state }} {{ l.zip }}</dd>
+          <dt>Hours</dt><dd>{{ c.hours_short }}</dd>
+        </dl>
+      </div>
+      {%- endfor %}
+    </div>
+    <div class="forms-bar">
+      <svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>
+      <p><strong>Referral form (PDF).</strong> A one-page form your office can print and fax. {% if site.draft %}<span class="ph-tag">Placeholder</span> The clinic supplies the form, or we make one with them.{% endif %}</p>
+      <button class="btn btn-secondary" type="button" disabled>Download referral form (PDF)</button>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What we treat</h2>
+      <p class="lead">Our focus is orthopedic, post-operative and spine care.</p>
+    </div>
+    <div class="split split-top">
+      <div>
+        <h3>Specialties</h3>
+        <ul class="check-list">
+          {%- for s in c.specialties %}
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>{{ s }}</li>
+          {%- endfor %}
+        </ul>
+        <h3>Coverage</h3>
+        <p>We work with Medicare Part B, many PPOs, local medical groups, auto MedPay and workers' compensation. <a href="{{ '/insurance/' | relative_url }}">See the full insurance list</a>.</p>
+      </div>
+      <div>
+        <h3>Conditions and programs</h3>
+        <ul class="link-list">
+          {%- for s in c.services %}
+          <li><a href="{{ s.url | relative_url }}">{{ s.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What happens after you refer</h2>
+    </div>
+    <ol class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <h3>You send the referral</h3>
+        <p>Fax it to the {{ c.locations[0].name }} or {{ c.locations[1].name }} clinic.</p>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <h3>We contact your patient</h3>
+        <p>We reach out to schedule their evaluation and check their coverage.</p>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <h3>Evaluation and plan</h3>
+        <p>The therapist evaluates your patient and builds a plan around their goals.</p>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <h3>We keep you informed</h3>
+        <p>Progress reports to the referring provider. {% if site.draft %}<span class="ph-tag">Placeholder</span> Clinic to confirm how and when these are sent.{% endif %}</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section-alt" id="referral-form">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Refer online</h2>
+      <p class="lead">Prefer not to fax? Send us the basics and we'll take it from there.</p>
+      <p>This form asks only for contact details. Please send orders, diagnoses and other clinical notes by fax.</p>
+      {% include demo.html title="Online referral form" does="Doctor's offices send a referral from any browser. The clinic gets it in a secure inbox and calls the patient. This version asks only for contact details." needs="A HIPAA-secure form tool with a signed BAA, since a real referral carries patient health information. Until then, fax stays the way to send clinical details." anchor="referrals" %}
+    </div>
+    <div class="panel">
+      <form class="demo-form" data-demo-form data-ok="Thanks. We'll contact the patient to schedule." novalidate>
+        <fieldset>
+          <legend>Your office</legend>
+          <div class="cards">
+            <label>Provider name<input name="provider" autocomplete="name" required></label>
+            <label>Practice or medical group<input name="practice" autocomplete="organization" required></label>
+            <div class="field-row">
+              <label>Office phone<input name="office_phone" type="tel" autocomplete="tel" required></label>
+              <label>Office fax<input name="office_fax" type="tel"></label>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Patient</legend>
+          <div class="field-row">
+            <label>Patient first name<input name="patient_first" required></label>
+            <label>Patient phone<input name="patient_phone" type="tel" required></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Preferred clinic</legend>
+          <div class="choice-row">
+            {%- for l in c.locations %}
+            <label class="choice"><input type="radio" name="clinic" value="{{ l.name }}"{% if forloop.first %} checked{% endif %}>{{ l.name }}</label>
+            {%- endfor %}
+            <label class="choice"><input type="radio" name="clinic" value="Either">Either</label>
+          </div>
+        </fieldset>
+        <p class="form-note">Please don't include diagnoses, orders or other medical details here. Fax those to the clinic.</p>
+        <button class="btn btn-primary btn-lg" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>Send referral</button>
+        <p class="form-msg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Questions from your office</h2>
+      <p class="lead">Call the clinic directly. We're happy to help with scheduling, coverage or anything else.</p>
+    </div>
+    <div class="cta-actions">
+      {%- for l in c.locations %}
+      <a class="btn btn-secondary btn-lg" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call {{ l.name }} {{ l.phone }}</a>
+      {%- endfor %}
+      <a class="btn btn-secondary btn-lg" href="mailto:{{ c.email }}"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email {{ c.email }}</a>
+    </div>
+    <p class="muted small">Please don't email patient health information. Use fax for anything clinical.</p>
+  </div>
+</section>
+
+{% include cta.html heading="Your patient can book online too" text="Patients can pick a time for their first visit online, or call either clinic." %}

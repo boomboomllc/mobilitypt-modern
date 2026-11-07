@@ -1,0 +1,20 @@
+{%- comment -%}One clinic card. Param: key (tustin | lake-forest). Optional: link=false to hide the "Clinic details" link.{%- endcomment -%}
+{%- assign c = site.data.clinic -%}
+{%- assign l = c.locations | where: "key", include.key | first -%}
+<article class="loc">
+  <img class="loc-img" src="{{ l.photo }}" alt="{{ l.photo_alt }}" loading="lazy">
+  <div class="loc-body">
+    <div class="visit-head"><h3>{% if include.link != false %}<a href="{{ l.url | relative_url }}">{{ l.name }}</a>{% else %}{{ l.name }}{% endif %}</h3><span class="status" data-status></span></div>
+    <p>{{ l.street }}<br>{{ l.city }}, {{ l.state }} {{ l.zip }}</p>
+    <dl class="loc-facts">
+      <dt>Phone</dt><dd><a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a></dd>
+      <dt>Fax</dt><dd>{{ l.fax }}</dd>
+      <dt>Hours</dt><dd>{{ c.hours_short }}<br>{{ c.hours_closed }}</dd>
+    </dl>
+    <div class="loc-actions">
+      <a class="btn btn-primary" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call {{ l.name }}</a>
+      <a class="btn btn-secondary" href="{{ l.maps }}" target="_blank" rel="noopener">Directions<span class="sr-only"> to {{ l.name }} (opens in a new tab)</span></a>
+      {%- if include.link != false %}<a class="text-link" href="{{ l.url | relative_url }}">{{ l.name }} clinic details <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>{% endif %}
+    </div>
+  </div>
+</article>

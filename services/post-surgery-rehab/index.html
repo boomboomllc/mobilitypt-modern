@@ -1,0 +1,93 @@
+---
+layout: default
+title: Recovery after surgery
+seo_title: Physical Therapy After Surgery in Tustin and Lake Forest | Mobility PT
+description: Post-surgery physical therapy in Tustin and Lake Forest, CA after joint replacement, ACL, rotator cuff, spine and other orthopedic surgery. Book an evaluation.
+heading: Recovery after surgery
+intro: Safe, structured progressions after surgery to get your movement back and return to daily life with confidence.
+breadcrumbs:
+  - name: What we treat
+    url: /services/
+  - name: Recovery after surgery
+    url: /services/post-surgery-rehab/
+schema_all_locations: true
+faq:
+  - q: When should I start physical therapy after surgery?
+    a: Your surgeon decides when you start and what you may do. Some people begin soon after surgery and others wait a few weeks. Ask your surgeon at your follow-up visit.
+  - q: Do I need a prescription or referral from my surgeon?
+    a: Usually, yes. Ask your surgeon for a physical therapy prescription or referral, and bring any notes or protocol they give you. Many HMO and medical-group plans also need a referral before your first visit.
+  - q: What should I bring to my first visit?
+    a: A photo ID, your insurance card, your new patient forms, your surgeon's prescription or referral, and any brace, sling or crutches you were told to use.
+  - q: Will physical therapy hurt?
+    a: Some exercises may feel uncomfortable as you get your movement back. Your therapist checks in with you the whole time and adjusts the work. Tell them right away if something feels wrong.
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap with-aside">
+    <div class="prose">
+      {% if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+      <h2>Rehab after orthopedic surgery</h2>
+      <p>After surgery, physical therapy helps you get back motion, strength and confidence step by step, within the limits your surgeon sets. Surgeries that physical therapists commonly help people recover from include:</p>
+      <ul>
+        <li>Knee and hip replacement</li>
+        <li>ACL and other knee ligament or meniscus repair</li>
+        <li>Shoulder surgery, such as rotator cuff repair</li>
+        <li>Spine surgery, when your surgeon clears you for therapy</li>
+        <li>Foot, ankle, hand and wrist surgery, including after a fracture</li>
+      </ul>
+      <p class="muted small"><span class="ph-tag">Placeholder</span> The clinic confirms which surgeries it sees most.</p>
+
+      <h2>What your visits look like</h2>
+      <p>At your first visit, your therapist reviews your surgeon's instructions, checks your swelling, motion and strength, and asks about your daily life and goals. Together you build a plan that follows your surgeon's protocol.</p>
+      <p>Visits then move forward in stages: gentle motion first, then strength, balance and the everyday tasks that matter to you, like stairs, driving or getting back to work. You also get a home program for the days between visits.</p>
+
+      {% include demo.html title="Home exercise program" does="Your therapist sends your exercises to your phone with short videos and reminders, so you follow your plan safely between visits." needs="A home exercise program service the clinic signs up for, with a HIPAA business associate agreement." anchor="home-exercise" %}
+
+      <h2>How long recovery takes</h2>
+      <p>It depends on your surgery, your health and your surgeon's protocol. Your therapist will give you a plan after your evaluation and update it as you improve.</p>
+
+      <h2>When to call a doctor or 911 instead</h2>
+      <div class="notice">
+        <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+        <p><strong>Call 911</strong> if you have sudden shortness of breath, chest pain, or you cough up blood. These can be signs of a blood clot in the lungs.</p>
+      </div>
+      <p>Call your surgeon right away if you notice pain, swelling, warmth or redness in your calf, a fever, or redness, warmth, drainage or a bad smell at your incision. Also call if your pain suddenly gets much worse. This page is general information, not medical advice. Always follow your surgeon, doctor or therapist's advice.</p>
+
+      <h2>Insurance notes</h2>
+      <p>Ask your surgeon for a physical therapy prescription or referral before you book. Many plans, especially HMO and medical-group plans, need one. We work with Medicare Part B, many PPO plans and several local medical groups, and we'll check your coverage before your first visit. <a href="{{ '/insurance/' | relative_url }}">See the plans we work with</a>.</p>
+      <p>Surgeons and their staff can fax a referral to either clinic. <a href="{{ '/physicians/' | relative_url }}">Referral details for physicians</a>.</p>
+    </div>
+
+    <aside class="aside-card" aria-labelledby="aside-h">
+      <h2 id="aside-h">Book your first visit</h2>
+      <p>Have your surgeon's prescription handy. We'll check your coverage first.</p>
+      <a class="btn btn-primary" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book online</a>
+      {%- for l in c.locations %}
+      <a class="btn btn-secondary" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call {{ l.name }} {{ l.phone }}</a>
+      {%- endfor %}
+      <p class="muted small">{{ c.hours_short }}</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Questions about rehab after surgery</h2>
+    </div>
+    {% include faq.html %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Other conditions we treat</h2>
+    </div>
+    {% include services-grid.html exclude="post-surgery-rehab" %}
+  </div>
+</section>
+
+{% include cta.html heading="Planning a surgery or just had one?" text="Book your first visit online, or call the clinic closest to you. Have your surgeon's prescription ready." %}

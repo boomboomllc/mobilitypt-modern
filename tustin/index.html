@@ -1,0 +1,125 @@
+---
+layout: default
+title: Tustin clinic
+seo_title: Physical Therapy in Tustin, CA | Mobility Physical Therapy
+description: Physical therapy in Tustin, CA. Orthopedic, post-surgery and spine care with one-on-one and small-group sessions. Medicare, PPO and medical group plans.
+heading: Physical therapy in Tustin
+intro: Orthopedic, post-surgery and spine care close to home, with one-on-one and small-group sessions. Convenient to Tustin, Santa Ana, Irvine and Orange.
+location: tustin
+breadcrumbs:
+  - name: Locations
+    url: /locations/
+  - name: Tustin
+    url: /tustin/
+faq:
+  - q: Do I need a doctor's referral for physical therapy in Tustin?
+    a: It depends on your insurance. Some plans, especially HMO and medical-group plans, need a referral from your doctor before physical therapy. Call the Tustin clinic and we will check your plan for you.
+  - q: What insurance does the Tustin clinic take?
+    a: We work with Medicare Part B, many PPO plans, several local medical groups, auto MedPay and workers' compensation. The full list is on our Insurance page. Don't see your plan? Call us and we'll check. Cash rates are also available.
+  - q: What should I bring to my first visit?
+    a: Bring a photo ID, your insurance card and your new patient forms. You can fill out the forms before you come to save time at check-in. If your plan needs a doctor's referral, bring that too or have your doctor fax it to us.
+  - q: How do I change or cancel an appointment?
+    a: Just call the clinic during open hours and we will help you find a new time.
+---
+{%- assign c = site.data.clinic -%}
+{%- assign l = c.locations | where: "key", page.location | first -%}
+{%- assign hparts = c.hours_text | split: ". " -%}
+{%- capture addr %}{{ l.street }}, {{ l.city }}, {{ l.state }} {{ l.zip }}{% endcapture -%}
+{% include page-hero.html photo=l.photo photo_alt=l.photo_alt actions=true %}
+
+<section class="section">
+  <div class="wrap with-aside">
+    <div>
+      <h2>About our {{ l.name }} clinic</h2>
+      {% if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+      <p>Our {{ l.name }} clinic has been open since {{ l.opened }}.{% if l.opened != c.founded %} Mobility Physical Therapy has cared for patients in Orange County since {{ c.founded }}.{% endif %} Coming to us from your doctor? We check your coverage, and whether your plan needs a referral, before your first visit.</p>
+      <p>Your care mixes one-on-one time with your therapist and, when it helps, small-group sessions with others working toward the same goals. You also leave with exercises to keep doing at home.</p>
+
+      <h3>What we treat here</h3>
+      <ul class="check-list">
+        {%- for s in c.services %}
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><a href="{{ s.url | relative_url }}">{{ s.title }}</a>. {{ s.summary }}</span></li>
+        {%- endfor %}
+      </ul>
+
+      <h3>Hours</h3>
+      <table class="hours-table">
+        <caption class="sr-only">{{ l.name }} clinic hours</caption>
+        <tbody>
+          {%- for h in hparts %}
+          {%- if h contains ", " %}
+          {%- assign cells = h | split: ", " %}
+          <tr><th scope="row">{{ cells[0] }}</th><td>{{ cells[1] | remove: "." | capitalize }}</td></tr>
+          {%- endif %}
+          {%- endfor %}
+        </tbody>
+      </table>
+      {%- for h in hparts %}{% unless h contains ", " %}<p class="muted">{{ h | remove: "." }}. Call to book or to change a visit.</p>{% endunless %}{% endfor %}
+
+      <h3>Inside the clinic</h3>
+      <div class="gallery">
+        {%- for g in l.gallery %}
+        <img src="{{ g.src }}" alt="{{ g.alt }}" loading="lazy">
+        {%- endfor %}
+      </div>
+
+      <h3>Map</h3>
+      <iframe class="map-embed" src="https://www.google.com/maps?q={{ addr | url_encode }}&amp;output=embed" loading="lazy" title="Map showing the {{ l.name }} clinic at {{ addr }}" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <p><a class="text-link" href="{{ l.maps }}" target="_blank" rel="noopener">Get directions to the {{ l.name }} clinic in Google Maps <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+      {% include demo.html title="Google Business Profile" does="Keeps this clinic's hours, photos, holiday closures and review link the same on Google Maps and on this page, which helps people nearby find you." needs="Clinic access to its Google Business Profile, and someone to update it when hours or photos change." anchor="google-profile" %}
+
+      <h3>Getting here</h3>
+      <dl class="loc-facts">
+        <dt>Address</dt><dd>{{ l.street }}<br>{{ l.city }}, {{ l.state }} {{ l.zip }}</dd>
+        <dt>Parking</dt><dd><span class="ph-tag">Placeholder</span> Where to park, and whether parking is free.</dd>
+        <dt>Finding the suite</dt><dd><span class="ph-tag">Placeholder</span> Which floor, and where the elevator or stairs are.</dd>
+        <dt>Accessible entry</dt><dd><span class="ph-tag">Placeholder</span> Step-free entrance and elevator details.</dd>
+      </dl>
+    </div>
+
+    <aside class="aside-card" aria-labelledby="aside-h">
+      <h2 id="aside-h">{{ l.name }} clinic</h2>
+      <p><span class="status" data-status></span></p>
+      <dl class="loc-facts">
+        <dt>Address</dt><dd>{{ l.street }}<br>{{ l.city }}, {{ l.state }} {{ l.zip }}</dd>
+        <dt>Phone</dt><dd><a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a></dd>
+        <dt>Fax</dt><dd>{{ l.fax }}</dd>
+        <dt>Hours</dt><dd>{% for h in hparts %}{{ h | remove: "." }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</dd>
+      </dl>
+      <a class="btn btn-primary" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call {{ l.phone }}</a>
+      <a class="btn btn-secondary" href="{{ l.maps }}" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Directions to {{ l.name }}</a>
+      <a class="btn btn-secondary" href="#book"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book at {{ l.name }}</a>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt" id="book">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Book a visit in {{ l.name }}</h2>
+      <p class="lead">Choose a day and time. We'll call to confirm your insurance before you come in.</p>
+      <ul class="trust">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Takes about a minute</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Need to change it? Just call the clinic.</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>After your evaluation, we book the rest of your plan together.</li>
+      </ul>
+      {% include demo.html title="Online booking" does="Patients pick a real open time at this clinic for their first evaluation, day or night. Times shown here are samples." needs="A HIPAA-covered calendar or scheduler (for example Google Workspace with Google's BAA)." anchor="booking" %}
+    </div>
+    {% include booker.html clinic=l.key %}
+  </div>
+</section>
+
+{% include reviews.html limit=3 %}
+
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Questions about the {{ l.name }} clinic</h2>
+    </div>
+    {% if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+    {% include faq.html %}
+  </div>
+</section>
+
+{%- capture cta_h %}Ready to start in {{ l.name }}?{% endcapture %}
+{% include cta.html heading=cta_h text="Book your first visit online, or call and we'll help you get started." %}

@@ -1,0 +1,148 @@
+---
+layout: default
+title: About us
+seo_title: About Mobility Physical Therapy | Tustin and Lake Forest, CA
+description: "Neighborhood physical therapy in Lake Forest since 2002 and Tustin since 2013. Orthopedic, post-surgery and spine care, one-on-one and in small groups."
+heading: About Mobility Physical Therapy
+intro: "We're a neighborhood physical therapy practice with two clinics in Orange County. We help people move better, feel better and stay active."
+breadcrumbs:
+  - name: About
+    url: /about/
+schema_all_locations: true
+---
+{%- assign c = site.data.clinic -%}
+{%- assign tustin = c.locations | where: "key", "tustin" | first -%}
+{%- assign lf = c.locations | where: "key", "lake-forest" | first -%}
+{% include page-hero.html photo=c.photos.group photo_alt=c.photos.group_alt actions=true %}
+
+<section class="section">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Our story</h2>
+      <p class="lead">We opened our first clinic in {{ lf.name }} in {{ lf.opened }} and our {{ tustin.name }} clinic in {{ tustin.opened }}.</p>
+      <p>Since then, many of our patients have come to us through their doctor's referral, and we're proud of the trust that takes.</p>
+      <p>We specialize in:</p>
+      <ul class="check-list">
+        {%- for s in c.specialties %}
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>{{ s }}</li>
+        {%- endfor %}
+      </ul>
+      <a class="text-link" href="{{ '/services/' | relative_url }}">See what we treat <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="panel">
+      <h3>Two clinics, one team</h3>
+      <dl class="loc-facts">
+        {%- for l in c.locations %}
+        <dt><a href="{{ l.url | relative_url }}">{{ l.name }}</a></dt><dd>Open since {{ l.opened }}<br>{{ l.street }}, {{ l.city }}</dd>
+        {%- endfor %}
+        <dt>Hours</dt><dd>{{ c.hours_short }}</dd>
+      </dl>
+      <a class="btn btn-secondary" href="{{ '/locations/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Find a clinic</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="approach">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How we care for you</h2>
+      <p class="lead">Every plan is built around you: your injury, your goals and the life you want to get back to.</p>
+    </div>
+    <div class="split split-top">
+      <div class="split-points">
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg></span>
+          <div>
+            <h3>One-on-one sessions</h3>
+            <p>Focused, personal time with your therapist, with hands-on guidance along the way.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+          <div>
+            <h3>Small-group sessions</h3>
+            <p>Work alongside others on the same road. A little company brings encouragement and helps you keep going.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg></span>
+          <div>
+            <h3>Exercise made for you</h3>
+            <p>Your exercises are chosen for your body and your goals, and they change as you get stronger.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>Education and prevention</h3>
+        {%- if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+        <p>Getting better is only part of the goal. We want you to understand your body well enough to stay active on your own.</p>
+        <ul class="check-list">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>We explain what's going on and why each exercise helps.</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>You leave with your own exercises and stretches to keep doing at home.</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>We share everyday habits that can help lower the chance of the next injury.</li>
+        </ul>
+        <p class="muted small">Every person is different. Always follow the advice of your own therapist and doctor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What matters to us</h2>
+    </div>
+    {%- if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review. Swap in the clinic's own values if it has them.</p>{% endif %}
+    <div class="feature-grid">
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg></span>
+        <h3>Personal attention</h3>
+        <p>We get to know you, listen to your goals and adjust your plan as you go.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+        <h3>Clear answers</h3>
+        <p>We explain your care in plain words, so you always know what you're working on and why.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg></span>
+        <h3>Independence</h3>
+        <p>Our aim is for you to need us less over time and keep doing what you love.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Inside our clinics</h2>
+      <p class="lead">Bright, open spaces in {{ tustin.name }} and {{ lf.name }}.</p>
+    </div>
+    <div class="gallery">
+      {%- for g in lf.gallery %}
+      {%- unless g.src == c.photos.group %}
+      <img src="{{ g.src }}" alt="{{ g.alt }}, {{ lf.name }} clinic" loading="lazy">
+      {%- endunless %}
+      {%- endfor %}
+      {%- for g in tustin.gallery limit: 4 %}
+      <img src="{{ g.src }}" alt="{{ g.alt }}, {{ tustin.name }} clinic" loading="lazy">
+      {%- endfor %}
+    </div>
+    <p class="muted small">{% if site.draft %}<span class="ph-tag">Placeholder</span> Photos are from the current website. Newer photos of the team at work would help here.{% endif %}</p>
+  </div>
+</section>
+
+<section class="section section-sm">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Meet the team</h2>
+      <p class="lead">Physical therapists and a front desk team who love what they do.</p>
+    </div>
+    <a class="btn btn-secondary" href="{{ '/about/meet-our-staff/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>Meet our staff</a>
+  </div>
+</section>
+
+{% include reviews.html limit=6 %}
+
+{% include cta.html heading="Come see us" text="Book your first visit online, or call the clinic closest to you." %}

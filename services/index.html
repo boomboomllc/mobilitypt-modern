@@ -1,0 +1,81 @@
+---
+layout: default
+title: What we treat
+seo_title: "Physical Therapy Services in Tustin and Lake Forest | Mobility PT"
+description: Physical therapy for back and neck pain, recovery after surgery, joint pain, sprains, car accident and work injuries in Tustin and Lake Forest, CA.
+heading: What we treat
+intro: Orthopedic, post-surgery and spine care. Every plan starts with a careful evaluation and ends with you knowing how to stay strong on your own.
+breadcrumbs:
+  - name: What we treat
+    url: /services/
+schema_all_locations: true
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html actions=true photo=c.photos.group photo_alt=c.photos.group_alt %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Conditions and care</h2>
+      <p class="lead">Pick the one closest to what brings you in. Not sure? Call either clinic and we'll help you sort it out.</p>
+    </div>
+    {% include services-grid.html %}
+  </div>
+</section>
+
+<section class="section section-alt" id="how-treatment-works">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How treatment works</h2>
+      <p class="lead">The same steady approach at both clinics, shaped around you.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+        <h3>A careful evaluation</h3>
+        <p>Your first visit is about listening and testing how you move, so your plan fits your body and your goals.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg></span>
+        <h3>Hands-on care</h3>
+        <p>Your therapist uses hands-on treatment to help ease pain and get stiff areas moving again.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+        <h3>Exercise made for you</h3>
+        <p>A personalized exercise program that builds strength and mobility, adjusted as you get better.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg></span>
+        <h3>Education and prevention</h3>
+        <p>You leave with your own exercises, stretches and health strategies to help prevent the next injury.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg></span>
+        <h3>One-on-one sessions</h3>
+        <p>Focused time with your therapist when you need close, personal attention.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+        <h3>Small-group sessions</h3>
+        <p>Encouragement and accountability from others on the same road back.</p>
+      </div>
+    </div>
+    {% include demo.html title="Home exercise program" does="Your therapist sends your exercises to your phone with short videos and reminders, so you do them right between visits." needs="A home exercise program service the clinic signs up for, with a HIPAA business associate agreement." anchor="home-exercise" %}
+    <a class="text-link" href="{{ '/about/#approach' | relative_url }}">More about our approach <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Your first visit</h2>
+      <p class="lead">Simple from the first click. <a href="{{ '/resources/first-visit-what-to-expect/' | relative_url }}">Read what to expect at your first visit</a>.</p>
+    </div>
+    {% include steps.html %}
+  </div>
+</section>
+
+{% include reviews.html limit=3 %}
+
+{% include cta.html heading="Not sure where to start?" text="Book an evaluation online, or call the clinic closest to you. We'll check your coverage and whether you need a referral." %}

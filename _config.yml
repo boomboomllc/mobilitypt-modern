@@ -1,0 +1,15 @@
+# Draft settings. For the real launch on mobilitypt.net:
+#   url: "https://mobilitypt.net", baseurl: "", draft: false
+title: Mobility Physical Therapy
+url: "https://ethiopiae.github.io"
+baseurl: "/mobilitypt-modern"
+production_url: "https://mobilitypt.net"
+# While true: every page is noindex, robots.txt blocks crawlers, and the draft banner shows.
+draft: true
+
+markdown: kramdown
+permalink: pretty
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

@@ -1,0 +1,51 @@
+---
+layout: default
+title: Privacy and HIPAA notice
+description: Our HIPAA Notice of Privacy Practices, and how this website handles your information. No ad trackers, and our forms never ask for medical details.
+heading: Privacy and HIPAA notice
+intro: How we protect your health information at our clinics, and how this website handles the little information it collects.
+breadcrumbs:
+  - name: Privacy and HIPAA notice
+    url: /privacy/
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section" id="hipaa">
+  <div class="wrap prose">
+    <h2>HIPAA Notice of Privacy Practices</h2>
+    <p>Our official Notice of Privacy Practices explains how {{ c.legal_name }} may use and share your health information, and the rights you have over it. Federal law (HIPAA) asks health care providers that have a website to post this notice there in a place that is easy to find, so it will live on this page. You can also ask for a paper copy at the front desk of either clinic.</p>
+    <div class="panel">
+      <p><span class="ph-tag">Placeholder</span> Paste the clinic's current Notice of Privacy Practices here, including its effective date and the privacy officer's name and contact details.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="website">
+  <div class="wrap prose">
+    {% if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+    <h2>Website privacy</h2>
+    <p>This section covers this website only. Your care at our clinics is covered by the HIPAA notice above.</p>
+
+    <h3>No ad trackers</h3>
+    <p>This site does not use advertising trackers, tracking pixels or social media pixels. We don't sell or share your information with advertisers.</p>
+
+    <h3>What our forms collect</h3>
+    <p>Our website forms ask only for what we need to call you back, such as your name, phone number, preferred clinic and, for coverage checks, your insurance company or claim number. They never ask for medical details. We use them only to get back to you.</p>
+
+    <div class="notice">
+      <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
+      <p><strong>Please don't send health information through website forms or email.</strong> Regular email and web forms are not the right place for medical details. Call the clinic instead, and we'll talk it through.</p>
+    </div>
+
+    <h3>Cookies and analytics</h3>
+    <p>We use cookies only when a feature of the site needs them to work. If we add analytics to learn which pages are helpful, it will be privacy-friendly and will not track you across sites.</p>
+    <p>Our clinic pages show a Google Maps map, and the site loads its font from Google Fonts. Google may receive your IP address and set its own cookies when those load. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.</p>
+
+    <h3>Questions about privacy</h3>
+    <p>Email us at <a href="mailto:{{ c.email }}">{{ c.email }}</a> or call either clinic:
+      {% for l in c.locations %}{{ l.name }} <a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}.</p>
+
+    <p class="muted small">Last updated: <span class="ph-tag">Placeholder</span> date</p>
+  </div>
+</section>

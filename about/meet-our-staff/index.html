@@ -1,0 +1,100 @@
+---
+layout: default
+title: Meet our staff
+seo_title: "Meet Our Physical Therapists | Mobility PT"
+description: "Meet the physical therapists and front desk team at Mobility Physical Therapy's clinics in Tustin and Lake Forest, California."
+heading: Meet our staff
+intro: "The people who will get to know you, cheer you on and help you get back to what you love."
+breadcrumbs:
+  - name: About
+    url: /about/
+  - name: Meet our staff
+    url: /about/meet-our-staff/
+---
+{%- assign c = site.data.clinic -%}
+{%- assign tustin = c.locations | where: "key", "tustin" | first -%}
+{%- assign lf = c.locations | where: "key", "lake-forest" | first -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Team Mobility</h2>
+      <p class="lead">Physical therapists and front desk staff at both clinics.</p>
+    </div>
+    {%- if site.draft %}<p class="muted small"><span class="ph-tag">Placeholder</span> Names, roles, credentials, photos and bios below are samples. The clinic will send the real ones.</p>{% endif %}
+    <div class="team">
+      <article class="person">
+        <div class="headshot-ph"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg><span class="sr-only">Headshot coming soon</span></div>
+        <h3>Therapist name, PT, DPT <span class="ph-tag">Placeholder</span></h3>
+        <p class="muted">Physical therapist, {{ lf.name }}</p>
+        <p>One line about their focus and what they enjoy outside the clinic.</p>
+      </article>
+      <article class="person">
+        <div class="headshot-ph"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg><span class="sr-only">Headshot coming soon</span></div>
+        <h3>Therapist name, PT, DPT <span class="ph-tag">Placeholder</span></h3>
+        <p class="muted">Physical therapist, {{ tustin.name }}</p>
+        <p>One line about their focus and what they enjoy outside the clinic.</p>
+      </article>
+      <article class="person">
+        <div class="headshot-ph"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg><span class="sr-only">Headshot coming soon</span></div>
+        <h3>Therapist name, PT, DPT <span class="ph-tag">Placeholder</span></h3>
+        <p class="muted">Physical therapist, {{ lf.name }}</p>
+        <p>One line about their focus and what they enjoy outside the clinic.</p>
+      </article>
+      <article class="person">
+        <div class="headshot-ph"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg><span class="sr-only">Headshot coming soon</span></div>
+        <h3>Therapist name, PT, DPT <span class="ph-tag">Placeholder</span></h3>
+        <p class="muted">Physical therapist, {{ tustin.name }}</p>
+        <p>One line about their focus and what they enjoy outside the clinic.</p>
+      </article>
+      <article class="person">
+        <div class="headshot-ph"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg><span class="sr-only">Headshot coming soon</span></div>
+        <h3>Assistant name, PTA <span class="ph-tag">Placeholder</span></h3>
+        <p class="muted">Physical therapist assistant, clinic to confirm</p>
+        <p>One line about their focus and what they enjoy outside the clinic.</p>
+      </article>
+      <article class="person">
+        <div class="headshot-ph"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg><span class="sr-only">Headshot coming soon</span></div>
+        <h3>Team member name <span class="ph-tag">Placeholder</span></h3>
+        <p class="muted">Front desk, clinic to confirm</p>
+        <p>The friendly voice on the phone who helps with scheduling and insurance.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+{%- if site.draft %}
+<section class="section section-alt section-sm">
+  <div class="wrap">
+    <div class="panel">
+      <h2>What to send us for each person <span class="ph-tag">Placeholder</span></h2>
+      <p>To fill in this page, the clinic sends one short note per team member:</p>
+      <ul class="check-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg>A headshot (a phone photo against a plain wall is fine)</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Name and credentials, written the way they want them shown</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Role and which clinic they work at</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Specialties or areas of interest, if any</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>A fun fact or what they love doing outside the clinic</li>
+      </ul>
+      <p class="muted small">Only share what each person is happy to have public.</p>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section class="section">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Join our team</h2>
+      <p class="lead">We're always glad to hear from caring, skilled people who want to help others move better.</p>
+      <p>Open roles: <span class="ph-tag">Placeholder</span> <span class="muted">The clinic adds current openings here, or a note that there are none right now.</span></p>
+      <a class="btn btn-secondary" href="{{ '/contact/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Contact us about working here</a>
+    </div>
+    <figure class="photo">
+      <img src="{{ c.photos.hero }}" alt="{{ c.photos.hero_alt }}" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+{% include cta.html heading="Come meet us in person" %}

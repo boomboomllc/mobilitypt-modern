@@ -1,0 +1,15 @@
+{%- comment -%}
+Explains a feature that is shown but not connected yet. Only renders while site.draft is true.
+Params: title, does (what it would do for the clinic), needs (what it takes to set up). Optional: anchor (id on /whats-possible/).
+Usage: {% include demo.html title="Online booking" does="..." needs="..." anchor="booking" %}
+{%- endcomment -%}
+{%- if site.draft -%}
+<aside class="demo-note" aria-label="About this demo">
+  <span class="demo-tag">Demo</span>
+  <div>
+    <p><strong>{{ include.title }}.</strong> {{ include.does }}</p>
+    {%- if include.needs %}<p class="demo-needs"><span>To set up:</span> {{ include.needs }}</p>{% endif %}
+    <a href="{{ '/whats-possible/' | relative_url }}{% if include.anchor %}#{{ include.anchor }}{% endif %}">More about {{ include.title | downcase }}</a>
+  </div>
+</aside>
+{%- endif -%}

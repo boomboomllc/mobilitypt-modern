@@ -1,0 +1,28 @@
+{%- comment -%}Request-a-call-back form (demo). Contact info only, no medical details. Optional param: clinic (tustin | lake-forest).{%- endcomment -%}
+{%- assign c = site.data.clinic -%}
+<form class="demo-form" data-demo-form data-ok="Thanks. We'll call you back during clinic hours." novalidate>
+  <div class="field-row">
+    <label>First name<input name="first" autocomplete="given-name" required></label>
+    <label>Last name<input name="last" autocomplete="family-name" required></label>
+  </div>
+  <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+  <fieldset>
+    <legend>Preferred clinic</legend>
+    <div class="choice-row">
+      {%- for l in c.locations %}
+      <label class="choice"><input type="radio" name="clinic" value="{{ l.name }}"{% if include.clinic == l.key or include.clinic == nil and forloop.first %} checked{% endif %}>{{ l.name }}</label>
+      {%- endfor %}
+      <label class="choice"><input type="radio" name="clinic" value="Either">Either</label>
+    </div>
+  </fieldset>
+  <label>Best time to call
+    <select name="time">
+      <option>Morning</option>
+      <option>Afternoon</option>
+      <option>Evening</option>
+    </select>
+  </label>
+  <p class="form-note">Please don't include medical details here.</p>
+  <button class="btn btn-primary btn-lg" type="submit">Send request</button>
+  <p class="form-msg" role="status"></p>
+</form>

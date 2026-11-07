@@ -1,0 +1,44 @@
+---
+layout: default
+title: Accessibility
+description: We want this website to work for everyone. Read the Mobility Physical Therapy accessibility statement and how to get help if something is hard to use.
+heading: Accessibility
+intro: We want everyone to be able to use this website. If something gets in your way, tell us and we'll help.
+breadcrumbs:
+  - name: Accessibility
+    url: /accessibility/
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap prose">
+    {% if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+    <h2>Our commitment</h2>
+    <p>{{ c.legal_name }} is committed to making this website accessible. We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.1 at level AA.</p>
+
+    <h2>What we've done</h2>
+    <ul class="check-list">
+      <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Every page can be used with a keyboard alone, with a visible focus outline and a "Skip to content" link.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Photos have text alternatives, and we don't put important text inside images.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Text and buttons use readable color contrast.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Pages use clear headings and labels so they work with screen readers.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Pages still work when you zoom in or make the text bigger.</span></li>
+    </ul>
+
+    <h2>Known limitations</h2>
+    <p><span class="ph-tag">Placeholder</span> List any parts of the site that are not fully accessible yet, for example third-party forms or PDF documents, and how to get the same information another way.</p>
+
+    <h2>Need help?</h2>
+    <p>If any part of this website is hard to use, please let us know. We'll get you the information or service another way, such as over the phone.</p>
+    <ul>
+      {%- for l in c.locations %}
+      <li>Call our {{ l.name }} clinic at <a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a></li>
+      {%- endfor %}
+      <li>Email <a href="mailto:{{ c.email }}">{{ c.email }}</a></li>
+    </ul>
+    <p>When you contact us, it helps to tell us the page address and what went wrong. Our phones are answered {{ c.hours_short }}.</p>
+
+    <p class="muted small">Last reviewed: <span class="ph-tag">Placeholder</span> date</p>
+  </div>
+</section>

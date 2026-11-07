@@ -1,0 +1,79 @@
+---
+layout: default
+title: Locations
+seo_title: "Locations in Tustin and Lake Forest, CA | Mobility PT"
+description: Two Orange County physical therapy clinics, in Tustin and Lake Forest. Find addresses, phone and fax numbers, hours and directions, and see which is closer.
+heading: Our two clinics
+intro: We have clinics in Tustin and Lake Forest. Both offer the same care and the same hours, so choose the one that is easiest for you to get to.
+schema_all_locations: true
+breadcrumbs:
+  - name: Locations
+    url: /locations/
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Addresses, phones and directions</h2>
+      <p class="lead">Call either clinic to book, ask a question or check your insurance.</p>
+    </div>
+    <div class="locations">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+    <div class="notice">
+      <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+      <p><strong>Same hours at both clinics.</strong> {{ c.hours_text }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="which-clinic">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Which clinic is closer to you?</h2>
+      <p class="lead">A quick guide by area. Irvine sits between the two, so either clinic can work well from there.</p>
+    </div>
+    <div class="split split-top">
+      {%- for l in c.locations %}
+      <div class="panel">
+        <h3><a href="{{ l.url | relative_url }}">{{ l.name }} clinic</a></h3>
+        <p class="muted">{{ l.street }}, {{ l.city }}</p>
+        <p>Convenient to:</p>
+        <ul class="check-list">
+          {%- if l.key == "tustin" %}
+          {%- assign near = "Tustin,Santa Ana,Irvine,Orange,North Tustin" | split: "," %}
+          {%- else %}
+          {%- assign near = "Lake Forest,Mission Viejo,Laguna Hills,Irvine,Rancho Santa Margarita,Foothill Ranch" | split: "," %}
+          {%- endif %}
+          {%- for city in near %}
+          <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>{{ city }}</li>
+          {%- endfor %}
+        </ul>
+        <a class="text-link" href="{{ l.url | relative_url }}">See the {{ l.name }} clinic <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="nearest">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Find your nearest clinic</h2>
+      <p class="lead">Enter your ZIP code and we'll show which clinic is closer and about how long the drive is.</p>
+      {% include demo.html title="Nearest-clinic finder" does="Patients type a ZIP code and see which clinic is closer, with a one-tap link to directions. It could also suggest the clinic in the booking form." needs="A small list of local ZIP codes and their distance to each clinic, built into the site. No outside service or tracking needed." anchor="google-profile" %}
+    </div>
+    <form class="demo-form panel" data-demo-form data-ok="The closer clinic and directions would show here." novalidate>
+      <label>Your ZIP code<input name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" required></label>
+      <p class="form-note">Only your ZIP code is needed. Please don't include medical details.</p>
+      <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>Find my clinic</button>
+      <p class="form-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+{% include cta.html heading="Pick a clinic and book your first visit" text="Book online in about a minute, or call the clinic closest to you. We'll check your insurance and whether you need a referral." %}

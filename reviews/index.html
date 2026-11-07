@@ -1,0 +1,71 @@
+---
+layout: default
+title: Reviews
+seo_title: Patient Reviews | Mobility Physical Therapy, Tustin and Lake Forest
+description: Read what patients say about Mobility Physical Therapy, then review our Tustin or Lake Forest clinic on Google or Yelp, or send us private feedback.
+heading: Tell us how we did
+intro: Your feedback helps us improve and helps your neighbors find good care. Every review is welcome, good or bad.
+breadcrumbs:
+  - name: Reviews
+    url: /reviews/
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Leave a public review</h2>
+      <p class="lead">Pick the clinic you visited and the site you like to use. It only takes a few minutes.</p>
+    </div>
+    <div class="split split-top">
+      {%- for l in c.locations %}
+      {%- if l.key == "tustin" %}{% assign yelp = c.social.yelp_tustin %}{% else %}{% assign yelp = c.social.yelp_lake_forest %}{% endif %}
+      <article class="card">
+        <h3>{{ l.name }} clinic</h3>
+        <p>{{ l.street }}, {{ l.city }}</p>
+        <div class="loc-actions">
+          <button class="btn btn-primary" type="button" disabled><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>Review {{ l.name }} on Google</button>
+          <a class="btn btn-secondary" href="{{ yelp }}" target="_blank" rel="noopener">Review {{ l.name }} on Yelp</a>
+        </div>
+        {%- if site.draft %}
+        <p class="small"><span class="ph-tag">Placeholder</span> Google review link from the {{ l.name }} clinic's Google Business Profile.</p>
+        {%- endif %}
+      </article>
+      {%- endfor %}
+    </div>
+    {% include demo.html title="Fair review requests" does="Every patient sees both Google and Yelp, with no screening question first. We never send only happy patients to public review sites. This follows Google's review policy, which bans that kind of review gating, and the FTC's rules and guidance on consumer reviews." needs="The Google review link for each clinic, from its Google Business Profile." anchor="reviews" %}
+  </div>
+</section>
+
+<section class="section section-alt" id="private-feedback">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Send us private feedback</h2>
+      <p class="lead">Something we could do better? Tell us directly. It goes to the clinic team, not a public site.</p>
+      <p>You are still welcome to post a public review too. Private feedback is never a replacement for that.</p>
+      {% include demo.html title="Review requests after your last visit" does="After discharge, patients could get one short text or email thanking them and linking to this page, where they choose a public review or private feedback. Private notes would go straight to the clinic team so problems get fixed fast." needs="A HIPAA-covered texting or email tool with a signed BAA, and the clinic's Google review links." anchor="reviews" %}
+    </div>
+    <div class="panel">
+      <form class="demo-form" data-demo-form data-ok="Thank you. Your feedback goes straight to our clinic team." novalidate>
+        <label>Your name (optional)<input name="name" autocomplete="name"></label>
+        <fieldset>
+          <legend>Which clinic?</legend>
+          <div class="choice-row">
+            {%- for l in c.locations %}
+            <label class="choice"><input type="radio" name="clinic" value="{{ l.name }}"{% if forloop.first %} checked{% endif %}>{{ l.name }}</label>
+            {%- endfor %}
+          </div>
+        </fieldset>
+        <label>Your feedback<textarea name="message" required></textarea></label>
+        <p class="form-note">Please don't include medical details here. For questions about your care, call the clinic.</p>
+        <button class="btn btn-primary btn-lg" type="submit">Send feedback</button>
+        <p class="form-msg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% include reviews.html limit=7 %}
+
+{% include cta.html heading="Not a patient yet?" text="Book your first visit online, or call the clinic closest to you." %}

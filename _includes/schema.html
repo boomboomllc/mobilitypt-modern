@@ -1,0 +1,76 @@
+{%- comment -%}
+Structured data for Google (local business details, breadcrumbs, FAQs).
+Front matter: location: tustin|lake-forest (one clinic), schema_all_locations: true (both),
+breadcrumbs: [{name, url}], faq: [{q, a}].
+{%- endcomment -%}
+{%- assign c = site.data.clinic -%}
+{%- capture org_id %}{{ site.production_url }}/#organization{% endcapture -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalOrganization",
+      "@id": {{ org_id | jsonify }},
+      "name": {{ c.legal_name | jsonify }},
+      "url": {{ site.production_url | append: '/' | jsonify }},
+      "logo": {{ c.logo | jsonify }},
+      "email": {{ c.email | jsonify }},
+      "foundingDate": "{{ c.founded }}",
+      "sameAs": [{{ c.social.facebook | jsonify }}, {{ c.social.instagram | jsonify }}]
+    }
+    {%- for l in c.locations -%}
+    {%- if page.schema_all_locations or page.location == l.key %},
+    {
+      "@type": "Physiotherapy",
+      "@id": "{{ site.production_url }}{{ l.url }}#clinic",
+      "name": "{{ c.name }} {{ l.name }}",
+      "url": "{{ site.production_url }}{{ l.url }}",
+      "image": {{ l.photo | jsonify }},
+      "telephone": {{ l.phone_tel | jsonify }},
+      "faxNumber": {{ l.fax | jsonify }},
+      "email": {{ c.email | jsonify }},
+      "parentOrganization": { "@id": {{ org_id | jsonify }} },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": {{ l.street | jsonify }},
+        "addressLocality": {{ l.city | jsonify }},
+        "addressRegion": {{ l.state | jsonify }},
+        "postalCode": {{ l.zip | jsonify }},
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+        "opens": "08:00",
+        "closes": "19:00"
+      }],
+      "medicalSpecialty": "Physiotherapy",
+      "areaServed": "Orange County, CA"
+    }
+    {%- endif -%}
+    {%- endfor -%}
+    {%- if page.breadcrumbs %},
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.production_url }}/" }
+        {%- for b in page.breadcrumbs %},
+        { "@type": "ListItem", "position": {{ forloop.index | plus: 1 }}, "name": {{ b.name | jsonify }}{% if b.url %}, "item": "{{ site.production_url }}{{ b.url }}"{% endif %} }
+        {%- endfor %}
+      ]
+    }
+    {%- endif -%}
+    {%- if page.faq %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for f in page.faq %}
+        { "@type": "Question", "name": {{ f.q | jsonify }}, "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | strip_html | jsonify }} } }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    }
+    {%- endif %}
+  ]
+}
+</script>

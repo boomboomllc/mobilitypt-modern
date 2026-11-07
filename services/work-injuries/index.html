@@ -1,0 +1,112 @@
+---
+layout: default
+title: Work injuries
+seo_title: Work Injury Physical Therapy in Tustin and Lake Forest | Mobility PT
+description: Physical therapy for on-the-job injuries in Tustin and Lake Forest, CA. Workers' compensation accepted. Care for back, shoulder, knee and strain injuries.
+heading: Work injuries
+intro: Rehab for on-the-job injuries, with workers' compensation accepted.
+breadcrumbs:
+  - name: What we treat
+    url: /services/
+  - name: Work injuries
+    url: /services/work-injuries/
+schema_all_locations: true
+faq:
+  - q: Do you accept workers' compensation?
+    a: Yes. Have your claim number and your adjuster's name and phone number ready when you call. If you don't have an adjuster yet, bring your employer's contact information.
+  - q: Does my treatment need to be approved first?
+    a: Often, yes. Workers' compensation usually needs a referral from the treating doctor, and treatment may need authorization from the claims adjuster before visits start. We'll help check what is needed.
+  - q: I got hurt at work. What should I do first?
+    a: For an emergency, call 911. Otherwise, tell your employer about the injury as soon as you can and get checked by a doctor. Your employer can explain how to start a claim.
+  - q: Can physical therapy help me get back to work?
+    a: Physical therapists commonly help people rebuild the strength and movement their job needs. Your therapist will talk with you about your job tasks and set goals around them. Your doctor decides when you return to work.
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap with-aside">
+    <div class="prose">
+      {% if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> for the clinic to review.</p>{% endif %}
+      <h2>Common work injuries</h2>
+      <p>Injuries on the job happen in offices, warehouses, job sites and everywhere in between. Problems physical therapists commonly treat include:</p>
+      <ul>
+        <li>Back strains from lifting, bending or twisting</li>
+        <li>Shoulder injuries from reaching overhead or carrying loads</li>
+        <li>Knee and ankle injuries from slips, trips and falls</li>
+        <li>Neck and upper-back pain from long hours at a desk or computer</li>
+        <li>Repetitive strain problems in the wrist, hand and elbow</li>
+        <li>Recovery after surgery for a work injury</li>
+      </ul>
+
+      <h2>What your visits look like</h2>
+      <p>Your first visit is an evaluation. Your therapist asks how you got hurt and what your job asks of your body, checks how you move, and explains what they find in plain words. Together you set goals around your daily life and your work tasks.</p>
+      <p>Visits then mix hands-on care, exercises to rebuild strength and motion, and practice with the movements your job needs, like lifting safely. You also get a home program to keep progress going between visits.</p>
+
+      <h2>How long recovery takes</h2>
+      <p>Every injury and every job is different. Your therapist will give you a plan after your evaluation and update it as you improve. Your doctor decides when you can return to work.</p>
+
+      <h2>When to call a doctor or 911 instead</h2>
+      <div class="notice">
+        <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+        <p><strong>Call 911</strong> for a serious injury at work, such as a fall from height, a head injury, heavy bleeding, a possible broken bone, chest pain, trouble breathing, or new loss of bladder or bowel control.</p>
+      </div>
+      <p>See a doctor soon if you have numbness, tingling or weakness, or pain that keeps getting worse. This page is general information, not medical advice. Always follow your therapist or doctor's advice.</p>
+
+      <h2>Insurance notes</h2>
+      <p>We accept workers' compensation. When you call, please have ready:</p>
+      <ul>
+        <li>Your claim number</li>
+        <li>Your claims adjuster's name and phone number</li>
+        <li>Your employer's name and contact information</li>
+        <li>Your doctor's referral or prescription for physical therapy</li>
+      </ul>
+      <p>Treatment may need authorization from the claims adjuster before your visits start. We'll help check what your claim needs. <a href="{{ '/insurance/' | relative_url }}">See all the plans we work with</a>.</p>
+
+      <h3>Have us check your claim</h3>
+      <form class="demo-form" data-demo-form data-ok="Thanks. We'll call you during clinic hours about your claim." novalidate>
+        <div class="field-row">
+          <label>First name<input name="first" autocomplete="given-name" required></label>
+          <label>Last name<input name="last" autocomplete="family-name" required></label>
+        </div>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+        <label>Employer or claims company<input name="carrier" required></label>
+        <label>Claim number, if you have it<input name="claim"></label>
+        <p class="form-note">Please don't include medical details here. We'll go over everything by phone.</p>
+        <button class="btn btn-primary" type="submit">Ask us to check</button>
+        <p class="form-msg" role="status"></p>
+      </form>
+      {% include demo.html title="Coverage check request" does="Injured workers send their claim details ahead of time, so the front desk can start on authorization before calling back." needs="A secure form service with a HIPAA business associate agreement, sending requests to the front desk." anchor="insurance-check" %}
+    </div>
+
+    <aside class="aside-card" aria-labelledby="aside-h">
+      <h2 id="aside-h">Start with an evaluation</h2>
+      <p>Have your claim number and adjuster's details handy. We'll check what your claim covers.</p>
+      <a class="btn btn-primary" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book online</a>
+      {%- for l in c.locations %}
+      <a class="btn btn-secondary" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call {{ l.name }} {{ l.phone }}</a>
+      {%- endfor %}
+      <p class="muted small">{{ c.hours_short }}</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Questions about work injuries</h2>
+    </div>
+    {% include faq.html %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Other conditions we treat</h2>
+    </div>
+    {% include services-grid.html exclude="work-injuries" %}
+  </div>
+</section>
+
+{% include cta.html heading="Hurt on the job?" text="Book your evaluation online, or call the clinic closest to you. Have your claim number ready." %}
