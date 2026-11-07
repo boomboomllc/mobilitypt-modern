@@ -1,0 +1,103 @@
+# "My visit sheet" (/visit-sheet/). Patients answer in their language; the sheet prints English beside it.
+# Every language file has the same keys (k). Only the words change. Nothing is sent anywhere.
+title: My visit sheet
+seo_title: "Visit Sheet: Tell Your Therapist Where It Hurts | Mobility PT"
+description: Answer a few questions in your own language and print or show a sheet in English and your language for your physical therapy visit.
+intro: Answer a few questions in your language. We make a sheet in English and your language that you can print or show at your visit.
+privacy: Private. Your answers stay on your phone or computer. Nothing is sent to us or saved.
+name_label: Your first name (optional)
+areas_label: Where does it hurt? Tap all that apply.
+other_area: Somewhere else
+questions:
+  - k: side
+    type: single
+    label: Which side?
+    options:
+      - {k: left, l: Left}
+      - {k: right, l: Right}
+      - {k: both, l: Both sides}
+      - {k: middle, l: Middle}
+  - k: pain
+    type: scale
+    label: How bad is the pain right now? (0 = no pain, 10 = worst pain)
+  - k: how_long
+    type: single
+    label: How long have you had it?
+    options:
+      - {k: lt1w, l: Less than 1 week}
+      - {k: 1to4w, l: 1 to 4 weeks}
+      - {k: 1to3m, l: 1 to 3 months}
+      - {k: gt3m, l: More than 3 months}
+  - k: start
+    type: single
+    label: How did it start?
+    options:
+      - {k: fall, l: A fall or injury}
+      - {k: car, l: A car accident}
+      - {k: work, l: At work}
+      - {k: sports, l: Sports or exercise}
+      - {k: surgery, l: After surgery}
+      - {k: slowly, l: Slowly, over time}
+      - {k: unsure, l: Not sure}
+  - k: surgery
+    type: single
+    label: Have you had surgery for this?
+    options:
+      - {k: "no", l: "No"}
+      - {k: "yes", l: "Yes"}
+      - {k: planned, l: Surgery is planned}
+  - k: worse
+    type: multi
+    label: What makes it worse?
+    options:
+      - {k: sitting, l: Sitting}
+      - {k: standing, l: Standing}
+      - {k: walking, l: Walking}
+      - {k: stairs, l: Stairs}
+      - {k: bending, l: Bending}
+      - {k: lifting, l: Lifting}
+      - {k: overhead, l: Reaching overhead}
+      - {k: sleeping, l: Lying down or sleeping}
+      - {k: driving, l: Driving}
+  - k: goals
+    type: multi
+    label: What do you want to get back to?
+    options:
+      - {k: walk, l: Walking farther}
+      - {k: stairs, l: Using stairs}
+      - {k: work, l: My job}
+      - {k: sleep, l: Sleeping well}
+      - {k: sports, l: Sports or exercise}
+      - {k: family, l: Caring for family or playing with kids}
+      - {k: chores, l: Housework and errands}
+      - {k: drive, l: Driving}
+  - k: language
+    type: single
+    label: Which language would you like to speak at your visit?
+    options:
+      - {k: mine, l: My language}
+      - {k: english, l: English}
+      - {k: either, l: Either is fine}
+  - k: notes
+    type: text
+    label: Anything else you want your therapist to know?
+    placeholder: Write in your own language.
+translating: Translating your note…
+make: Make my sheet
+edit: Change my answers
+print: Print
+show: Show on screen
+close: Close
+sheet_title: Patient visit sheet
+sheet_for: For
+sheet_written: Filled out by the patient in
+sheet_date: Date
+sheet_where: Where it hurts
+sheet_notes_mt: Translated on the patient's device. Please confirm with the patient.
+sheet_notes_original: Not translated. Patient's own words.
+sheet_footer: Filled out by the patient before the visit. Not a medical record.
+none: No answer
+need_area: Please tap at least one spot where it hurts.
+safety: This sheet is to help you talk with your therapist. It is not a diagnosis. In an emergency, call 911.
+cta_bodymap: Make a sheet for your visit
+cta_bodymap_sub: Answer in your language. Print it in English and your language.

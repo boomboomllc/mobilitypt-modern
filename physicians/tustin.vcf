@@ -1,0 +1,17 @@
+---
+layout: null
+permalink: /physicians/mobility-pt-tustin.vcf
+sitemap: false
+---
+{%- assign l = site.data.clinic.locations | where: "key", "tustin" | first -%}
+BEGIN:VCARD
+VERSION:3.0
+FN:Mobility Physical Therapy {{ l.name }}
+ORG:{{ site.data.clinic.legal_name }}
+TEL;TYPE=WORK,VOICE:{{ l.phone }}
+TEL;TYPE=WORK,FAX:{{ l.fax }}
+EMAIL;TYPE=WORK:{{ site.data.clinic.email }}
+ADR;TYPE=WORK:;;{{ l.street | replace: ",", "\\," }};{{ l.city }};{{ l.state }};{{ l.zip }};USA
+URL:{{ site.production_url }}/physicians/
+NOTE:Referrals by fax. {{ site.data.clinic.hours_short }}.
+END:VCARD

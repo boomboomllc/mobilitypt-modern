@@ -1,0 +1,82 @@
+---
+layout: default
+lang: vi
+ref: locations
+title: Địa điểm
+seo_title: "Địa Điểm tại Tustin và Lake Forest, CA | Mobility PT"
+description: Hai phòng khám vật lý trị liệu ở Quận Cam, tại Tustin và Lake Forest. Xem địa chỉ, số điện thoại và số fax, giờ làm việc, chỉ đường, và phòng khám nào gần quý vị hơn.
+heading: Hai phòng khám của chúng tôi
+intro: Chúng tôi có phòng khám tại Tustin và Lake Forest. Cả hai nơi đều có cùng cách chăm sóc và cùng giờ làm việc, vì vậy xin chọn nơi nào quý vị đi lại dễ nhất.
+schema_all_locations: true
+breadcrumbs:
+  - name: Địa điểm
+    url: /vi/locations/
+---
+{%- assign c = site.data.clinic -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Địa chỉ, điện thoại và chỉ đường</h2>
+      <p class="lead">Xin gọi cho một trong hai phòng khám để đặt hẹn, hỏi thông tin hoặc kiểm tra bảo hiểm.</p>
+    </div>
+    <div class="locations">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+    <div class="notice">
+      <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+      <p><strong>Cả hai phòng khám có cùng giờ làm việc.</strong> {{ t.hours_text }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="which-clinic">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Phòng khám nào gần quý vị hơn?</h2>
+      <p class="lead">Hướng dẫn nhanh theo khu vực. Irvine nằm giữa hai nơi, nên từ đó đến phòng khám nào cũng tiện.</p>
+    </div>
+    <div class="split split-top">
+      {%- for l in c.locations %}
+      <div class="panel">
+        <h3><a href="{{ l.url | relative_url }}">Phòng khám {{ l.name }}</a></h3>
+        <p class="muted">{{ l.street }}, {{ l.city }}</p>
+        <p>Thuận tiện cho:</p>
+        <ul class="check-list">
+          {%- if l.key == "tustin" %}
+          {%- assign near = "Tustin,Santa Ana,Irvine,Orange,North Tustin" | split: "," %}
+          {%- else %}
+          {%- assign near = "Lake Forest,Mission Viejo,Laguna Hills,Irvine,Rancho Santa Margarita,Foothill Ranch" | split: "," %}
+          {%- endif %}
+          {%- for city in near %}
+          <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>{{ city }}</li>
+          {%- endfor %}
+        </ul>
+        <a class="text-link" href="{{ l.url | relative_url }}">Xem phòng khám {{ l.name }} <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="nearest">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Tìm phòng khám gần quý vị nhất</h2>
+      <p class="lead">Nhập mã ZIP của quý vị, chúng tôi sẽ cho biết phòng khám nào gần hơn và lái xe mất khoảng bao lâu.</p>
+      {% include demo.html title="Nearest-clinic finder" does="Patients type a ZIP code and see which clinic is closer, with a one-tap link to directions. It could also suggest the clinic in the booking form." needs="A small list of local ZIP codes and their distance to each clinic, built into the site. No outside service or tracking needed." anchor="google-profile" %}
+    </div>
+    <form class="demo-form panel" data-demo-form data-ok="Phòng khám gần hơn và cách chỉ đường sẽ hiện ở đây." novalidate>
+      <label>Mã ZIP của quý vị<input name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" required></label>
+      <p class="form-note">Chỉ cần mã ZIP của quý vị. Xin đừng ghi thông tin y tế.</p>
+      <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>Tìm phòng khám của tôi</button>
+      <p class="form-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+{% include cta.html heading="Chọn phòng khám và đặt hẹn lần khám đầu tiên" text="Đặt hẹn trực tuyến trong khoảng một phút, hoặc gọi cho phòng khám gần quý vị nhất. Chúng tôi sẽ kiểm tra bảo hiểm và xem quý vị có cần giấy giới thiệu không." %}

@@ -1,0 +1,128 @@
+---
+layout: default
+lang: vi
+ref: insurance
+title: Bảo hiểm
+seo_title: Bảo Hiểm Chúng Tôi Nhận | Mobility Physical Therapy
+description: Xem các chương trình bảo hiểm Mobility Physical Therapy làm việc cùng, gồm Medicare Part B, PPO, các nhóm y tế địa phương, auto MedPay và bảo hiểm bồi thường lao động (workers' comp).
+heading: Các bảo hiểm chúng tôi làm việc cùng
+intro: Chúng tôi làm việc với Medicare Part B, nhiều chương trình PPO và các nhóm y tế địa phương. Xin tìm chương trình của quý vị bên dưới, chúng tôi sẽ xác nhận quyền lợi bảo hiểm trước lần khám đầu tiên.
+breadcrumbs:
+  - name: Bảo hiểm
+    url: /vi/insurance/
+faq:
+  - q: Quý vị có nhận bảo hiểm của tôi không?
+    a: "<p>Xin tìm chương trình của quý vị trên trang này. Nếu không thấy, xin gọi cho một trong hai phòng khám, chúng tôi sẽ kiểm tra giúp quý vị. Chúng tôi cũng có giá trả tiền mặt.</p>"
+  - q: Với chương trình HMO hoặc nhóm y tế, tôi có cần giấy giới thiệu không?
+    a: "<p>Thường là có. Các chương trình HMO và nhóm y tế thường cần giấy giới thiệu và giấy chấp thuận của bác sĩ trước khi bắt đầu vật lý trị liệu. Xin nhờ văn phòng bác sĩ gửi giấy giới thiệu đến phòng khám quý vị sẽ đến. Chúng tôi sẽ cho quý vị biết nếu cần thêm gì khác.</p>"
+  - q: Mỗi buổi khám tôi sẽ trả bao nhiêu?
+    a: "<p>Điều này tùy vào chương trình của quý vị. Tiền đồng trả (copay), tỷ lệ đồng chi trả (coinsurance) và khoản khấu trừ (deductible) do bảo hiểm của quý vị quy định. Chúng tôi sẽ kiểm tra quyền lợi và giải thích cho quý vị trước lần khám đầu tiên.</p>"
+  - q: Tôi không có bảo hiểm thì có đến khám được không?
+    a: "<p>Được. Chúng tôi có giá trả tiền mặt. Xin gọi cho một trong hai phòng khám để hỏi thêm.</p>"
+  - q: Tôi bị thương trong tai nạn xe hơi. Ai sẽ trả tiền?
+    a: "<p>Nhiều hợp đồng bảo hiểm xe có phần chi trả y tế, thường gọi là MedPay, có thể giúp trả tiền vật lý trị liệu. Chúng tôi làm việc với auto MedPay của tất cả các hãng bảo hiểm. Xin mang theo số hồ sơ bồi thường (claim number) và thông tin liên lạc của nhân viên giải quyết hồ sơ (adjuster) khi đến khám lần đầu.</p>"
+  - q: Quý vị có điều trị chấn thương khi làm việc không?
+    a: "<p>Có, chúng tôi nhận bảo hiểm bồi thường lao động (workers' compensation). Xin mang theo số hồ sơ bồi thường, tên và số điện thoại của nhân viên giải quyết hồ sơ, và thông tin của chủ lao động khi đến khám lần đầu.</p>"
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section" id="plans">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Các chương trình chúng tôi làm việc cùng</h2>
+      <p class="lead">Bắt đầu gõ tên chương trình của quý vị để kiểm tra danh sách.</p>
+    </div>
+    {% include insurance-list.html search=true %}
+  </div>
+</section>
+
+<section class="section section-alt" id="check-benefits">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Kiểm tra quyền lợi bảo hiểm của tôi</h2>
+      <p class="lead">Chưa chắc chương trình của quý vị chi trả những gì? Xin để lại tên và số điện thoại, chúng tôi sẽ gọi báo cho quý vị biết quyền lợi bảo hiểm.</p>
+      <ul class="trust">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Không cần số thẻ hội viên (member ID) ở đây. Chúng tôi sẽ hỏi qua điện thoại.</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Chúng tôi sẽ cho quý vị biết chương trình có cần giấy giới thiệu hoặc giấy chấp thuận không.</li>
+      </ul>
+      {% include demo.html title="Online benefits check" does="Patients ask for a benefits check from the website, and staff call back with their coverage, copay and referral needs. Later, an eligibility tool could check some plans automatically." needs="A secure form tool with a signed HIPAA business associate agreement (BAA), since a name with an insurance plan is patient information. An automatic eligibility check would need a HIPAA-covered eligibility service, usually through the clinic's billing software." anchor="insurance-check" %}
+    </div>
+    <div class="panel">
+      <form class="demo-form" data-demo-form data-ok="Xin cảm ơn. Chúng tôi sẽ gọi báo quyền lợi bảo hiểm cho quý vị trong giờ làm việc của phòng khám." novalidate>
+        <label>Họ và tên<input name="name" autocomplete="name" required></label>
+        <label>Điện thoại<input name="phone" type="tel" autocomplete="tel" required></label>
+        <label>Công ty bảo hiểm
+          <select name="insurance" required>
+            <option value="">Chọn chương trình của quý vị</option>
+            {%- for i in c.insurance %}
+            <option>{{ i }}</option>
+            {%- endfor %}
+            <option>Khác</option>
+          </select>
+        </label>
+        <p class="form-note">Xin đừng ghi số thẻ hội viên hoặc bất kỳ thông tin y tế nào ở đây.</p>
+        <button class="btn btn-primary btn-lg" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Kiểm tra quyền lợi bảo hiểm của tôi</button>
+        <p class="form-msg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="billing">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cách tính hóa đơn</h2>
+      <p class="lead">Mỗi chương trình mỗi khác một chút. Đây là thông tin chung. Chúng tôi sẽ xác nhận chi tiết cho chương trình của quý vị.</p>
+      {%- if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> để phòng khám xem lại.</p>{% endif %}
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+        <h3>Chương trình HMO và nhóm y tế</h3>
+        <p>Các chương trình này thường cần giấy giới thiệu và giấy chấp thuận của bác sĩ trước khi bắt đầu vật lý trị liệu. Xin nhờ văn phòng bác sĩ gửi giấy giới thiệu đến phòng khám quý vị sẽ đến.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+        <h3>Chương trình PPO</h3>
+        <p>Các chương trình PPO thường không cần giấy giới thiệu. Tiền đồng trả, tỷ lệ đồng chi trả hoặc khoản khấu trừ vẫn được áp dụng. Chúng tôi sẽ kiểm tra quyền lợi bảo hiểm trước lần khám đầu tiên.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+        <h3>Medicare Part B</h3>
+        <p>Thường quý vị không cần giấy giới thiệu để bắt đầu, nhưng bác sĩ của quý vị sẽ cần ký chấp thuận liệu trình. Khoản khấu trừ và tỷ lệ đồng chi trả của Part B vẫn được áp dụng.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg></span>
+        <h3>Auto MedPay sau tai nạn xe hơi</h3>
+        <p>Chúng tôi làm việc với auto MedPay của tất cả các hãng bảo hiểm. Xin mang theo số hồ sơ bồi thường và thông tin liên lạc của nhân viên giải quyết hồ sơ. <a href="{{ '/resources/after-a-car-accident/' | relative_url }}">Cần làm gì sau tai nạn xe hơi</a></p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+        <h3>Bảo hiểm bồi thường lao động (workers' compensation)</h3>
+        <p>Bị thương khi đang làm việc? Xin mang theo số hồ sơ bồi thường, tên và số điện thoại của nhân viên giải quyết hồ sơ, và thông tin của chủ lao động. <a href="{{ '/services/work-injuries/' | relative_url }}">Cách chúng tôi điều trị chấn thương khi làm việc</a></p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-dollar"/></svg></span>
+        <h3>Giá trả tiền mặt</h3>
+        <p>Không có bảo hiểm, hoặc muốn tự trả? Chúng tôi có giá trả tiền mặt. <span class="ph-tag">Placeholder</span> Giá tiền mặt mỗi buổi: $[amount].</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Câu hỏi về bảo hiểm</h2>
+    </div>
+    {% include faq.html %}
+    <ul class="link-list">
+      <li><a href="{{ '/resources/do-i-need-a-referral/' | relative_url }}">Tôi có cần giấy giới thiệu để đi vật lý trị liệu không?</a></li>
+      <li><a href="{{ '/vi/new-patients-center/' | relative_url }}">Chuẩn bị cho lần khám đầu tiên</a></li>
+      <li><a href="{{ '/vi/locations/' | relative_url }}">Gọi cho phòng khám</a></li>
+    </ul>
+  </div>
+</section>
+
+{% include cta.html heading="Có thắc mắc về bảo hiểm?" text="Đặt hẹn trực tuyến, chúng tôi sẽ kiểm tra bảo hiểm của quý vị trước lần khám đầu tiên, hoặc xin gọi cho phòng khám gần quý vị nhất." %}

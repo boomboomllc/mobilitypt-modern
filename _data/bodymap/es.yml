@@ -1,0 +1,86 @@
+# Spanish body map areas (machine translation, needs review). Same list as en.yml;
+# key, view, x, y and links are unchanged.
+- key: neck
+  name: Cuello
+  view: back
+  x: 50
+  y: 14
+  common:
+    - Dolor y rigidez en el cuello
+    - Latigazo cervical después de un accidente de auto
+    - Dolores de cabeza que empiezan en el cuello, una vez que su médico le haya revisado
+  links: [back-neck-pain, car-accident-injuries]
+- key: shoulder
+  name: Hombro
+  view: front
+  x: 31
+  y: 18
+  common:
+    - Dolor y rigidez en el hombro, incluidos problemas del manguito rotador
+    - Lesiones de hombro por estirar los brazos hacia arriba o cargar peso
+    - Recuperación después de una cirugía de hombro, como la reparación del manguito rotador
+  links: [joint-pain-sprains-strains, post-surgery-rehab, work-injuries]
+- key: upper-back
+  name: Espalda alta y media
+  view: back
+  x: 50
+  y: 25
+  common:
+    - Tensión y dolor en la mitad de la espalda, entre los omóplatos
+  links: [back-neck-pain]
+- key: low-back
+  name: Espalda baja
+  view: back
+  x: 50
+  y: 41
+  common:
+    - Dolor de espalda baja
+    - Lesiones de espalda por levantar cosas en el trabajo
+    - Dolor de espalda después de un accidente de auto
+  links: [back-neck-pain, work-injuries, car-accident-injuries]
+- key: elbow
+  name: Codo
+  view: front
+  x: 24
+  y: 34
+  common:
+    - Dolor de codo por uso excesivo, como el codo de tenista
+    - Lesiones por movimientos repetitivos en el trabajo
+  links: [joint-pain-sprains-strains, work-injuries]
+- key: wrist-hand
+  name: Muñeca y mano
+  view: front
+  x: 19
+  y: 50
+  common:
+    - Dolor de muñeca y mano por uso excesivo
+    - Recuperación después de una cirugía de mano o muñeca, incluso después de una fractura
+  links: [joint-pain-sprains-strains, post-surgery-rehab, work-injuries]
+- key: hip
+  name: Cadera
+  view: front
+  x: 40
+  y: 47
+  common:
+    - Dolor de cadera
+    - Recuperación después de un reemplazo de cadera
+  links: [joint-pain-sprains-strains, post-surgery-rehab]
+- key: knee
+  name: Rodilla
+  view: front
+  x: 40
+  y: 69
+  common:
+    - Dolor de rodilla, incluido el dolor alrededor de la rótula
+    - Recuperación después de un reemplazo de rodilla, o de una reparación del ligamento cruzado anterior (LCA) o del menisco
+    - Lesiones de rodilla por resbalones, tropiezos y caídas
+  links: [joint-pain-sprains-strains, post-surgery-rehab, work-injuries]
+- key: ankle-foot
+  name: Tobillo y pie
+  view: front
+  x: 40
+  y: 91
+  common:
+    - Esguinces de tobillo y otros esguinces de ligamentos
+    - Recuperación después de una cirugía de pie o tobillo, incluso después de una fractura
+  links: [joint-pain-sprains-strains, post-surgery-rehab]

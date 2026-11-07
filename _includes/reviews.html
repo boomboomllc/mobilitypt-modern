@@ -1,11 +1,12 @@
 {%- comment -%}Patient testimonials from the current site. Params: limit (default 6), heading (default shown).{%- endcomment -%}
+{%- assign lang = page.lang | default: "en" -%}{%- assign t = site.data.i18n[lang] -%}
 {%- assign c = site.data.clinic -%}
 {%- assign lim = include.limit | default: 6 -%}
 <section class="section reviews" aria-labelledby="reviews-h">
   <div class="wrap">
     <div class="section-head center-head">
-      <span class="kicker">Patient stories</span>
-      <h2 id="reviews-h">{{ include.heading | default: "What our patients are saying" }}</h2>
+      <span class="kicker">{{ t.patient_stories }}</span>
+      <h2 id="reviews-h">{{ include.heading | default: t.reviews_heading }}</h2>
     </div>
     <div class="review-grid">
       {%- for t in c.testimonials limit: lim %}
@@ -15,12 +16,12 @@
       </figure>
       {%- endfor %}
     </div>
-    <p class="center muted small">Shared by our patients. Everyone's recovery is different.</p>
+    <p class="center muted small">{{ t.reviews_note }}</p>
     <div class="reviews-foot">
       {%- if site.draft %}
       <p><span class="ph-tag">Placeholder</span> <span class="reviews-note">Add each clinic's Google star rating and review count here.</span></p>
       {%- endif %}
-      <a class="btn btn-secondary" href="{{ '/reviews/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>Leave us a review</a>
+      <a class="btn btn-secondary" href="{{ '/reviews/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>{{ t.leave_review }}</a>
     </div>
   </div>
 </section>

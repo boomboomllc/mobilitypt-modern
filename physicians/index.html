@@ -23,14 +23,21 @@ schema_all_locations: true
       {%- for l in c.locations %}
       <div class="panel">
         <h3><a href="{{ l.url | relative_url }}">{{ l.name }} clinic</a></h3>
+        <p class="fax-big"><span>Fax</span> <strong>{{ l.fax }}</strong> <button class="btn btn-secondary btn-sm" type="button" data-copy="{{ l.fax }}">Copy</button></p>
         <dl class="loc-facts">
-          <dt>Fax</dt><dd>{{ l.fax }}</dd>
           <dt>Phone</dt><dd><a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a></dd>
           <dt>Address</dt><dd>{{ l.street }}<br>{{ l.city }}, {{ l.state }} {{ l.zip }}</dd>
           <dt>Hours</dt><dd>{{ c.hours_short }}</dd>
         </dl>
+        <a class="text-link" href="{{ '/physicians/mobility-pt-' | append: l.key | append: '.vcf' | relative_url }}" download><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg> Save {{ l.name }} to your office contacts</a>
       </div>
       {%- endfor %}
+    </div>
+    <div class="ref-facts">
+      <div><span class="kicker">New patients seen</span><p>{% if site.draft %}<span class="ph-tag">Placeholder</span> Within [number] business days of your referral.{% endif %}</p></div>
+      <div><span class="kicker">Coverage</span><p>Medicare Part B, many PPOs, local medical groups, auto MedPay and workers' comp. <a href="{{ '/insurance/' | relative_url }}">Full list</a></p></div>
+      <div><span class="kicker">On the referral</span><p>{% if site.draft %}<span class="ph-tag">Placeholder</span> What the clinic needs on the order (for example diagnosis and visit count).{% endif %}</p></div>
+      <div><span class="kicker">Progress reports</span><p>{% if site.draft %}<span class="ph-tag">Placeholder</span> How and how often you hear back.{% endif %}</p></div>
     </div>
     <div class="forms-bar">
       <svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>

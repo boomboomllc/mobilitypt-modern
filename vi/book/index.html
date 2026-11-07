@@ -1,0 +1,76 @@
+---
+layout: default
+lang: vi
+ref: book
+title: Đặt hẹn trực tuyến
+seo_title: Đặt Hẹn Vật Lý Trị Liệu tại Tustin hoặc Lake Forest, CA
+description: Đặt hẹn vật lý trị liệu trực tuyến tại phòng khám Tustin hoặc Lake Forest của chúng tôi. Đặt lần khám đầu tiên, lần khám tiếp theo hoặc toàn bộ liệu trình của quý vị.
+heading: Đặt một lần khám hoặc toàn bộ liệu trình
+intro: Bệnh nhân mới có thể đặt lần khám đầu tiên. Bệnh nhân hiện tại có thể đặt lần khám tiếp theo, hoặc đặt tất cả các buổi trong liệu trình cùng một lúc.
+breadcrumbs:
+  - name: Đặt hẹn trực tuyến
+    url: /vi/book/
+---
+{%- assign c = site.data.clinic -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Điều gì xảy ra sau khi quý vị đặt hẹn</h2>
+      <div class="split-points">
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <div>
+            <h3>Chúng tôi gọi để xác nhận</h3>
+            <p>Chúng tôi kiểm tra bảo hiểm của quý vị và xem chương trình của quý vị có cần giấy giới thiệu hoặc giấy chấp thuận của bác sĩ không. Nếu cần, chúng tôi sẽ cho quý vị biết phải làm gì tiếp theo.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+          <div>
+            <h3>Buổi đánh giá của quý vị</h3>
+            <p>Chuyên viên vật lý trị liệu sẽ lắng nghe, xem cách quý vị cử động và cùng quý vị bàn về liệu trình. Xin mang theo giấy tờ tùy thân có hình, thẻ bảo hiểm và <a href="{{ '/vi/new-patients-center/#forms' | relative_url }}">giấy tờ dành cho bệnh nhân mới</a>.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+          <div>
+            <h3>Đặt hẹn toàn bộ liệu trình</h3>
+            <p>Khi đã biết liệu trình của mình, quý vị có thể đặt tất cả các buổi cùng lúc tại đây, hoặc chúng tôi sẽ cùng quý vị sắp xếp trước khi quý vị ra về. Cần đổi một buổi? Chỉ cần gọi cho chúng tôi.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Quý vị muốn gọi điện?</h3>
+      <ul class="check-list">
+        {%- for l in c.locations %}
+        <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>{{ l.name }}: <a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a></span></li>
+        {%- endfor %}
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span>{{ t.hours_text }}</span></li>
+      </ul>
+
+      {% include demo.html title="Online booking" does="Patients book a first visit, their next visit or their whole plan of care, day or night, and the front desk sees it right away. Times shown here are samples." needs="A HIPAA-covered scheduler or calendar that signs a BAA, set up with the clinic's real evaluation slots." anchor="booking" %}
+      {% include demo.html title="Text reminders" does="Patients get a text before each visit and can reply to confirm, which can help cut down on missed visits." needs="A HIPAA-covered texting or reminder service with a BAA, plus each patient's OK to receive texts." anchor="reminders" %}
+    </div>
+    <div>
+      {% include booker.html %}
+      <p class="form-note">Mẫu này chỉ dùng để đặt lịch hẹn. Trong trường hợp cấp cứu, xin gọi 911.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Quý vị muốn nói chuyện với nhân viên?</h2>
+      <p class="lead">Xin gọi cho phòng khám gần quý vị nhất. Chúng tôi luôn sẵn lòng trả lời câu hỏi trước khi quý vị đặt hẹn.</p>
+    </div>
+    <div class="locations">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>

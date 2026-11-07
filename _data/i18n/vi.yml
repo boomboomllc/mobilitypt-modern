@@ -1,0 +1,148 @@
+# Words used across the site, per language. English (en) is the source.
+# This is the Vietnamese (vi) machine translation. It needs review by a bilingual staff member before launch.
+# prefix: where that language's pages live. Pages without a translation link to English.
+lang_name: Tiếng Việt
+prefix: "/vi"
+html_lang: vi
+skip: Chuyển đến nội dung chính
+menu_open: Mở menu
+menu_close: Đóng menu
+nav:
+  - [Các bệnh chúng tôi điều trị, /services/]
+  - [Bệnh nhân mới, /vi/new-patients-center/]
+  - [Bảo hiểm, /vi/insurance/]
+  - [Địa điểm, /vi/locations/]
+  - [Giới thiệu, /about/]
+book_online: Đặt hẹn trực tuyến
+book: Đặt hẹn
+for_physicians: Dành cho bác sĩ
+quick_actions: Thao tác nhanh
+home: Trang chủ
+opens_new_tab: (mở trong thẻ mới)
+footer_patients: Bệnh nhân
+footer_serving: Phục vụ Quận Cam từ năm
+new_patients: Bệnh nhân mới
+insurance: Bảo hiểm
+patient_resources: Tài liệu cho bệnh nhân
+contact_us: Liên lạc với chúng tôi
+where_hurts: Quý vị đau ở đâu?
+privacy: Thông báo về quyền riêng tư và HIPAA
+accessibility: Hỗ trợ tiếp cận
+hours_short: Thứ Hai đến Thứ Năm, 8 giờ sáng đến 7 giờ tối
+hours_closed: Thứ Sáu đến Chủ Nhật, nghỉ
+hours_text: Thứ Hai đến Thứ Năm, 8 giờ sáng đến 7 giờ tối. Thứ Sáu đến Chủ Nhật, nghỉ. Chỉ khám theo lịch hẹn.
+language: Ngôn ngữ
+breadcrumb: Đường dẫn trang
+main_nav: Menu chính
+hero_book_first: Đặt hẹn lần khám đầu tiên
+hero_call_clinic: Gọi cho phòng khám
+translated_note: ""
+# Location card
+phone: Điện thoại
+fax: Fax
+hours: Giờ làm việc
+call: Gọi
+directions: Chỉ đường
+directions_to: đến
+clinic_details: thông tin phòng khám
+# Reviews
+patient_stories: Câu chuyện của bệnh nhân
+reviews_heading: Bệnh nhân nói gì về chúng tôi
+reviews_note: Do bệnh nhân của chúng tôi chia sẻ. Quá trình hồi phục của mỗi người mỗi khác.
+leave_review: Viết đánh giá cho chúng tôi
+# CTA band
+cta_heading: Quý vị đã sẵn sàng để thấy khỏe hơn chưa?
+cta_text: Đặt hẹn lần khám đầu tiên trực tuyến trong khoảng một phút, hoặc gọi cho phòng khám gần quý vị nhất.
+# Insurance list
+ins_search_label: Tìm chương trình bảo hiểm của quý vị
+ins_search_placeholder: Nhập tên chương trình bảo hiểm, ví dụ Aetna hoặc Medicare
+insurance_note: Không thấy chương trình của quý vị? Xin gọi cho chúng tôi để chúng tôi kiểm tra. Chúng tôi cũng có giá trả tiền mặt.
+# Forms
+first_name: Tên
+last_name: Họ
+mobile_phone: Điện thoại di động
+preferred_clinic: Phòng khám quý vị muốn đến
+either: Phòng khám nào cũng được
+best_time: Thời gian tiện nhất để gọi
+morning: Buổi sáng
+afternoon: Buổi chiều
+evening: Buổi tối
+no_medical: Xin đừng ghi thông tin y tế ở đây.
+send_request: Gửi yêu cầu
+callback_ok: Xin cảm ơn. Chúng tôi sẽ gọi lại cho quý vị trong giờ làm việc của phòng khám.
+# Booker
+how_to_book: Cách đặt hẹn
+request_callback: Yêu cầu gọi lại
+what_booking: Quý vị muốn đặt hẹn gì?
+kind_first: Lần khám đầu tiên
+kind_first_sub: "Bệnh nhân mới: buổi đánh giá"
+kind_next: Lần khám tiếp theo
+kind_next_sub: Đã là bệnh nhân
+kind_plan: Toàn bộ liệu trình
+kind_plan_sub: Đặt tất cả các buổi cùng lúc
+clinic: Phòng khám
+day: Ngày
+time: Giờ
+pick_day_first: Xin chọn ngày trước.
+your_plan: Liệu trình của quý vị
+plan_hint: Chuyên viên vật lý trị liệu sẽ cho quý vị biết điều này trong buổi đánh giá. Chưa chắc chắn? Xin chọn theo ước đoán của quý vị, chúng tôi sẽ điều chỉnh sau.
+visits_week: Số buổi mỗi tuần
+how_many_weeks: Trong bao nhiêu tuần
+days_and_time: Ngày và giờ
+which_days: Những ngày nào tiện cho quý vị?
+what_time: Mấy giờ?
+your_details: Thông tin của quý vị
+sms_optin: Gửi tin nhắn nhắc lịch hẹn cho tôi (không bắt buộc). Có thể tính phí tin nhắn và dữ liệu. Trả lời STOP để ngừng nhận.
+booker_note: Xin đừng ghi thông tin y tế ở đây. Chúng tôi sẽ trao đổi mọi điều qua điện thoại.
+book_eval: Đặt hẹn buổi đánh giá
+# Body map (/where-does-it-hurt/)
+bm_title: Quý vị đau ở đâu?
+bm_seo: "Quý Vị Đau Ở Đâu? Tìm Dịch Vụ Vật Lý Trị Liệu Phù Hợp | Mobility PT"
+bm_desc: Chạm vào chỗ đau để xem các chuyên viên vật lý trị liệu của chúng tôi ở Tustin và Lake Forest có thể giúp gì, rồi đặt hẹn hoặc gọi điện.
+bm_intro: Xin chạm vào chỗ làm quý vị khó chịu. Chúng tôi sẽ cho quý vị biết chúng tôi có thể giúp gì và cách bắt đầu.
+bm_front: Mặt trước
+bm_back: Mặt sau
+bm_list_label: Hoặc chọn từ danh sách
+bm_start: Chạm vào một chỗ trên cơ thể, hoặc chọn từ danh sách, để xem chúng tôi có thể giúp gì.
+bm_common: Mọi người thường đến với chúng tôi vì
+bm_learn: Tìm hiểu thêm
+bm_book: Đặt hẹn khám
+bm_not_sure: Chưa chắc chắn, hoặc đau ở nhiều chỗ? Xin gọi cho chúng tôi, chúng tôi sẽ giúp quý vị biết bước tiếp theo.
+bm_safety: "Trang này chỉ là thông tin chung, không phải là chẩn đoán. Nếu cơn đau xảy ra đột ngột hoặc rất nặng, hoặc do té ngã hay tai nạn, xin đi khám bác sĩ trước. Trong trường hợp khẩn cấp, xin gọi 911."
+bm_tile_sub: Chạm vào chỗ đau, xem chúng tôi giúp thế nào
+# Strings used by assets/script.js
+js:
+  locale: vi-VN
+  open_now: Đang mở cửa đến 7 giờ tối
+  opens_today: Hôm nay mở cửa lúc 8 giờ sáng
+  opens_tomorrow: Ngày mai mở cửa lúc 8 giờ sáng
+  opens_monday: Thứ Hai mở cửa lúc 8 giờ sáng
+  fill_in: "Xin điền:"
+  demo_sent: "(Bản demo: chưa có gì được gửi đi.)"
+  thanks: Xin cảm ơn! Chúng tôi đã nhận được yêu cầu của quý vị.
+  taken: đã có người đặt
+  book_eval: Đặt hẹn buổi đánh giá
+  book_visit: Đặt hẹn khám
+  book_plan: Đặt hẹn cả liệu trình
+  weeks: tuần
+  visit_week_1: buổi mỗi tuần
+  visit_week_n: buổi mỗi tuần
+  pick_more: (chọn thêm {n})
+  pick_days_time: Chọn {n} ngày và một giờ để xem tất cả {total} buổi.
+  pick_day_time_1: Chọn 1 ngày và một giờ để xem tất cả {total} buổi.
+  plan_summary: "{total} buổi, từ {from} đến {to}."
+  plan_moved: "{n} buổi đã được dời sang giờ trống gần nhất (có đánh dấu)."
+  plan_all: Tất cả đều vào giờ quý vị chọn.
+  we_will_call: Chúng tôi sẽ gọi
+  pick_day_and_time: Xin chọn ngày và giờ.
+  pick_plan: Xin chọn {n} ngày và một giờ.
+  pick_plan_1: Xin chọn 1 ngày và một giờ.
+  booked_plan: "Liệu trình của quý vị đã được đặt tại phòng khám {clinic}: {total} buổi, bắt đầu từ {date}. Chúng tôi sẽ nhắn tin hoặc gọi để xác nhận, và quý vị có thể đổi bất kỳ buổi nào bằng cách gọi cho chúng tôi."
+  booked_next: "Quý vị đã được đặt hẹn tại phòng khám {clinic} vào {date} lúc {time}. Hẹn gặp quý vị!"
+  booked_first: "Quý vị đã được đặt hẹn tại phòng khám {clinic} vào {date} lúc {time}. Chúng tôi sẽ gọi để xác nhận bảo hiểm của quý vị."
+  ins_one: chúng tôi có làm việc với chương trình này
+  ins_many: "{n} chương trình phù hợp"
+  ins_good: "Tin vui: {what}. Chúng tôi sẽ xác nhận quyền lợi bảo hiểm của quý vị trước lần khám đầu tiên."
+  ins_none: Chúng tôi không tìm thấy chương trình đó trong danh sách. Xin gọi cho chúng tôi để chúng tôi kiểm tra. Chúng tôi cũng có giá trả tiền mặt.
+  am: SA
+  pm: CH

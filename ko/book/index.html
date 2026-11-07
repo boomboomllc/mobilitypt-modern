@@ -1,0 +1,76 @@
+---
+layout: default
+lang: ko
+ref: book
+title: 온라인 예약
+seo_title: Tustin 또는 Lake Forest, CA 물리치료 예약
+description: Tustin 또는 Lake Forest 클리닉의 물리치료를 온라인으로 예약하세요. 첫 방문, 다음 방문 또는 전체 치료 계획을 예약하실 수 있습니다.
+heading: 방문 한 번 또는 전체 치료 계획 예약
+intro: 신규 환자는 첫 방문을 예약하실 수 있습니다. 다니고 계신 환자는 다음 방문이나 치료 계획의 모든 방문을 한 번에 예약하실 수 있습니다.
+breadcrumbs:
+  - name: 온라인 예약
+    url: /ko/book/
+---
+{%- assign c = site.data.clinic -%}
+{%- assign t = site.data.i18n.ko -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap split split-top">
+    <div>
+      <h2>예약 후에는 이렇게 진행됩니다</h2>
+      <div class="split-points">
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <div>
+            <h3>확인 전화를 드립니다</h3>
+            <p>보험을 확인하고, 플랜에 의사의 의뢰서나 사전 승인이 필요한지 알아봅니다. 필요하다면 다음에 무엇을 하시면 되는지 알려 드립니다.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+          <div>
+            <h3>첫 평가</h3>
+            <p>치료사가 말씀을 듣고, 몸이 어떻게 움직이는지 살펴본 뒤 치료 계획을 함께 이야기합니다. 사진이 있는 신분증, 보험 카드, <a href="{{ '/ko/new-patients-center/#forms' | relative_url }}">신규 환자 서류</a>를 가져오세요.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+          <div>
+            <h3>전체 치료 계획 예약</h3>
+            <p>치료 계획이 정해지면 여기에서 모든 방문을 한 번에 예약하시거나, 가시기 전에 저희와 함께 일정을 잡으시면 됩니다. 바꿔야 할 방문이 있나요? 전화만 주세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>전화가 더 편하신가요?</h3>
+      <ul class="check-list">
+        {%- for l in c.locations %}
+        <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>{{ l.name }}: <a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a></span></li>
+        {%- endfor %}
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span>{{ t.hours_text }}</span></li>
+      </ul>
+
+      {% include demo.html title="Online booking" does="Patients book a first visit, their next visit or their whole plan of care, day or night, and the front desk sees it right away. Times shown here are samples." needs="A HIPAA-covered scheduler or calendar that signs a BAA, set up with the clinic's real evaluation slots." anchor="booking" %}
+      {% include demo.html title="Text reminders" does="Patients get a text before each visit and can reply to confirm, which can help cut down on missed visits." needs="A HIPAA-covered texting or reminder service with a BAA, plus each patient's OK to receive texts." anchor="reminders" %}
+    </div>
+    <div>
+      {% include booker.html %}
+      <p class="form-note">이 양식은 예약 전용입니다. 응급 상황에서는 911에 전화하세요.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>직접 상담하고 싶으신가요?</h2>
+      <p class="lead">가까운 클리닉에 전화하세요. 예약 전에 궁금하신 점도 기꺼이 답해 드립니다.</p>
+    </div>
+    <div class="locations">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>

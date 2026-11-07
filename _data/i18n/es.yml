@@ -1,0 +1,148 @@
+# Words used across the site, per language. English (en) is the source.
+# This is the Spanish (es) machine translation. A bilingual staff member needs to review it before launch.
+# prefix: where that language's pages live. Pages without a translation link to English.
+lang_name: Español
+prefix: "/es"
+html_lang: es
+skip: Ir al contenido
+menu_open: Abrir menú
+menu_close: Cerrar menú
+nav:
+  - [Lo que tratamos, /services/]
+  - [Pacientes nuevos, /es/new-patients-center/]
+  - [Seguros, /es/insurance/]
+  - [Ubicaciones, /es/locations/]
+  - [Quiénes somos, /about/]
+book_online: Haga su cita en línea
+book: Cita
+for_physicians: Para médicos
+quick_actions: Acciones rápidas
+home: Inicio
+opens_new_tab: (se abre en una pestaña nueva)
+footer_patients: Pacientes
+footer_serving: Al servicio del condado de Orange desde
+new_patients: Pacientes nuevos
+insurance: Seguros
+patient_resources: Recursos para pacientes
+contact_us: Contáctenos
+where_hurts: ¿Dónde le duele?
+privacy: Aviso de privacidad y HIPAA
+accessibility: Accesibilidad
+hours_short: Lun. a jue., 8 a.m. a 7 p.m.
+hours_closed: Vie. a dom., cerrado
+hours_text: Lunes a jueves, de 8 a.m. a 7 p.m. Viernes a domingo, cerrado. Solo con cita.
+language: Idioma
+breadcrumb: Ruta de navegación
+main_nav: Principal
+hero_book_first: Reserve su primera visita
+hero_call_clinic: Llame a una clínica
+translated_note: ""
+# Location card
+phone: Teléfono
+fax: Fax
+hours: Horario
+call: Llamar a
+directions: Cómo llegar
+directions_to: a
+clinic_details: detalles de la clínica
+# Reviews
+patient_stories: Historias de pacientes
+reviews_heading: Lo que dicen nuestros pacientes
+reviews_note: Compartido por nuestros pacientes. La recuperación de cada persona es diferente.
+leave_review: Déjenos una reseña
+# CTA band
+cta_heading: ¿Listo para sentirse mejor?
+cta_text: Haga su primera cita en línea en más o menos un minuto, o llame a la clínica más cercana.
+# Insurance list
+ins_search_label: Busque su plan de seguro
+ins_search_placeholder: Escriba su plan de seguro, como Aetna o Medicare
+insurance_note: ¿No ve su plan? Llámenos y lo revisamos. También tenemos precios para pago en efectivo.
+# Forms
+first_name: Nombre
+last_name: Apellido
+mobile_phone: Teléfono celular
+preferred_clinic: Clínica de preferencia
+either: Cualquiera
+best_time: Mejor hora para llamarle
+morning: Mañana
+afternoon: Tarde
+evening: Noche
+no_medical: Por favor, no incluya información médica aquí.
+send_request: Enviar solicitud
+callback_ok: Gracias. Le llamaremos durante el horario de la clínica.
+# Booker
+how_to_book: Cómo hacer su cita
+request_callback: Pedir que le llamemos
+what_booking: ¿Para qué es la cita?
+kind_first: Mi primera visita
+kind_first_sub: "Pacientes nuevos: su evaluación"
+kind_next: Mi próxima visita
+kind_next_sub: Ya soy paciente
+kind_plan: Todo mi plan
+kind_plan_sub: Todas sus visitas a la vez
+clinic: Clínica
+day: Día
+time: Hora
+pick_day_first: Primero elija un día.
+your_plan: Su plan
+plan_hint: Su terapeuta se lo da en su evaluación. ¿No está seguro? Elija lo que crea y lo ajustamos.
+visits_week: Visitas por semana
+how_many_weeks: Por cuántas semanas
+days_and_time: Días y hora
+which_days: ¿Qué días le funcionan?
+what_time: ¿A qué hora?
+your_details: Sus datos
+sms_optin: Envíenme recordatorios de citas por mensaje de texto (opcional). Pueden aplicarse cargos por mensajes y datos. Responda STOP para cancelar.
+booker_note: Por favor, no incluya información médica aquí. Hablaremos de todo por teléfono.
+book_eval: Reservar evaluación
+# Body map (/where-does-it-hurt/)
+bm_title: ¿Dónde le duele?
+bm_seo: "¿Dónde le duele? Encuentre la terapia física adecuada | Mobility PT"
+bm_desc: Toque el lugar donde le duele para ver cómo nuestros fisioterapeutas de Tustin y Lake Forest pueden ayudarle. Luego haga su cita o llámenos.
+bm_intro: Toque el lugar que le molesta. Le mostraremos cómo podemos ayudarle y cómo empezar.
+bm_front: De frente
+bm_back: De espalda
+bm_list_label: O elija de la lista
+bm_start: Toque un lugar del cuerpo, o elija de la lista, para ver cómo podemos ayudarle.
+bm_common: Muchas personas vienen con nosotros por
+bm_learn: Más información
+bm_book: Hacer una cita
+bm_not_sure: ¿No está seguro, o le duele en más de un lugar? Llámenos y le ayudamos a decidir el siguiente paso.
+bm_safety: "Esta página es información general, no un diagnóstico. Si su dolor es repentino o fuerte, o empezó por una caída o un accidente, vea primero a un médico. En una emergencia, llame al 911."
+bm_tile_sub: Toque el lugar y vea cómo ayudamos
+# Strings used by assets/script.js
+js:
+  locale: es-US
+  open_now: Abierto ahora hasta las 7 p.m.
+  opens_today: Abre hoy a las 8 a.m.
+  opens_tomorrow: Abre mañana a las 8 a.m.
+  opens_monday: Abre el lunes a las 8 a.m.
+  fill_in: "Por favor, complete:"
+  demo_sent: "(Demo: no se envió nada.)"
+  thanks: ¡Gracias! Recibimos su solicitud.
+  taken: ocupado
+  book_eval: Reservar evaluación
+  book_visit: Reservar visita
+  book_plan: Reservar mi plan
+  weeks: semanas
+  visit_week_1: visita por semana
+  visit_week_n: visitas por semana
+  pick_more: (elija {n} más)
+  pick_days_time: Elija {n} días y una hora para ver sus {total} visitas.
+  pick_day_time_1: Elija 1 día y una hora para ver sus {total} visitas.
+  plan_summary: "{total} visitas, del {from} al {to}."
+  plan_moved: "{n} se pasaron a la hora libre más cercana (marcadas)."
+  plan_all: Todas a la hora que eligió.
+  we_will_call: Le llamaremos
+  pick_day_and_time: Por favor, elija un día y una hora.
+  pick_plan: Por favor, elija {n} días y una hora.
+  pick_plan_1: Por favor, elija 1 día y una hora.
+  booked_plan: "Su plan quedó reservado en nuestra clínica de {clinic}: {total} visitas a partir del {date}. Le enviaremos un mensaje o le llamaremos para confirmar, y puede cambiar cualquier visita llamándonos."
+  booked_next: "Su cita quedó reservada en nuestra clínica de {clinic} el {date} a las {time}. ¡Le esperamos!"
+  booked_first: "Su cita quedó reservada en nuestra clínica de {clinic} el {date} a las {time}. Le llamaremos para confirmar su seguro."
+  ins_one: trabajamos con este plan
+  ins_many: "{n} planes que coinciden"
+  ins_good: "Buenas noticias: {what}. Confirmaremos su cobertura antes de su primera visita."
+  ins_none: No encontramos ese plan en nuestra lista. Llámenos y lo revisamos. También tenemos precios para pago en efectivo.
+  am: a.m.
+  pm: p.m.

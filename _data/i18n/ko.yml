@@ -1,0 +1,150 @@
+# Words used across the site, per language. English (en) is the source.
+# This is the Korean (ko) machine translation. A bilingual staff member needs to review it before launch.
+# prefix: where that language's pages live. Pages without a translation link to English.
+lang_name: 한국어
+prefix: "/ko"
+html_lang: ko
+skip: 본문으로 바로 가기
+menu_open: 메뉴 열기
+menu_close: 메뉴 닫기
+nav:
+  - [치료 분야, /services/]
+  - [신규 환자, /ko/new-patients-center/]
+  - [보험, /ko/insurance/]
+  - [위치, /ko/locations/]
+  - [소개, /about/]
+book_online: 온라인 예약
+book: 예약
+for_physicians: 의사 선생님께
+quick_actions: 빠른 메뉴
+home: 홈
+opens_new_tab: (새 탭에서 열림)
+footer_patients: 환자 안내
+footer_serving: ""
+footer_serving_after: "년부터 오렌지카운티 환자를 진료합니다"
+new_patients: 신규 환자
+insurance: 보험
+patient_resources: 환자 자료
+contact_us: 문의하기
+where_hurts: 어디가 아프세요?
+privacy: 개인정보 및 HIPAA 고지
+accessibility: 접근성
+hours_short: 월~목, 오전 8시~오후 7시
+hours_closed: 금~일, 휴무
+hours_text: 월요일~목요일, 오전 8시~오후 7시. 금요일~일요일, 휴무. 예약제로 운영합니다.
+language: 언어
+breadcrumb: 현재 위치
+main_nav: 주 메뉴
+hero_book_first: 첫 방문 예약하기
+hero_call_clinic: 클리닉에 전화하기
+translated_note: ""
+# Location card
+phone: 전화
+fax: 팩스
+hours: 진료 시간
+call: ""
+call_after: " 전화하기"
+directions: 길 찾기
+directions_to: ""
+clinic_details: 클리닉 상세 정보
+# Reviews
+patient_stories: 환자 이야기
+reviews_heading: 환자분들의 이야기
+reviews_note: 저희 환자분들이 남겨 주신 글입니다. 회복 과정은 사람마다 다릅니다.
+leave_review: 후기 남기기
+# CTA band
+cta_heading: 이제 몸이 편안해질 준비가 되셨나요?
+cta_text: 약 1분이면 온라인으로 첫 방문을 예약하실 수 있습니다. 가까운 클리닉에 전화하셔도 됩니다.
+# Insurance list
+ins_search_label: 보험 플랜 검색
+ins_search_placeholder: Aetna나 Medicare처럼 보험 플랜 이름을 입력하세요
+insurance_note: 찾으시는 플랜이 없나요? 전화 주시면 확인해 드립니다. 현금 결제 요금도 있습니다.
+# Forms
+first_name: 이름
+last_name: 성
+mobile_phone: 휴대폰 번호
+preferred_clinic: 원하시는 클리닉
+either: 어느 곳이든
+best_time: 통화하기 좋은 시간
+morning: 오전
+afternoon: 오후
+evening: 저녁
+no_medical: 여기에는 의료 정보를 적지 마세요.
+send_request: 요청 보내기
+callback_ok: 감사합니다. 진료 시간 중에 다시 전화드리겠습니다.
+# Booker
+how_to_book: 예약 방법
+request_callback: 전화 요청하기
+what_booking: 어떤 예약을 하시나요?
+kind_first: 첫 방문
+kind_first_sub: "신규 환자: 첫 평가"
+kind_next: 다음 방문
+kind_next_sub: 이미 다니고 계신 환자
+kind_plan: 전체 치료 계획
+kind_plan_sub: 모든 방문을 한 번에
+clinic: 클리닉
+day: 날짜
+time: 시간
+pick_day_first: 먼저 날짜를 고르세요.
+your_plan: 내 치료 계획
+plan_hint: 치료사가 첫 평가 때 알려 드립니다. 잘 모르시겠다면 대략 골라 주세요. 저희가 맞춰 드리겠습니다.
+visits_week: 주당 방문 횟수
+how_many_weeks: 몇 주 동안
+days_and_time: 요일과 시간
+which_days: 어떤 요일이 편하신가요?
+what_time: 몇 시가 좋으신가요?
+your_details: 연락처 정보
+sms_optin: 예약 알림 문자를 받겠습니다(선택). 메시지 및 데이터 요금이 부과될 수 있습니다. 수신을 원하지 않으시면 STOP이라고 답장하세요.
+booker_note: 여기에는 의료 정보를 적지 마세요. 자세한 내용은 전화로 함께 확인하겠습니다.
+book_eval: 평가 예약하기
+# Body map (/where-does-it-hurt/)
+bm_title: 어디가 아프세요?
+bm_seo: "어디가 아프세요? 나에게 맞는 물리치료 찾기 | Mobility PT"
+bm_desc: 아픈 곳을 누르시면 Tustin과 Lake Forest의 저희 물리치료사가 어떻게 도와드릴 수 있는지 보실 수 있습니다. 그다음 예약하시거나 전화 주세요.
+bm_intro: 불편한 곳을 눌러 보세요. 저희가 어떻게 도와드릴 수 있는지, 어떻게 시작하면 되는지 알려 드립니다.
+bm_front: 앞면
+bm_back: 뒷면
+bm_list_label: 또는 목록에서 고르세요
+bm_start: 몸에서 아픈 곳을 누르거나 목록에서 고르시면 저희가 어떻게 도와드릴 수 있는지 보실 수 있습니다.
+bm_common: 이런 문제로 많이 찾아오십니다
+bm_learn: 더 알아보기
+bm_book: 방문 예약하기
+bm_not_sure: 잘 모르시겠거나 여러 곳이 아프신가요? 전화 주시면 다음에 무엇을 하면 좋을지 함께 정해 드리겠습니다.
+bm_safety: "이 페이지는 일반적인 안내이며 진단이 아닙니다. 통증이 갑자기 생겼거나 심한 경우, 또는 넘어지거나 사고를 당해 생긴 경우에는 먼저 의사의 진료를 받으세요. 응급 상황에서는 911에 전화하세요."
+bm_tile_sub: 아픈 곳을 누르고 도움 방법을 확인하세요
+# Strings used by assets/script.js
+js:
+  locale: ko-KR
+  open_now: 지금 진료 중, 오후 7시까지
+  opens_today: 오늘 오전 8시에 문을 엽니다
+  opens_tomorrow: 내일 오전 8시에 문을 엽니다
+  opens_monday: 월요일 오전 8시에 문을 엽니다
+  fill_in: "다음 항목을 입력해 주세요:"
+  demo_sent: "(데모: 아무것도 전송되지 않았습니다.)"
+  thanks: 감사합니다! 요청을 받았습니다.
+  taken: 예약됨
+  book_eval: 평가 예약하기
+  book_visit: 방문 예약하기
+  book_plan: 내 치료 계획 예약하기
+  weeks: 주
+  visit_week_1: "(주당 횟수)"
+  visit_week_n: "(주당 횟수)"
+  pick_more: ({n}개 더 고르세요)
+  pick_days_time: "{n}개 요일과 시간을 고르시면 전체 {total}회 방문을 보실 수 있습니다."
+  pick_day_time_1: 1개 요일과 시간을 고르시면 전체 {total}회 방문을 보실 수 있습니다.
+  plan_summary: "총 {total}회 방문, {from}부터 {to}까지."
+  plan_moved: "{n}회는 가장 가까운 빈 시간으로 옮겼습니다(표시됨)."
+  plan_all: 모두 원하신 시간으로 잡혔습니다.
+  we_will_call: 전화로 안내드립니다
+  pick_day_and_time: 날짜와 시간을 골라 주세요.
+  pick_plan: "{n}개 요일과 시간을 골라 주세요."
+  pick_plan_1: 1개 요일과 시간을 골라 주세요.
+  booked_plan: "{clinic} 클리닉에 치료 계획이 예약되었습니다: {date}부터 총 {total}회 방문. 확인을 위해 문자나 전화를 드리겠습니다. 방문 일정을 바꾸시려면 언제든 전화 주세요."
+  booked_next: "{clinic} 클리닉에 {date} {time}로 예약되었습니다. 그때 뵙겠습니다!"
+  booked_first: "{clinic} 클리닉에 {date} {time}로 예약되었습니다. 보험 확인을 위해 전화드리겠습니다."
+  ins_one: 저희가 받는 플랜입니다
+  ins_many: "일치하는 플랜 {n}개"
+  ins_good: "좋은 소식입니다: {what}. 첫 방문 전에 보장 내용을 확인해 드리겠습니다."
+  ins_none: 목록에서 해당 플랜을 찾지 못했습니다. 전화 주시면 확인해 드립니다. 현금 결제 요금도 있습니다.
+  am: 오전
+  pm: 오후

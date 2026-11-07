@@ -1,0 +1,13 @@
+# Service titles in Vietnamese (machine translation, needs review). Slugs match _data/clinic.yml services.
+- slug: back-neck-pain
+  title: Đau lưng và đau cổ
+- slug: post-surgery-rehab
+  title: Hồi phục sau phẫu thuật
+- slug: joint-pain-sprains-strains
+  title: Đau khớp, bong gân và căng cơ
+- slug: car-accident-injuries
+  title: Chấn thương do tai nạn xe hơi
+- slug: work-injuries
+  title: Chấn thương khi làm việc
+- slug: education-prevention
+  title: Hướng dẫn và phòng ngừa

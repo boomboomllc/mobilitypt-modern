@@ -1,0 +1,102 @@
+# Vietnamese machine translation of en.yml. Needs review by a bilingual staff member before launch.
+title: Phiếu cho buổi hẹn của tôi
+seo_title: "Phiếu cho buổi hẹn: cho chuyên viên trị liệu biết chỗ đau | Mobility PT"
+description: Trả lời vài câu hỏi bằng tiếng Việt, rồi in hoặc đưa ra một phiếu bằng tiếng Anh và tiếng Việt cho buổi vật lý trị liệu.
+intro: Quý vị trả lời vài câu hỏi bằng tiếng Việt. Chúng tôi làm một phiếu bằng tiếng Anh và tiếng Việt để quý vị in ra hoặc đưa xem khi đến hẹn.
+privacy: Riêng tư. Câu trả lời chỉ nằm trên điện thoại hoặc máy tính của quý vị. Không có gì được gửi cho chúng tôi hay được lưu lại.
+name_label: Tên của quý vị (không bắt buộc)
+areas_label: Quý vị đau ở đâu? Chạm vào tất cả chỗ đau.
+other_area: Chỗ khác
+questions:
+  - k: side
+    type: single
+    label: Bên nào?
+    options:
+      - {k: left, l: Bên trái}
+      - {k: right, l: Bên phải}
+      - {k: both, l: Cả hai bên}
+      - {k: middle, l: Ở giữa}
+  - k: pain
+    type: scale
+    label: Bây giờ đau mức nào? (0 = không đau, 10 = đau nhất)
+  - k: how_long
+    type: single
+    label: Quý vị bị đau bao lâu rồi?
+    options:
+      - {k: lt1w, l: Dưới 1 tuần}
+      - {k: 1to4w, l: Từ 1 đến 4 tuần}
+      - {k: 1to3m, l: Từ 1 đến 3 tháng}
+      - {k: gt3m, l: Hơn 3 tháng}
+  - k: start
+    type: single
+    label: Đau bắt đầu như thế nào?
+    options:
+      - {k: fall, l: Bị té hoặc bị thương}
+      - {k: car, l: Tai nạn xe}
+      - {k: work, l: Khi làm việc}
+      - {k: sports, l: Chơi thể thao hoặc tập thể dục}
+      - {k: surgery, l: Sau khi mổ}
+      - {k: slowly, l: Từ từ, theo thời gian}
+      - {k: unsure, l: Không rõ}
+  - k: surgery
+    type: single
+    label: Quý vị đã mổ vì chỗ đau này chưa?
+    options:
+      - {k: "no", l: "Chưa"}
+      - {k: "yes", l: "Đã mổ"}
+      - {k: planned, l: Đã có hẹn mổ}
+  - k: worse
+    type: multi
+    label: Làm gì thì đau hơn?
+    options:
+      - {k: sitting, l: Ngồi}
+      - {k: standing, l: Đứng}
+      - {k: walking, l: Đi bộ}
+      - {k: stairs, l: Lên xuống cầu thang}
+      - {k: bending, l: Cúi người}
+      - {k: lifting, l: Nâng đồ}
+      - {k: overhead, l: Giơ tay lên cao}
+      - {k: sleeping, l: Nằm hoặc ngủ}
+      - {k: driving, l: Lái xe}
+  - k: goals
+    type: multi
+    label: Quý vị muốn làm lại được việc gì?
+    options:
+      - {k: walk, l: Đi bộ xa hơn}
+      - {k: stairs, l: Lên xuống cầu thang}
+      - {k: work, l: Công việc của tôi}
+      - {k: sleep, l: Ngủ ngon}
+      - {k: sports, l: Thể thao hoặc tập thể dục}
+      - {k: family, l: Chăm sóc gia đình hoặc chơi với con cháu}
+      - {k: chores, l: Việc nhà và đi chợ}
+      - {k: drive, l: Lái xe}
+  - k: language
+    type: single
+    label: Quý vị muốn nói chuyện bằng tiếng gì khi đến hẹn?
+    options:
+      - {k: mine, l: Tiếng của tôi}
+      - {k: english, l: Tiếng Anh}
+      - {k: either, l: Tiếng nào cũng được}
+  - k: notes
+    type: text
+    label: Quý vị còn muốn chuyên viên trị liệu biết điều gì khác không?
+    placeholder: Viết bằng tiếng của quý vị.
+translating: Đang dịch ghi chú…
+make: Làm phiếu của tôi
+edit: Sửa câu trả lời
+print: In ra
+show: Hiện trên màn hình
+close: Đóng
+sheet_title: Phiếu của bệnh nhân cho buổi hẹn
+sheet_for: Cho
+sheet_written: Bệnh nhân điền bằng
+sheet_date: Ngày
+sheet_where: Chỗ đau
+sheet_notes_mt: Được dịch trên máy của bệnh nhân. Xin hỏi lại bệnh nhân cho chắc.
+sheet_notes_original: Chưa dịch. Lời của bệnh nhân.
+sheet_footer: Bệnh nhân điền trước buổi hẹn. Không phải hồ sơ y tế.
+none: Không trả lời
+need_area: Xin chạm vào ít nhất một chỗ đau.
+safety: Phiếu này giúp quý vị nói chuyện với chuyên viên trị liệu. Đây không phải là chẩn đoán. Khi khẩn cấp, gọi 911.
+cta_bodymap: Làm phiếu cho buổi hẹn
+cta_bodymap_sub: Trả lời bằng tiếng Việt. In ra bằng tiếng Anh và tiếng Việt.

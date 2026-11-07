@@ -1,0 +1,76 @@
+---
+layout: default
+lang: es
+ref: book
+title: Haga su cita en línea
+seo_title: Haga su cita de terapia física en Tustin o Lake Forest, CA
+description: Haga su cita de terapia física en línea en nuestra clínica de Tustin o de Lake Forest. Reserve su primera visita, su próxima visita o todo su plan de tratamiento.
+heading: Reserve una visita o todo su plan
+intro: Los pacientes nuevos pueden reservar su primera visita. Los pacientes actuales pueden reservar su próxima visita o todas las visitas de su plan a la vez.
+breadcrumbs:
+  - name: Haga su cita en línea
+    url: /es/book/
+---
+{%- assign c = site.data.clinic -%}
+{%- assign t = site.data.i18n.es -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Qué pasa después de hacer su cita</h2>
+      <div class="split-points">
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <div>
+            <h3>Le llamamos para confirmar</h3>
+            <p>Revisamos su seguro y si su plan necesita una referencia o autorización de su médico. Si la necesita, le diremos qué hacer después.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+          <div>
+            <h3>Su evaluación</h3>
+            <p>Su terapeuta le escucha, observa cómo se mueve y habla con usted sobre un plan. Traiga una identificación con foto, su tarjeta del seguro y sus <a href="{{ '/es/new-patients-center/#forms' | relative_url }}">formularios para pacientes nuevos</a>.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+          <div>
+            <h3>Reserve todo su plan</h3>
+            <p>Cuando ya conozca su plan, reserve todas sus visitas a la vez aquí, o las programamos con usted antes de que se vaya. ¿Necesita cambiar una? Solo llámenos.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>¿Prefiere llamar?</h3>
+      <ul class="check-list">
+        {%- for l in c.locations %}
+        <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>{{ l.name }}: <a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a></span></li>
+        {%- endfor %}
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span>{{ t.hours_text }}</span></li>
+      </ul>
+
+      {% include demo.html title="Online booking" does="Patients book a first visit, their next visit or their whole plan of care, day or night, and the front desk sees it right away. Times shown here are samples." needs="A HIPAA-covered scheduler or calendar that signs a BAA, set up with the clinic's real evaluation slots." anchor="booking" %}
+      {% include demo.html title="Text reminders" does="Patients get a text before each visit and can reply to confirm, which can help cut down on missed visits." needs="A HIPAA-covered texting or reminder service with a BAA, plus each patient's OK to receive texts." anchor="reminders" %}
+    </div>
+    <div>
+      {% include booker.html %}
+      <p class="form-note">Este formulario es solo para hacer citas. En una emergencia médica, llame al 911.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>¿Prefiere hablar con alguien?</h2>
+      <p class="lead">Llame a la clínica más cercana. Con gusto contestamos sus preguntas antes de que haga su cita.</p>
+    </div>
+    <div class="locations">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>

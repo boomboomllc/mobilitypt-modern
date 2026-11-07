@@ -2,12 +2,13 @@
 Top of every inner page. Uses front matter: heading (h1, falls back to title), intro, breadcrumbs [{name, url}].
 Optional include params: photo, photo_alt (shows a photo beside the text).
 {%- endcomment -%}
+{%- assign lang = page.lang | default: "en" -%}{%- assign t = site.data.i18n[lang] -%}
 <section class="page-hero">
   <div class="wrap{% if include.photo %} page-hero-grid{% endif %}">
     <div>
       {%- if page.breadcrumbs %}
-      <nav class="crumbs" aria-label="Breadcrumb">
-        <a href="{{ '/' | relative_url }}">Home</a>
+      <nav class="crumbs" aria-label="{{ t.breadcrumb }}">
+        <a href="{{ t.prefix | append: '/' | relative_url }}">{{ t.home }}</a>
         {%- for b in page.breadcrumbs %}
         <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg>
         {%- if b.url and forloop.last == false %}<a href="{{ b.url | relative_url }}">{{ b.name }}</a>{% else %}<span aria-current="page">{{ b.name }}</span>{% endif %}
@@ -18,8 +19,8 @@ Optional include params: photo, photo_alt (shows a photo beside the text).
       {%- if page.intro %}<p class="lead">{{ page.intro }}</p>{% endif %}
       {%- if include.actions %}
       <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book your first visit</a>
-        <a class="btn btn-secondary btn-lg" href="{{ '/locations/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call a clinic</a>
+        <a class="btn btn-primary btn-lg" href="{{ t.prefix | append: '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>{{ t.hero_book_first }}</a>
+        <a class="btn btn-secondary btn-lg" href="{{ t.prefix | append: '/locations/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>{{ t.hero_call_clinic }}</a>
       </div>
       {%- endif %}
     </div>

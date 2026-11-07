@@ -1,0 +1,86 @@
+---
+layout: default
+lang: vi
+ref: home
+seo_title: Vật Lý Trị Liệu tại Tustin và Lake Forest, CA | Mobility Physical Therapy
+description: Vật lý trị liệu chỉnh hình, sau phẫu thuật và cột sống tại Tustin và Lake Forest từ năm 2002. Nhận Medicare Part B, nhiều chương trình PPO và các nhóm y tế địa phương.
+schema_all_locations: true
+---
+{%- assign c = site.data.clinic -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+<section class="hero hero-fast">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>Chữa lành hôm nay, <em>sống khỏe ngày mai.</em></h1>
+        <p class="lead">Vật lý trị liệu chỉnh hình, sau phẫu thuật và cột sống tại Tustin và Lake Forest từ năm {{ c.founded }}.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="{{ '/vi/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Đặt lịch hẹn</a>
+        </div>
+        <div class="hero-phones">
+          {%- for l in c.locations %}
+          <a class="hero-phone" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><small>{{ l.name }}</small>{{ l.phone }}</span></a>
+          {%- endfor %}
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="{{ c.photos.hero }}" alt="Bàn trị liệu cạnh những khung cửa sổ lớn tại phòng khám Lake Forest">
+        <div class="hero-badge">
+          <span class="status" data-status></span>
+          <span>{{ t.hours_short }}</span>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="quick" aria-label="Quý vị cần gì?">
+  <div class="wrap">
+    <div class="tiles">
+      <a class="tile tile-primary" href="{{ '/vi/book/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+        <strong>Đặt lịch hẹn</strong><span>Đặt hẹn trực tuyến hoặc yêu cầu gọi lại</span>
+      </a>
+      <a class="tile" href="{{ '/vi/insurance/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
+        <strong>Bảo hiểm</strong><span>Xem chúng tôi có trong mạng lưới bảo hiểm của quý vị không</span>
+      </a>
+      <a class="tile" href="{{ '/vi/new-patients-center/#forms' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>
+        <strong>Giấy tờ cho bệnh nhân</strong><span>Điền trước khi đến khám</span>
+      </a>
+      <a class="tile" href="{{ '/vi/locations/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+        <strong>Địa điểm</strong><span>Tustin và Lake Forest</span>
+      </a>
+      <a class="tile" href="{{ '/vi/where-does-it-hurt/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg>
+        <strong>Quý vị đau ở đâu?</strong><span>Chạm vào chỗ đau, xem chúng tôi giúp thế nào</span>
+      </a>
+      <a class="tile" href="{{ '/about/meet-our-staff/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>
+        <strong>Gặp gỡ đội ngũ của chúng tôi</strong><span>Tìm hiểu về chúng tôi</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-fast" id="locations">
+  <div class="wrap">
+    <h2 class="fast-h">Hai địa điểm của chúng tôi</h2>
+    <div class="locations locations-compact">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{% include reviews.html limit=3 %}
+
+<section class="ref-strip">
+  <div class="wrap ref-strip-row">
+    <p><strong>Quý vị muốn giới thiệu bệnh nhân?</strong> Gửi fax{% for l in c.locations %} {{ l.name }} {{ l.fax }}{% unless forloop.last %} hoặc{% endunless %}{% endfor %}.</p>
+    <a class="text-link" href="{{ '/physicians/' | relative_url }}">Thông tin dành cho bác sĩ <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>

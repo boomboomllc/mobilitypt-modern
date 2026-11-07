@@ -1,0 +1,24 @@
+{%- comment -%}Simple body outline for the body map. Param: view (front | back).{%- endcomment -%}
+<svg class="bm-svg" viewBox="0 0 200 440" aria-hidden="true" focusable="false">
+  <g class="bm-limbs" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <polyline points="64,82 48,150 38,214"/>
+    <polyline points="136,82 152,150 162,214"/>
+    <polyline points="82,214 80,305 80,398"/>
+    <polyline points="118,214 120,305 120,398"/>
+  </g>
+  <g class="bm-body">
+    <circle cx="100" cy="32" r="23"/>
+    <rect x="89" y="50" width="22" height="22" rx="6"/>
+    <path d="M60,74 Q100,62 140,74 Q146,80 142,96 L134,200 Q132,222 100,224 Q68,222 66,200 L58,96 Q54,80 60,74 Z"/>
+    <ellipse cx="36" cy="230" rx="11" ry="15"/>
+    <ellipse cx="164" cy="230" rx="11" ry="15"/>
+    <ellipse cx="{% if include.view == 'back' %}84{% else %}74{% endif %}" cy="414" rx="16" ry="9"/>
+    <ellipse cx="{% if include.view == 'back' %}116{% else %}126{% endif %}" cy="414" rx="16" ry="9"/>
+  </g>
+  {%- if include.view == 'back' %}
+  <path class="bm-line" d="M100,76 L100,200"/>
+  <path class="bm-line" d="M74,100 Q84,118 96,112 M126,100 Q116,118 104,112"/>
+  {%- else %}
+  <path class="bm-line" d="M76,92 Q100,100 124,92"/>
+  {%- endif %}
+</svg>

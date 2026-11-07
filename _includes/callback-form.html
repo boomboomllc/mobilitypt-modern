@@ -1,28 +1,29 @@
 {%- comment -%}Request-a-call-back form (demo). Contact info only, no medical details. Optional param: clinic (tustin | lake-forest).{%- endcomment -%}
+{%- assign lang = page.lang | default: "en" -%}{%- assign t = site.data.i18n[lang] -%}
 {%- assign c = site.data.clinic -%}
-<form class="demo-form" data-demo-form data-ok="Thanks. We'll call you back during clinic hours." novalidate>
+<form class="demo-form" data-demo-form data-ok="{{ t.callback_ok }}" novalidate>
   <div class="field-row">
-    <label>First name<input name="first" autocomplete="given-name" required></label>
-    <label>Last name<input name="last" autocomplete="family-name" required></label>
+    <label>{{ t.first_name }}<input name="first" autocomplete="given-name" required></label>
+    <label>{{ t.last_name }}<input name="last" autocomplete="family-name" required></label>
   </div>
-  <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+  <label>{{ t.phone }}<input name="phone" type="tel" autocomplete="tel" required></label>
   <fieldset>
-    <legend>Preferred clinic</legend>
+    <legend>{{ t.preferred_clinic }}</legend>
     <div class="choice-row">
       {%- for l in c.locations %}
       <label class="choice"><input type="radio" name="clinic" value="{{ l.name }}"{% if include.clinic == l.key or include.clinic == nil and forloop.first %} checked{% endif %}>{{ l.name }}</label>
       {%- endfor %}
-      <label class="choice"><input type="radio" name="clinic" value="Either">Either</label>
+      <label class="choice"><input type="radio" name="clinic" value="Either">{{ t.either }}</label>
     </div>
   </fieldset>
-  <label>Best time to call
+  <label>{{ t.best_time }}
     <select name="time">
-      <option>Morning</option>
-      <option>Afternoon</option>
-      <option>Evening</option>
+      <option>{{ t.morning }}</option>
+      <option>{{ t.afternoon }}</option>
+      <option>{{ t.evening }}</option>
     </select>
   </label>
-  <p class="form-note">Please don't include medical details here.</p>
-  <button class="btn btn-primary btn-lg" type="submit">Send request</button>
+  <p class="form-note">{{ t.no_medical }}</p>
+  <button class="btn btn-primary btn-lg" type="submit">{{ t.send_request }}</button>
   <p class="form-msg" role="status"></p>
 </form>

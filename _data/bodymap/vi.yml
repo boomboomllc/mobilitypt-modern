@@ -1,0 +1,86 @@
+# Body map areas for /vi/where-does-it-hurt/ (Vietnamese machine translation, needs review).
+# key, view, x, y and links match bodymap/en.yml; only name and common are translated.
+- key: neck
+  name: Cổ
+  view: back
+  x: 50
+  y: 14
+  common:
+    - Đau và cứng cổ
+    - Chấn thương cổ do bị giật mạnh (whiplash) sau tai nạn xe hơi
+    - Nhức đầu bắt nguồn từ cổ, sau khi bác sĩ đã khám cho quý vị
+  links: [back-neck-pain, car-accident-injuries]
+- key: shoulder
+  name: Vai
+  view: front
+  x: 31
+  y: 18
+  common:
+    - Đau và cứng vai, kể cả các vấn đề về gân xoay vai
+    - Chấn thương vai do với tay lên cao hoặc mang vác đồ nặng
+    - Hồi phục sau phẫu thuật vai, chẳng hạn như vá gân xoay vai
+  links: [joint-pain-sprains-strains, post-surgery-rehab, work-injuries]
+- key: upper-back
+  name: Lưng trên và giữa lưng
+  view: back
+  x: 50
+  y: 25
+  common:
+    - Căng cứng và đau giữa lưng, vùng giữa hai bả vai
+  links: [back-neck-pain]
+- key: low-back
+  name: Lưng dưới
+  view: back
+  x: 50
+  y: 41
+  common:
+    - Đau lưng dưới
+    - Chấn thương lưng do nâng đồ nặng khi làm việc
+    - Đau lưng sau tai nạn xe hơi
+  links: [back-neck-pain, work-injuries, car-accident-injuries]
+- key: elbow
+  name: Khuỷu tay
+  view: front
+  x: 24
+  y: 34
+  common:
+    - Đau khuỷu tay do dùng quá nhiều, chẳng hạn như viêm khuỷu tay (tennis elbow)
+    - Căng cơ do làm đi làm lại một động tác trong công việc
+  links: [joint-pain-sprains-strains, work-injuries]
+- key: wrist-hand
+  name: Cổ tay và bàn tay
+  view: front
+  x: 19
+  y: 50
+  common:
+    - Đau cổ tay và bàn tay do dùng quá nhiều
+    - Hồi phục sau phẫu thuật bàn tay hoặc cổ tay, kể cả sau khi bị gãy xương
+  links: [joint-pain-sprains-strains, post-surgery-rehab, work-injuries]
+- key: hip
+  name: Hông
+  view: front
+  x: 40
+  y: 47
+  common:
+    - Đau hông
+    - Hồi phục sau phẫu thuật thay khớp hông
+  links: [joint-pain-sprains-strains, post-surgery-rehab]
+- key: knee
+  name: Đầu gối
+  view: front
+  x: 40
+  y: 69
+  common:
+    - Đau đầu gối, kể cả đau quanh xương bánh chè
+    - Hồi phục sau phẫu thuật thay khớp gối, hoặc phẫu thuật dây chằng chéo trước (ACL) hay sụn chêm
+    - Chấn thương đầu gối do trượt chân, vấp ngã và té ngã
+  links: [joint-pain-sprains-strains, post-surgery-rehab, work-injuries]
+- key: ankle-foot
+  name: Mắt cá chân và bàn chân
+  view: front
+  x: 40
+  y: 91
+  common:
+    - Bong gân mắt cá chân và các loại bong gân dây chằng khác
+    - Hồi phục sau phẫu thuật bàn chân hoặc mắt cá chân, kể cả sau khi bị gãy xương
+  links: [joint-pain-sprains-strains, post-surgery-rehab]

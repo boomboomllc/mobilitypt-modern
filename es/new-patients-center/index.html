@@ -1,0 +1,211 @@
+---
+layout: default
+lang: es
+ref: new-patients-center
+title: Pacientes nuevos
+seo_title: Pacientes nuevos y formularios | Mobility Physical Therapy
+description: ¿Es nuevo en Mobility Physical Therapy? Vea qué traer y qué ponerse, llene sus formularios para pacientes nuevos y encuentre ayuda para cambiar una cita y con sus ejercicios en casa.
+heading: Centro para pacientes nuevos
+intro: Todo lo que necesita para su primera visita, en un solo lugar. Si algo no le queda claro, llame a la clínica y le explicamos paso a paso.
+breadcrumbs:
+  - name: Pacientes nuevos
+    url: /es/new-patients-center/
+faq:
+  - q: ¿Necesito una referencia de mi médico?
+    a: "<p>Depende de su seguro. La ley de California le permite empezar terapia física sin una referencia médica, con ciertos límites. Pero muchos planes de seguro tienen sus propias reglas. Los planes HMO y de grupos médicos normalmente necesitan una referencia y una autorización de su médico antes de su primera visita. Cuando haga su cita, revisamos lo que su plan necesita y le avisamos.</p>"
+  - q: ¿Cuántas visitas voy a necesitar?
+    a: "<p>Es diferente para cada persona. Depende de su lesión o cirugía, sus metas y su seguro. Después de su evaluación, su terapeuta le recomienda un plan de tratamiento y lo habla con usted. Su plan puede cambiar a medida que avanza.</p>"
+  - q: ¿Puedo elegir sesiones individuales o en grupos pequeños?
+    a: "<p>Ofrecemos las dos. A algunos pacientes les va mejor con tiempo individual y enfocado, y a otros les gusta el ánimo de un grupo pequeño. Díganos qué prefiere, y su terapeuta le ayudará a decidir qué es mejor para su tratamiento.</p>"
+  - q: ¿Qué hago si voy a llegar tarde?
+    a: "<p>Por favor, llame lo antes posible a la clínica donde tiene su cita. Le diremos qué opciones tiene para ese día.</p>"
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html actions=true %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Su primera visita, paso a paso</h2>
+      <p class="lead">Desde que hace su cita hasta todo su plan de tratamiento.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <h3>Haga su cita en línea o llame</h3>
+        <p>Elija la clínica más cercana y una hora que le funcione.</p>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <h3>Revisamos su cobertura</h3>
+        <p>Confirmamos su seguro y si su plan necesita una referencia de su médico.</p>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <h3>Su evaluación</h3>
+        <p>Traiga una identificación con foto, su tarjeta del seguro y sus <a href="{{ '/es/new-patients-center/#forms' | relative_url }}">formularios para pacientes nuevos</a>.</p>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <h3>Todo su plan, reservado{% if site.draft %} <span class="ph-tag">Clinic to confirm</span>{% endif %}</h3>
+        <p>Antes de que se vaya, programamos con usted todas sus visitas, para que sus horarios queden guardados y termine bien su plan.</p>
+      </li>
+    </ol>
+    <p><a class="text-link" href="{{ '/resources/first-visit-what-to-expect/' | relative_url }}">Lea más sobre qué esperar en su primera visita <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+  </div>
+</section>
+
+<section class="section section-alt" id="prepare">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Qué traer</h2>
+      <ul class="check-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Una identificación con foto</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Su tarjeta del seguro</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Sus <a href="#forms">formularios para pacientes nuevos</a> ya llenos</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Su calendario, para que programemos juntos sus visitas</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Una lista de los medicamentos que toma{% if site.draft %} <span class="ph-tag">Draft copy</span>{% endif %}</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>La receta o referencia de su médico para terapia física, si la tiene{% if site.draft %} <span class="ph-tag">Draft copy</span>{% endif %}</span></li>
+      </ul>
+      <div class="notice">
+        <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+        <p><strong>Cuánto dura:</strong> <span class="ph-tag">Placeholder</span> Su primera visita dura unos [number] minutos. Por favor, llegue [number] minutos antes para registrarse.</p>
+      </div>
+    </div>
+    <div>
+      <h2>Qué ponerse</h2>
+      {%- if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> para que la clínica lo revise.</p>{% endif %}
+      <p>Use ropa cómoda con la que pueda moverse. Su terapeuta querrá ver cómo se mueve la zona que le duele.</p>
+      <ul class="check-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Para la rodilla, la cadera o el tobillo: shorts o pantalones flojos que se puedan subir fácilmente</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Para el hombro, el cuello o la espalda: una camiseta o una blusa floja</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Zapatos cómodos y firmes, como tenis</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="forms">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Formularios para pacientes nuevos</h2>
+      <p class="lead">Llene sus formularios antes de su visita y pase menos tiempo en la recepción.</p>
+    </div>
+    <div class="split split-top">
+      <div class="panel">
+        <h3>Formularios en línea</h3>
+        <p class="muted">Toma unos minutos. Puede parar y seguir después.</p>
+        <label class="small" for="intake-progress">Paso 1 de 4</label>
+        <progress id="intake-progress" value="1" max="4">Paso 1 de 4</progress>
+        <ol class="check-list">
+          <li><span class="lg-num">1</span><span><strong>Datos personales</strong><br><span class="muted">Nombre, fecha de nacimiento y datos de contacto</span></span></li>
+          <li><span class="lg-num">2</span><span><strong>Seguro</strong><br><span class="muted">Su plan y una foto de su tarjeta</span></span></li>
+          <li><span class="lg-num">3</span><span><strong>Historial de salud</strong><br><span class="muted">Su lesión, cirugías anteriores y medicamentos</span></span></li>
+          <li><span class="lg-num">4</span><span><strong>Consentimiento y firma</strong><br><span class="muted">Revise y firme los formularios de la clínica</span></span></li>
+        </ol>
+        <form class="demo-form" data-demo-form data-ok="Sus formularios seguros se abrirían aquí." novalidate>
+          <button class="btn btn-primary btn-lg" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg>Empezar los formularios en línea</button>
+          <p class="form-msg" role="status"></p>
+        </form>
+      </div>
+      <div>
+        {% include demo.html title="Online intake forms" does="New patients fill out and sign their paperwork on their phone before the first visit. Answers go straight to the clinic, so the front desk doesn't retype them." needs="A HIPAA-compliant e-forms or intake tool that signs a Business Associate Agreement (BAA). Health history must never go through a plain web form or email." anchor="intake" %}
+        <h3>¿Prefiere papel?</h3>
+        <p>Imprima los formularios, llénelos en casa y tráigalos a su primera visita.</p>
+        <p><button class="btn btn-secondary" type="button" disabled><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>Descargar formularios para imprimir (PDF)</button></p>
+        {%- if site.draft %}
+        <p class="muted small"><span class="ph-tag">Placeholder</span> Aquí van los formularios actuales de la clínica para pacientes nuevos (PDF).</p>
+        {%- endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="attendance">
+  <div class="wrap prose">
+    <h2>Por qué importa completar todo su plan</h2>
+    {%- if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> para que la clínica lo revise.</p>{% endif %}
+    <p>La mayor parte del progreso en la terapia física viene del trabajo constante con el tiempo. Cada visita se apoya en la anterior, y venir con regularidad le ayuda a aprovechar su plan al máximo.</p>
+    <p>Por eso reservamos con usted todo su plan en su primera visita, o puede <a href="{{ '/es/book/' | relative_url }}">reservar todas sus visitas en línea</a> a la vez. Sus horarios quedan guardados, y puede mantener su ritmo. Si le surge algo, llámenos y le ayudamos a encontrar otra hora.</p>
+    <div class="notice">
+      <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+      <p><span class="ph-tag">Placeholder</span> Aquí va la política de la clínica sobre cancelaciones y citas perdidas, por ejemplo, con cuánto tiempo avisar cuando necesite cancelar.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="current-patients">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Para pacientes actuales</h2>
+      <p class="lead">Ayuda rápida entre visitas.</p>
+    </div>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>Pedir un cambio de cita</h3>
+        <p>Déjenos sus datos y le llamaremos para buscar otra hora.</p>
+        <form class="demo-form" data-demo-form data-ok="Gracias. Le llamaremos durante el horario de la clínica para buscar otra hora." novalidate>
+          <label>Nombre completo<input name="name" autocomplete="name" required></label>
+          <label>Teléfono<input name="phone" type="tel" autocomplete="tel" required></label>
+          <label>Clínica
+            <select name="clinic">
+              {%- for l in c.locations %}
+              <option>{{ l.name }}</option>
+              {%- endfor %}
+            </select>
+          </label>
+          <fieldset>
+            <legend>Días que le funcionan</legend>
+            <label class="check"><input type="checkbox" name="days" value="Monday"> Lunes</label>
+            <label class="check"><input type="checkbox" name="days" value="Tuesday"> Martes</label>
+            <label class="check"><input type="checkbox" name="days" value="Wednesday"> Miércoles</label>
+            <label class="check"><input type="checkbox" name="days" value="Thursday"> Jueves</label>
+          </fieldset>
+          <p class="form-note">Por favor, no incluya información médica aquí. ¿Necesita cancelar hoy? Por favor, llame a su clínica.</p>
+          <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+          <p class="form-msg" role="status"></p>
+        </form>
+        {% include demo.html title="Reschedule requests" does="Requests land in one shared inbox or task list for the front desk, so nothing gets lost between phone calls." needs="A secure form tool with a signed BAA that sends to the front desk. Even a name and phone from a current patient count as patient information." anchor="callback" %}
+      </div>
+      <div class="card">
+        <h3>Su programa de ejercicios en casa</h3>
+        <p>Vea los ejercicios que le dio su terapeuta, con fotos y videos.</p>
+        <form class="demo-form" data-demo-form data-ok="Su programa de ejercicios se abriría aquí." novalidate>
+          <label>Correo electrónico<input name="email" type="email" autocomplete="email" required></label>
+          <label>Código de acceso que le dio su terapeuta<input name="code" autocomplete="off" required></label>
+          <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg>Abrir mis ejercicios</button>
+          <p class="form-msg" role="status"></p>
+        </form>
+        {% include demo.html title="Home exercise program" does="Patients log in to see their own exercises with videos, and therapists update them after each visit." needs="A home exercise program service the clinic signs up for, with a BAA. This box would link to its patient login." anchor="home-exercise" %}
+      </div>
+      <div class="card">
+        <h3>Pagar una factura</h3>
+        <p>Pague su saldo en línea con el número que aparece en su estado de cuenta.</p>
+        <form class="demo-form" data-demo-form data-ok="Su factura y la página de pago segura se abrirían aquí." novalidate>
+          <label>Número de estado de cuenta<input name="statement" autocomplete="off" required></label>
+          <label>Apellido<input name="last" autocomplete="family-name" required></label>
+          <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-dollar"/></svg>Buscar mi factura</button>
+          <p class="form-msg" role="status"></p>
+        </form>
+        <p class="form-note">¿Preguntas sobre una factura? Llame a la clínica que le atendió.</p>
+        {% include demo.html title="Online bill pay" does="Patients pay a statement online any time, which can cut down on billing calls and mailed checks." needs="The clinic's billing or payment provider's secure payment page. Card details are only ever entered on the provider's page, never on this site." anchor="payments" %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Preguntas de pacientes nuevos</h2>
+    </div>
+    {% include faq.html %}
+    <ul class="link-list">
+      <li><a href="{{ '/resources/do-i-need-a-referral/' | relative_url }}">Más información sobre si necesita una referencia</a></li>
+      <li><a href="{{ '/es/insurance/' | relative_url }}">Planes de seguro con los que trabajamos</a></li>
+      <li><a href="{{ '/services/' | relative_url }}">Condiciones que tratamos</a></li>
+    </ul>
+  </div>
+</section>
+
+{% include cta.html heading="¿Listo para su primera visita?" %}

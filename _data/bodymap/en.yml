@@ -1,0 +1,87 @@
+# Body map areas for /where-does-it-hurt/. "common" lines are copied from the service pages,
+# so this page makes no new claims. Translations live under the language key (es, vi, ko).
+# view: front or back. x/y: hotspot position in percent of that figure.
+- key: neck
+  name: Neck
+  view: back
+  x: 50
+  y: 14
+  common:
+    - Neck pain and stiffness
+    - Whiplash after a car accident
+    - Headaches that start in the neck, once your doctor has checked you
+  links: [back-neck-pain, car-accident-injuries]
+- key: shoulder
+  name: Shoulder
+  view: front
+  x: 31
+  y: 18
+  common:
+    - Shoulder pain and stiffness, including rotator cuff problems
+    - Shoulder injuries from reaching overhead or carrying loads
+    - Recovery after shoulder surgery, such as rotator cuff repair
+  links: [joint-pain-sprains-strains, post-surgery-rehab, work-injuries]
+- key: upper-back
+  name: Upper and mid back
+  view: back
+  x: 50
+  y: 25
+  common:
+    - Mid-back tightness and pain between the shoulder blades
+  links: [back-neck-pain]
+- key: low-back
+  name: Low back
+  view: back
+  x: 50
+  y: 41
+  common:
+    - Low back pain
+    - Back injuries from lifting at work
+    - Back pain after a car accident
+  links: [back-neck-pain, work-injuries, car-accident-injuries]
+- key: elbow
+  name: Elbow
+  view: front
+  x: 24
+  y: 34
+  common:
+    - Elbow pain from overuse, such as tennis elbow
+    - Repetitive strain from work
+  links: [joint-pain-sprains-strains, work-injuries]
+- key: wrist-hand
+  name: Wrist and hand
+  view: front
+  x: 19
+  y: 50
+  common:
+    - Wrist and hand pain from overuse
+    - Recovery after hand or wrist surgery, including after a fracture
+  links: [joint-pain-sprains-strains, post-surgery-rehab, work-injuries]
+- key: hip
+  name: Hip
+  view: front
+  x: 40
+  y: 47
+  common:
+    - Hip pain
+    - Recovery after a hip replacement
+  links: [joint-pain-sprains-strains, post-surgery-rehab]
+- key: knee
+  name: Knee
+  view: front
+  x: 40
+  y: 69
+  common:
+    - Knee pain, including pain around the kneecap
+    - Recovery after a knee replacement, or ACL or meniscus repair
+    - Knee injuries from slips, trips and falls
+  links: [joint-pain-sprains-strains, post-surgery-rehab, work-injuries]
+- key: ankle-foot
+  name: Ankle and foot
+  view: front
+  x: 40
+  y: 91
+  common:
+    - Ankle sprains and other ligament sprains
+    - Recovery after foot or ankle surgery, including after a fracture
+  links: [joint-pain-sprains-strains, post-surgery-rehab]

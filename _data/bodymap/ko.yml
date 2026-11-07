@@ -1,0 +1,86 @@
+# Korean body map areas (machine translation, needs review). Same list as en.yml;
+# key, view, x, y and links are unchanged.
+- key: neck
+  name: 목
+  view: back
+  x: 50
+  y: 14
+  common:
+    - 목 통증과 뻣뻣함
+    - 교통사고 후 목 부상(편타손상)
+    - 목에서 시작되는 두통(의사의 진찰을 받은 후)
+  links: [back-neck-pain, car-accident-injuries]
+- key: shoulder
+  name: 어깨
+  view: front
+  x: 31
+  y: 18
+  common:
+    - 회전근개 문제를 포함한 어깨 통증과 뻣뻣함
+    - 팔을 머리 위로 뻗거나 무거운 것을 들다가 생긴 어깨 부상
+    - 회전근개 봉합술 같은 어깨 수술 후 회복
+  links: [joint-pain-sprains-strains, post-surgery-rehab, work-injuries]
+- key: upper-back
+  name: 등 위쪽과 가운데
+  view: back
+  x: 50
+  y: 25
+  common:
+    - 날개뼈 사이 등 가운데의 뻐근함과 통증
+  links: [back-neck-pain]
+- key: low-back
+  name: 허리
+  view: back
+  x: 50
+  y: 41
+  common:
+    - 허리 통증
+    - 직장에서 물건을 들다가 생긴 허리 부상
+    - 교통사고 후 허리 통증
+  links: [back-neck-pain, work-injuries, car-accident-injuries]
+- key: elbow
+  name: 팔꿈치
+  view: front
+  x: 24
+  y: 34
+  common:
+    - 테니스 엘보처럼 과사용으로 생긴 팔꿈치 통증
+    - 업무 중 반복 동작으로 생긴 무리
+  links: [joint-pain-sprains-strains, work-injuries]
+- key: wrist-hand
+  name: 손목과 손
+  view: front
+  x: 19
+  y: 50
+  common:
+    - 과사용으로 생긴 손목과 손 통증
+    - 골절 후를 포함한 손이나 손목 수술 후 회복
+  links: [joint-pain-sprains-strains, post-surgery-rehab, work-injuries]
+- key: hip
+  name: 고관절
+  view: front
+  x: 40
+  y: 47
+  common:
+    - 고관절 통증
+    - 고관절 인공관절 수술 후 회복
+  links: [joint-pain-sprains-strains, post-surgery-rehab]
+- key: knee
+  name: 무릎
+  view: front
+  x: 40
+  y: 69
+  common:
+    - 무릎뼈 주변 통증을 포함한 무릎 통증
+    - 무릎 인공관절 수술, 전방십자인대(ACL) 또는 반월상연골 수술 후 회복
+    - 미끄러지거나 걸려 넘어져서 생긴 무릎 부상
+  links: [joint-pain-sprains-strains, post-surgery-rehab, work-injuries]
+- key: ankle-foot
+  name: 발목과 발
+  view: front
+  x: 40
+  y: 91
+  common:
+    - 발목 염좌와 기타 인대 염좌
+    - 골절 후를 포함한 발이나 발목 수술 후 회복
+  links: [joint-pain-sprains-strains, post-surgery-rehab]

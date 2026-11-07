@@ -1,0 +1,82 @@
+---
+layout: default
+lang: es
+ref: locations
+title: Ubicaciones
+seo_title: "Ubicaciones en Tustin y Lake Forest, CA | Mobility PT"
+description: Dos clínicas de terapia física en el condado de Orange, en Tustin y Lake Forest. Encuentre direcciones, números de teléfono y fax, horarios y cómo llegar, y vea cuál le queda más cerca.
+heading: Nuestras dos clínicas
+intro: Tenemos clínicas en Tustin y Lake Forest. Las dos ofrecen la misma atención y el mismo horario, así que elija la que le quede más fácil.
+schema_all_locations: true
+breadcrumbs:
+  - name: Ubicaciones
+    url: /es/locations/
+---
+{%- assign c = site.data.clinic -%}
+{%- assign t = site.data.i18n.es -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Direcciones, teléfonos y cómo llegar</h2>
+      <p class="lead">Llame a cualquiera de las dos clínicas para hacer una cita, hacer una pregunta o revisar su seguro.</p>
+    </div>
+    <div class="locations">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+    <div class="notice">
+      <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+      <p><strong>El mismo horario en las dos clínicas.</strong> {{ t.hours_text }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="which-clinic">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>¿Qué clínica le queda más cerca?</h2>
+      <p class="lead">Una guía rápida por zona. Irvine queda entre las dos, así que desde allí cualquiera de las clínicas puede funcionarle bien.</p>
+    </div>
+    <div class="split split-top">
+      {%- for l in c.locations %}
+      <div class="panel">
+        <h3><a href="{{ l.url | relative_url }}">Clínica de {{ l.name }}</a></h3>
+        <p class="muted">{{ l.street }}, {{ l.city }}</p>
+        <p>Le queda cerca si vive en:</p>
+        <ul class="check-list">
+          {%- if l.key == "tustin" %}
+          {%- assign near = "Tustin,Santa Ana,Irvine,Orange,North Tustin" | split: "," %}
+          {%- else %}
+          {%- assign near = "Lake Forest,Mission Viejo,Laguna Hills,Irvine,Rancho Santa Margarita,Foothill Ranch" | split: "," %}
+          {%- endif %}
+          {%- for city in near %}
+          <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>{{ city }}</li>
+          {%- endfor %}
+        </ul>
+        <a class="text-link" href="{{ l.url | relative_url }}">Ver la clínica de {{ l.name }} <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="nearest">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Encuentre la clínica más cercana</h2>
+      <p class="lead">Escriba su código postal y le mostraremos qué clínica le queda más cerca y más o menos cuánto tarda en llegar en auto.</p>
+      {% include demo.html title="Nearest-clinic finder" does="Patients type a ZIP code and see which clinic is closer, with a one-tap link to directions. It could also suggest the clinic in the booking form." needs="A small list of local ZIP codes and their distance to each clinic, built into the site. No outside service or tracking needed." anchor="google-profile" %}
+    </div>
+    <form class="demo-form panel" data-demo-form data-ok="Aquí aparecerían la clínica más cercana y cómo llegar." novalidate>
+      <label>Su código postal<input name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" required></label>
+      <p class="form-note">Solo necesitamos su código postal. Por favor, no incluya información médica.</p>
+      <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>Buscar mi clínica</button>
+      <p class="form-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+{% include cta.html heading="Elija una clínica y haga su primera cita" text="Haga su cita en línea en más o menos un minuto, o llame a la clínica más cercana. Revisaremos su seguro y si necesita una referencia." %}

@@ -1,0 +1,82 @@
+---
+layout: default
+lang: ko
+ref: locations
+title: 위치
+seo_title: "Tustin과 Lake Forest, CA 클리닉 위치 | Mobility PT"
+description: 오렌지카운티의 물리치료 클리닉 두 곳, Tustin과 Lake Forest. 주소, 전화와 팩스 번호, 진료 시간, 길 찾기를 확인하시고 어느 곳이 더 가까운지 알아보세요.
+heading: 두 곳의 클리닉
+intro: Tustin과 Lake Forest에 클리닉이 있습니다. 두 곳 모두 같은 치료를 같은 시간에 제공하니, 가시기 편한 곳을 고르세요.
+schema_all_locations: true
+breadcrumbs:
+  - name: 위치
+    url: /ko/locations/
+---
+{%- assign c = site.data.clinic -%}
+{%- assign t = site.data.i18n.ko -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>주소, 전화번호, 길 찾기</h2>
+      <p class="lead">예약, 문의, 보험 확인은 두 클리닉 어디로든 전화 주세요.</p>
+    </div>
+    <div class="locations">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+    <div class="notice">
+      <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+      <p><strong>두 클리닉의 진료 시간은 같습니다.</strong> {{ t.hours_text }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="which-clinic">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>어느 클리닉이 더 가까우신가요?</h2>
+      <p class="lead">지역별 간단 안내입니다. Irvine은 두 클리닉 사이에 있어서 어느 곳이든 다니기 좋습니다.</p>
+    </div>
+    <div class="split split-top">
+      {%- for l in c.locations %}
+      <div class="panel">
+        <h3><a href="{{ l.url | relative_url }}">{{ l.name }} 클리닉</a></h3>
+        <p class="muted">{{ l.street }}, {{ l.city }}</p>
+        <p>이런 지역에서 가깝습니다:</p>
+        <ul class="check-list">
+          {%- if l.key == "tustin" %}
+          {%- assign near = "Tustin,Santa Ana,Irvine,Orange,North Tustin" | split: "," %}
+          {%- else %}
+          {%- assign near = "Lake Forest,Mission Viejo,Laguna Hills,Irvine,Rancho Santa Margarita,Foothill Ranch" | split: "," %}
+          {%- endif %}
+          {%- for city in near %}
+          <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>{{ city }}</li>
+          {%- endfor %}
+        </ul>
+        <a class="text-link" href="{{ l.url | relative_url }}">{{ l.name }} 클리닉 보기 <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="nearest">
+  <div class="wrap split split-top">
+    <div>
+      <h2>가장 가까운 클리닉 찾기</h2>
+      <p class="lead">우편번호(ZIP 코드)를 입력하시면 어느 클리닉이 더 가까운지, 운전해서 대략 얼마나 걸리는지 알려 드립니다.</p>
+      {% include demo.html title="Nearest-clinic finder" does="Patients type a ZIP code and see which clinic is closer, with a one-tap link to directions. It could also suggest the clinic in the booking form." needs="A small list of local ZIP codes and their distance to each clinic, built into the site. No outside service or tracking needed." anchor="google-profile" %}
+    </div>
+    <form class="demo-form panel" data-demo-form data-ok="더 가까운 클리닉과 길 찾기가 여기에 표시됩니다." novalidate>
+      <label>우편번호(ZIP 코드)<input name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" required></label>
+      <p class="form-note">우편번호만 있으면 됩니다. 의료 정보는 적지 마세요.</p>
+      <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>내 클리닉 찾기</button>
+      <p class="form-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+{% include cta.html heading="클리닉을 고르고 첫 방문을 예약하세요" text="약 1분이면 온라인으로 예약하실 수 있습니다. 가까운 클리닉에 전화하셔도 됩니다. 보험과 의뢰서 필요 여부를 확인해 드립니다." %}

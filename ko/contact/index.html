@@ -1,0 +1,98 @@
+---
+layout: default
+lang: ko
+ref: contact
+title: 문의하기
+seo_title: Mobility Physical Therapy 문의 | Tustin과 Lake Forest, CA
+description: "Tustin 또는 Lake Forest의 Mobility Physical Therapy에 전화, 이메일 또는 방문으로 연락하세요. 주소, 전화와 팩스 번호, 진료 시간, 간단한 전화 요청 방법을 안내합니다."
+heading: 문의하기
+intro: "가까운 클리닉에 전화하시거나, 전화를 요청하시거나, 이메일을 보내 주세요. 기꺼이 도와드리겠습니다."
+breadcrumbs:
+  - name: 문의하기
+    url: /ko/contact/
+schema_all_locations: true
+---
+{%- assign c = site.data.clinic -%}
+{%- assign t = site.data.i18n.ko -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>저희 클리닉</h2>
+      <p class="lead">오렌지카운티에 두 곳이 있습니다. 어느 곳이든 전화 주세요.</p>
+    </div>
+    <div class="locations">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="callback">
+  <div class="wrap split split-top">
+    <div>
+      <h2>전화 요청하기</h2>
+      <p class="lead">성함과 전화번호를 남겨 주시면 진료 시간 중에 전화드리겠습니다.</p>
+      <p>보험, 의뢰서, 예약 또는 방문 시 무엇을 하는지 궁금하실 때 좋습니다.</p>
+      {% include demo.html title="Call-back requests" does="Requests land in the clinic's inbox or front desk screen, so nobody has to wait on hold. Only a name, phone and preferred clinic are collected." needs="A secure form service that signs a HIPAA business associate agreement (BAA), and a front desk routine to call back the same day the clinic is open." anchor="callback" %}
+    </div>
+    <div class="panel">
+      {% include callback-form.html %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split split-top">
+    <div>
+      <h2>이메일 보내기</h2>
+      <p class="lead"><a href="mailto:{{ c.email }}">{{ c.email }}</a></p>
+      <p>일반적인 질문은 이메일이 좋습니다. 예약에 관한 일은 클리닉에 전화하시는 것이 가장 빠릅니다.</p>
+      <div class="notice" role="note">
+        <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
+        <p><strong>의료 정보는 이메일로 보내지 마세요.</strong> 일반 이메일은 건강 정보를 안전하게 주고받는 방법이 아닙니다. 모든 내용은 전화나 직접 만나서 함께 확인하겠습니다.</p>
+      </div>
+      <p class="muted small">응급 상황에서는 911에 전화하세요.</p>
+    </div>
+    <div>
+      <h2>진료 시간</h2>
+      <table class="hours-table">
+        <caption class="sr-only">두 클리닉의 진료 시간</caption>
+        <tbody>
+          <tr><th scope="row">월요일~목요일</th><td>오전 8시~오후 7시</td></tr>
+          <tr><th scope="row">금요일~일요일</th><td>휴무</td></tr>
+        </tbody>
+      </table>
+      <p class="muted">두 클리닉의 진료 시간은 같습니다. 방문은 예약제입니다.</p>
+      <p>팔로우하세요: <a href="{{ c.social.facebook }}" target="_blank" rel="noopener">Facebook</a> &middot; <a href="{{ c.social.instagram }}" target="_blank" rel="noopener">Instagram</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="chat">
+  <div class="wrap split split-top">
+    <div>
+      <h2>궁금하신 점이 있나요? 물어보세요</h2>
+      <p class="lead">자주 묻는 질문에 언제든 빠르게 답해 드립니다.</p>
+      {% include demo.html title="Questions assistant" does="A small chat box that answers general questions using only what's on this website: hours, locations, insurance, referrals and forms. It never asks for health details and hands anything else to the front desk." needs="A chat tool limited to the site's own pages, with a clear notice not to share medical information, reviewed by the clinic before it goes live." anchor="chat" %}
+    </div>
+    <div class="panel" aria-label="채팅 예시 (데모)" role="group">
+      <div class="chat">
+        <p class="chat-msg chat-user"><strong>나:</strong> 금요일에도 문을 여나요?</p>
+        <p class="chat-msg chat-bot"><strong>도우미:</strong> 두 클리닉 모두 {{ t.hours_short }}에 진료하고, 금요일부터 일요일까지는 쉽니다. 그래도 <a href="{{ '/ko/book/' | relative_url }}">온라인 예약</a>은 언제든 하실 수 있습니다.</p>
+        <p class="chat-msg chat-user"><strong>나:</strong> Medicare를 받나요?</p>
+        <p class="chat-msg chat-bot"><strong>도우미:</strong> 네, {{ c.insurance[0] }}를 받습니다. <a href="{{ '/ko/insurance/' | relative_url }}">받는 플랜을 모두 보시거나</a>, 전화 주시면 고객님의 보험을 확인해 드립니다.</p>
+      </div>
+      <form class="demo-form" data-demo-form data-ok="질문해 주셔서 감사합니다." novalidate>
+        <label>질문<input name="question" required placeholder="진료 시간, 보험, 위치에 대해 물어보세요"></label>
+        <p class="form-note">일반적인 질문만 받습니다. 의료 정보는 적지 마세요.</p>
+        <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>질문하기</button>
+        <p class="form-msg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% include cta.html %}

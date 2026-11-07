@@ -1,0 +1,97 @@
+---
+layout: default
+lang: es
+ref: contact
+title: Contáctenos
+seo_title: Contacte a Mobility Physical Therapy | Tustin y Lake Forest, CA
+description: "Llame, escriba o visite Mobility Physical Therapy en Tustin o Lake Forest. Direcciones, números de teléfono y fax, horario y una forma rápida de pedir que le llamemos."
+heading: Contáctenos
+intro: "Llame a la clínica más cercana, pídanos que le llamemos o envíenos un correo electrónico. Con gusto le ayudamos."
+breadcrumbs:
+  - name: Contáctenos
+    url: /es/contact/
+schema_all_locations: true
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Nuestras clínicas</h2>
+      <p class="lead">Dos ubicaciones en el condado de Orange. Llame a cualquiera de las dos.</p>
+    </div>
+    <div class="locations">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="callback">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Pida que le llamemos</h2>
+      <p class="lead">Déjenos su nombre y número y le llamaremos durante el horario de la clínica.</p>
+      <p>Ideal para preguntas sobre seguros, referencias, citas o qué esperar.</p>
+      {% include demo.html title="Call-back requests" does="Requests land in the clinic's inbox or front desk screen, so nobody has to wait on hold. Only a name, phone and preferred clinic are collected." needs="A secure form service that signs a HIPAA business associate agreement (BAA), and a front desk routine to call back the same day the clinic is open." anchor="callback" %}
+    </div>
+    <div class="panel">
+      {% include callback-form.html %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Escríbanos</h2>
+      <p class="lead"><a href="mailto:{{ c.email }}">{{ c.email }}</a></p>
+      <p>El correo electrónico es mejor para preguntas generales. Para cualquier cosa sobre una cita, lo más rápido es llamar a la clínica.</p>
+      <div class="notice" role="note">
+        <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
+        <p><strong>Por favor, no envíe información médica por correo electrónico.</strong> El correo electrónico normal no es una forma segura de compartir datos de salud. Hablaremos de todo con usted por teléfono o en persona.</p>
+      </div>
+      <p class="muted small">Si tiene una emergencia médica, llame al 911.</p>
+    </div>
+    <div>
+      <h2>Horario</h2>
+      <table class="hours-table">
+        <caption class="sr-only">Horario de las dos clínicas</caption>
+        <tbody>
+          <tr><th scope="row">Lunes a jueves</th><td>8 a.m. a 7 p.m.</td></tr>
+          <tr><th scope="row">Viernes a domingo</th><td>Cerrado</td></tr>
+        </tbody>
+      </table>
+      <p class="muted">Las dos clínicas tienen el mismo horario. Las visitas son solo con cita.</p>
+      <p>Síganos: <a href="{{ c.social.facebook }}" target="_blank" rel="noopener">Facebook</a> &middot; <a href="{{ c.social.instagram }}" target="_blank" rel="noopener">Instagram</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="chat">
+  <div class="wrap split split-top">
+    <div>
+      <h2>¿Preguntas? Pregúntenos</h2>
+      <p class="lead">Respuestas rápidas a preguntas comunes, a cualquier hora del día.</p>
+      {% include demo.html title="Questions assistant" does="A small chat box that answers general questions using only what's on this website: hours, locations, insurance, referrals and forms. It never asks for health details and hands anything else to the front desk." needs="A chat tool limited to the site's own pages, with a clear notice not to share medical information, reviewed by the clinic before it goes live." anchor="chat" %}
+    </div>
+    <div class="panel" aria-label="Ejemplo de chat (demo)" role="group">
+      <div class="chat">
+        <p class="chat-msg chat-user"><strong>Usted:</strong> ¿Abren los viernes?</p>
+        <p class="chat-msg chat-bot"><strong>Asistente:</strong> Las dos clínicas abren de lunes a jueves, de 8 a.m. a 7 p.m., y cierran de viernes a domingo. Aun así, puede <a href="{{ '/es/book/' | relative_url }}">hacer su cita en línea</a> a cualquier hora.</p>
+        <p class="chat-msg chat-user"><strong>Usted:</strong> ¿Aceptan Medicare?</p>
+        <p class="chat-msg chat-bot"><strong>Asistente:</strong> Sí, aceptamos {{ c.insurance[0] }}. <a href="{{ '/es/insurance/' | relative_url }}">Vea todos los planes que aceptamos</a>, o llámenos y revisamos el suyo.</p>
+      </div>
+      <form class="demo-form" data-demo-form data-ok="Gracias por su pregunta." novalidate>
+        <label>Su pregunta<input name="question" required placeholder="Pregunte sobre horarios, seguros o ubicaciones"></label>
+        <p class="form-note">Solo preguntas generales. Por favor, no comparta información médica.</p>
+        <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>Preguntar</button>
+        <p class="form-msg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% include cta.html %}

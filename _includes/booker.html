@@ -2,25 +2,26 @@
 Booking widget (demo): book a first visit, a next visit or a whole plan of care online, or request a call back. Use once per page.
 Optional param: clinic (tustin | lake-forest) to preselect a clinic.
 {%- endcomment -%}
+{%- assign lang = page.lang | default: "en" -%}{%- assign t = site.data.i18n[lang] -%}
 {%- assign c = site.data.clinic -%}
 <div class="booker" data-booker>
-  <div class="tabs" role="tablist" aria-label="How to book">
-    <button class="tab is-active" role="tab" id="tab-book" aria-selected="true" aria-controls="book-pane" data-tab="book-pane">Book online</button>
-    <button class="tab" role="tab" id="tab-call" aria-selected="false" aria-controls="call-pane" tabindex="-1" data-tab="call-pane">Request a call back</button>
+  <div class="tabs" role="tablist" aria-label="{{ t.how_to_book }}">
+    <button class="tab is-active" role="tab" id="tab-book" aria-selected="true" aria-controls="book-pane" data-tab="book-pane">{{ t.book_online }}</button>
+    <button class="tab" role="tab" id="tab-call" aria-selected="false" aria-controls="call-pane" tabindex="-1" data-tab="call-pane">{{ t.request_callback }}</button>
   </div>
 
   <div class="pane" id="book-pane" role="tabpanel" aria-labelledby="tab-book">
     <form id="book-form" novalidate>
       <fieldset>
-        <legend><span class="lg-num">1</span>What are you booking?</legend>
+        <legend><span class="lg-num">1</span>{{ t.what_booking }}</legend>
         <div class="choice-row choice-stack">
-          <label class="choice"><input type="radio" name="kind" value="first" checked><span>My first visit<small>New patients: your evaluation</small></span></label>
-          <label class="choice"><input type="radio" name="kind" value="next"><span>My next visit<small>Already a patient</small></span></label>
-          <label class="choice"><input type="radio" name="kind" value="plan"><span>My whole plan<small>All your visits at once</small></span></label>
+          <label class="choice"><input type="radio" name="kind" value="first" checked><span>{{ t.kind_first }}<small>{{ t.kind_first_sub }}</small></span></label>
+          <label class="choice"><input type="radio" name="kind" value="next"><span>{{ t.kind_next }}<small>{{ t.kind_next_sub }}</small></span></label>
+          <label class="choice"><input type="radio" name="kind" value="plan"><span>{{ t.kind_plan }}<small>{{ t.kind_plan_sub }}</small></span></label>
         </div>
       </fieldset>
       <fieldset>
-        <legend><span class="lg-num">2</span>Clinic</legend>
+        <legend><span class="lg-num">2</span>{{ t.clinic }}</legend>
         <div class="choice-row">
           {%- for l in c.locations %}
           <label class="choice"><input type="radio" name="clinic" value="{{ l.name }}"{% if include.clinic == l.key or include.clinic == nil and forloop.first %} checked{% endif %}>{{ l.name }}</label>
@@ -29,43 +30,43 @@ Optional param: clinic (tustin | lake-forest) to preselect a clinic.
       </fieldset>
       <div data-mode="single">
         <fieldset>
-          <legend><span class="lg-num">3</span>Day</legend>
+          <legend><span class="lg-num">3</span>{{ t.day }}</legend>
           <div class="chip-row" id="day-row"></div>
         </fieldset>
         <fieldset>
-          <legend><span class="lg-num">4</span>Time</legend>
-          <div class="chip-grid" id="time-row"><p class="muted small">Pick a day first.</p></div>
+          <legend><span class="lg-num">4</span>{{ t.time }}</legend>
+          <div class="chip-grid" id="time-row"><p class="muted small">{{ t.pick_day_first }}</p></div>
         </fieldset>
       </div>
       <div data-mode="plan" hidden>
         <fieldset>
-          <legend><span class="lg-num">3</span>Your plan</legend>
-          <p class="muted small plan-hint">Your therapist gives you this at your evaluation. Not sure? Pick your best guess and we'll adjust it.</p>
-          <p class="plan-label" id="pl-per">Visits a week</p>
+          <legend><span class="lg-num">3</span>{{ t.your_plan }}</legend>
+          <p class="muted small plan-hint">{{ t.plan_hint }}</p>
+          <p class="plan-label" id="pl-per">{{ t.visits_week }}</p>
           <div class="chip-row" role="group" aria-labelledby="pl-per" id="plan-per"></div>
-          <p class="plan-label" id="pl-weeks">For how many weeks</p>
+          <p class="plan-label" id="pl-weeks">{{ t.how_many_weeks }}</p>
           <div class="chip-row" role="group" aria-labelledby="pl-weeks" id="plan-weeks"></div>
         </fieldset>
         <fieldset>
-          <legend><span class="lg-num">4</span>Days and time</legend>
-          <p class="plan-label" id="pl-days">Which days work for you? <span class="muted" id="plan-days-need"></span></p>
+          <legend><span class="lg-num">4</span>{{ t.days_and_time }}</legend>
+          <p class="plan-label" id="pl-days">{{ t.which_days }} <span class="muted" id="plan-days-need"></span></p>
           <div class="chip-row" role="group" aria-labelledby="pl-days" id="plan-days"></div>
-          <p class="plan-label" id="pl-time">What time?</p>
+          <p class="plan-label" id="pl-time">{{ t.what_time }}</p>
           <div class="chip-grid" role="group" aria-labelledby="pl-time" id="plan-time"></div>
           <div class="plan-list" id="plan-list" aria-live="polite"></div>
         </fieldset>
       </div>
       <fieldset>
-        <legend><span class="lg-num">5</span>Your details</legend>
+        <legend><span class="lg-num">5</span>{{ t.your_details }}</legend>
         <div class="field-row">
-          <label>First name<input name="first" autocomplete="given-name" required></label>
-          <label>Last name<input name="last" autocomplete="family-name" required></label>
+          <label>{{ t.first_name }}<input name="first" autocomplete="given-name" required></label>
+          <label>{{ t.last_name }}<input name="last" autocomplete="family-name" required></label>
         </div>
-        <label>Mobile phone<input name="phone" type="tel" autocomplete="tel" required></label>
-        <label class="check"><input type="checkbox" name="sms"> Text me appointment reminders (optional). Message and data rates may apply. Reply STOP to opt out.</label>
+        <label>{{ t.mobile_phone }}<input name="phone" type="tel" autocomplete="tel" required></label>
+        <label class="check"><input type="checkbox" name="sms"> {{ t.sms_optin }}</label>
       </fieldset>
-      <p class="form-note">Please don't include medical details here. We'll go over everything by phone.</p>
-      <button class="btn btn-primary btn-lg" type="submit" id="book-submit">Book evaluation</button>
+      <p class="form-note">{{ t.booker_note }}</p>
+      <button class="btn btn-primary btn-lg" type="submit" id="book-submit">{{ t.book_eval }}</button>
       <p class="form-msg" id="book-msg" role="status"></p>
     </form>
   </div>

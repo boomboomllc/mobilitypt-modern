@@ -1,0 +1,13 @@
+# Korean service titles (machine translation, needs review). Slugs match _data/clinic.yml.
+- slug: back-neck-pain
+  title: 등·허리와 목 통증
+- slug: post-surgery-rehab
+  title: 수술 후 회복
+- slug: joint-pain-sprains-strains
+  title: 관절 통증, 염좌와 근육 손상
+- slug: car-accident-injuries
+  title: 교통사고 부상
+- slug: work-injuries
+  title: 업무 중 부상
+- slug: education-prevention
+  title: 교육과 예방

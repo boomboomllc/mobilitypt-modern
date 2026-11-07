@@ -1,0 +1,102 @@
+# Korean machine translation of en.yml. Needs review by a bilingual staff member before launch.
+title: 방문 메모지
+seo_title: "방문 메모지: 어디가 아픈지 치료사에게 알려 주세요 | Mobility PT"
+description: 한국어로 몇 가지 질문에 답하고, 물리치료 방문 때 영어와 한국어로 된 메모지를 인쇄하거나 보여 주세요.
+intro: 한국어로 몇 가지 질문에 답해 주세요. 방문 때 인쇄하거나 보여 줄 수 있도록 영어와 한국어로 된 메모지를 만들어 드립니다.
+privacy: 비공개. 답변은 휴대폰이나 컴퓨터에만 남습니다. 저희에게 전송되거나 저장되지 않습니다.
+name_label: 이름 (선택)
+areas_label: 어디가 아프세요? 해당하는 곳을 모두 누르세요.
+other_area: 다른 곳
+questions:
+  - k: side
+    type: single
+    label: 어느 쪽인가요?
+    options:
+      - {k: left, l: 왼쪽}
+      - {k: right, l: 오른쪽}
+      - {k: both, l: 양쪽}
+      - {k: middle, l: 가운데}
+  - k: pain
+    type: scale
+    label: 지금 얼마나 아프세요? (0 = 안 아픔, 10 = 가장 심한 통증)
+  - k: how_long
+    type: single
+    label: 얼마나 오래 아프셨나요?
+    options:
+      - {k: lt1w, l: 1주 미만}
+      - {k: 1to4w, l: 1~4주}
+      - {k: 1to3m, l: 1~3개월}
+      - {k: gt3m, l: 3개월 이상}
+  - k: start
+    type: single
+    label: 어떻게 시작되었나요?
+    options:
+      - {k: fall, l: 넘어지거나 다쳐서}
+      - {k: car, l: 교통사고}
+      - {k: work, l: 일하다가}
+      - {k: sports, l: 운동하다가}
+      - {k: surgery, l: 수술 후}
+      - {k: slowly, l: 서서히 생김}
+      - {k: unsure, l: 잘 모르겠음}
+  - k: surgery
+    type: single
+    label: 이 문제로 수술을 받으셨나요?
+    options:
+      - {k: "no", l: "아니요"}
+      - {k: "yes", l: "예"}
+      - {k: planned, l: 수술 예정}
+  - k: worse
+    type: multi
+    label: 무엇을 하면 더 아프세요?
+    options:
+      - {k: sitting, l: 앉아 있기}
+      - {k: standing, l: 서 있기}
+      - {k: walking, l: 걷기}
+      - {k: stairs, l: 계단}
+      - {k: bending, l: 허리 굽히기}
+      - {k: lifting, l: 물건 들기}
+      - {k: overhead, l: 팔을 머리 위로 올리기}
+      - {k: sleeping, l: 눕거나 잘 때}
+      - {k: driving, l: 운전}
+  - k: goals
+    type: multi
+    label: 다시 하고 싶은 것은 무엇인가요?
+    options:
+      - {k: walk, l: 더 멀리 걷기}
+      - {k: stairs, l: 계단 오르내리기}
+      - {k: work, l: 직장 일}
+      - {k: sleep, l: 편히 자기}
+      - {k: sports, l: 운동}
+      - {k: family, l: 가족 돌보기, 아이들과 놀기}
+      - {k: chores, l: 집안일과 장보기}
+      - {k: drive, l: 운전}
+  - k: language
+    type: single
+    label: 방문 때 어떤 언어로 이야기하고 싶으세요?
+    options:
+      - {k: mine, l: 제 언어}
+      - {k: english, l: 영어}
+      - {k: either, l: 아무거나 괜찮음}
+  - k: notes
+    type: text
+    label: 치료사가 알았으면 하는 다른 내용이 있나요?
+    placeholder: 편한 언어로 쓰세요.
+translating: 메모 번역 중…
+make: 메모지 만들기
+edit: 답변 수정
+print: 인쇄
+show: 화면에 보여 주기
+close: 닫기
+sheet_title: 환자 방문 메모지
+sheet_for: 이름
+sheet_written: 환자가 작성한 언어
+sheet_date: 날짜
+sheet_where: 아픈 곳
+sheet_notes_mt: 환자의 기기에서 번역됨. 환자에게 확인해 주세요.
+sheet_notes_original: 번역 안 됨. 환자가 쓴 그대로.
+sheet_footer: 방문 전에 환자가 작성함. 의료 기록이 아닙니다.
+none: 답 없음
+need_area: 아픈 곳을 한 군데 이상 눌러 주세요.
+safety: 이 메모지는 치료사와 이야기하는 데 도움을 드리기 위한 것입니다. 진단이 아닙니다. 응급 시 911에 전화하세요.
+cta_bodymap: 방문 메모지 만들기
+cta_bodymap_sub: 한국어로 답하세요. 영어와 한국어로 인쇄됩니다.

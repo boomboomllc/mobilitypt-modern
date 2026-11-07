@@ -1,0 +1,32 @@
+---
+layout: default
+---
+{%- comment -%}One recovery guide (files in _recovery_guides/). See _recovery_guides/README.md.{%- endcomment -%}
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="wrap with-aside">
+    <div class="prose">
+      {%- if page.reviewed_by %}
+      <p class="muted small">Reviewed by {{ page.reviewed_by }}{% if page.reviewed_on %} on {{ page.reviewed_on | date: "%B %-d, %Y" }}{% endif %}.</p>
+      {%- endif %}
+      <div class="notice">
+        <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+        <p>This guide is general information. Always follow your own surgeon's instructions. <strong>In an emergency, call 911.</strong></p>
+      </div>
+      {{ content }}
+      <p><a class="text-link" href="{{ '/recovery-guides/' | relative_url }}">All recovery guides <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+    </div>
+
+    <aside class="aside-card" aria-labelledby="aside-h">
+      <h2 id="aside-h">Start your rehab</h2>
+      <p>Have your surgeon's prescription handy. We'll check your coverage first.</p>
+      <a class="btn btn-primary" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book online</a>
+      {%- for l in c.locations %}
+      <a class="btn btn-secondary" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call {{ l.name }} {{ l.phone }}</a>
+      {%- endfor %}
+      <p class="muted small">{{ c.hours_short }}</p>
+    </aside>
+  </div>
+</section>

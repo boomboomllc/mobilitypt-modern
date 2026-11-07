@@ -1,0 +1,47 @@
+---
+layout: default
+title: Recovery guides
+seo_title: "Recovery Guides After Surgery | Mobility Physical Therapy"
+description: Guides from our physical therapists on what to expect while you recover from common orthopedic surgeries.
+heading: Recovery guides
+intro: What to expect while you recover from surgery, from our physical therapists. Always follow your own surgeon's plan.
+breadcrumbs:
+  - name: Patient resources
+    url: /resources/
+  - name: Recovery guides
+    url: /recovery-guides/
+---
+{%- assign c = site.data.clinic -%}
+{%- assign guides = site.recovery_guides | sort: "order" -%}
+{% include page-hero.html %}
+
+<section class="section section-fast">
+  <div class="wrap">
+    {%- if guides.size > 0 %}
+    <div class="cards cards-3">
+      {%- for g in guides %}
+      <a class="card card-link" href="{{ g.url | relative_url }}">
+        <h3>{{ g.title }}</h3>
+        {%- if g.summary %}<p>{{ g.summary }}</p>{% endif %}
+        <span class="card-more">Read the guide <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      {%- endfor %}
+    </div>
+    {%- else %}
+    <div class="empty-state panel">
+      <svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>
+      <h2>Guides are on the way</h2>
+      <p>Our therapists are putting these together. Until then, call either clinic with questions about your recovery.</p>
+      {%- if site.draft %}
+      <p class="muted small"><span class="ph-tag">Placeholder</span> Each guide comes from the clinic's own documents. Add one file per guide in <code>_recovery_guides/</code> (see the README there) and it shows up here on its own.</p>
+      {%- endif %}
+      <div class="cta-actions">
+        {%- for l in c.locations %}
+        <a class="btn btn-secondary" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call {{ l.name }} {{ l.phone }}</a>
+        {%- endfor %}
+      </div>
+    </div>
+    {%- endif %}
+    <p class="muted small">These guides are general information, not medical advice. Always follow your surgeon, doctor or therapist's advice.</p>
+  </div>
+</section>

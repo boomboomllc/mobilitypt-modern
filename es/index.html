@@ -1,0 +1,86 @@
+---
+layout: default
+lang: es
+ref: home
+seo_title: Terapia física en Tustin y Lake Forest, CA | Mobility Physical Therapy
+description: Terapia física ortopédica, después de cirugía y de columna en Tustin y Lake Forest desde 2002. Medicare Parte B, muchos planes PPO y grupos médicos locales.
+schema_all_locations: true
+---
+{%- assign c = site.data.clinic -%}
+{%- assign t = site.data.i18n.es -%}
+<section class="hero hero-fast">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>Sanar hoy, <em>vivir mejor mañana.</em></h1>
+        <p class="lead">Terapia física ortopédica, después de cirugía y de columna en Tustin y Lake Forest desde {{ c.founded }}.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="{{ '/es/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Haga una cita</a>
+        </div>
+        <div class="hero-phones">
+          {%- for l in c.locations %}
+          <a class="hero-phone" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><small>{{ l.name }}</small>{{ l.phone }}</span></a>
+          {%- endfor %}
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="{{ c.photos.hero }}" alt="{{ c.photos.hero_alt }}">
+        <div class="hero-badge">
+          <span class="status" data-status></span>
+          <span>{{ t.hours_short }}</span>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="quick" aria-label="¿Qué necesita?">
+  <div class="wrap">
+    <div class="tiles">
+      <a class="tile tile-primary" href="{{ '/es/book/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+        <strong>Haga una cita</strong><span>En línea o pida que le llamemos</span>
+      </a>
+      <a class="tile" href="{{ '/es/insurance/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
+        <strong>Seguros</strong><span>Vea si estamos en su red</span>
+      </a>
+      <a class="tile" href="{{ '/es/new-patients-center/#forms' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>
+        <strong>Formularios para pacientes</strong><span>Llénelos antes de su visita</span>
+      </a>
+      <a class="tile" href="{{ '/es/locations/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+        <strong>Ubicaciones</strong><span>Tustin y Lake Forest</span>
+      </a>
+      <a class="tile" href="{{ '/es/where-does-it-hurt/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg>
+        <strong>¿Dónde le duele?</strong><span>Toque el lugar y vea cómo ayudamos</span>
+      </a>
+      <a class="tile" href="{{ '/about/meet-our-staff/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>
+        <strong>Conozca a nuestro equipo</strong><span>Sepa quiénes somos</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-fast" id="locations">
+  <div class="wrap">
+    <h2 class="fast-h">Nuestras dos ubicaciones</h2>
+    <div class="locations locations-compact">
+      {%- for l in c.locations %}
+      {% include location-card.html key=l.key %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{% include reviews.html limit=3 %}
+
+<section class="ref-strip">
+  <div class="wrap ref-strip-row">
+    <p><strong>¿Va a referir a un paciente?</strong> Fax{% for l in c.locations %} {{ l.name }} {{ l.fax }}{% unless forloop.last %} o{% endunless %}{% endfor %}.</p>
+    <a class="text-link" href="{{ '/physicians/' | relative_url }}">Información para médicos <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>

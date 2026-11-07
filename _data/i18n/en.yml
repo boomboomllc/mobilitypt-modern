@@ -1,0 +1,148 @@
+# Words used across the site, per language. English (en) is the source.
+# es, vi and ko are machine translations and need review by a bilingual staff member before launch.
+# prefix: where that language's pages live. Pages without a translation link to English.
+lang_name: English
+prefix: ""
+html_lang: en
+skip: Skip to content
+menu_open: Open menu
+menu_close: Close menu
+nav:
+  - [What we treat, /services/]
+  - [New patients, /new-patients-center/]
+  - [Insurance, /insurance/]
+  - [Locations, /locations/]
+  - [About, /about/]
+book_online: Book online
+book: Book
+for_physicians: For physicians
+quick_actions: Quick actions
+home: Home
+opens_new_tab: (opens in a new tab)
+footer_patients: Patients
+footer_serving: Serving Orange County since
+new_patients: New patients
+insurance: Insurance
+patient_resources: Patient resources
+contact_us: Contact us
+where_hurts: Where does it hurt?
+privacy: Privacy and HIPAA notice
+accessibility: Accessibility
+hours_short: Mon to Thu, 8 am to 7 pm
+hours_closed: Fri to Sun, closed
+hours_text: Monday to Thursday, 8 am to 7 pm. Friday to Sunday, closed. By appointment.
+language: Language
+breadcrumb: Breadcrumb
+main_nav: Main
+hero_book_first: Book your first visit
+hero_call_clinic: Call a clinic
+translated_note: ""
+# Location card
+phone: Phone
+fax: Fax
+hours: Hours
+call: Call
+directions: Directions
+directions_to: to
+clinic_details: clinic details
+# Reviews
+patient_stories: Patient stories
+reviews_heading: What our patients are saying
+reviews_note: Shared by our patients. Everyone's recovery is different.
+leave_review: Leave us a review
+# CTA band
+cta_heading: Ready to feel better?
+cta_text: Book your first visit online in about a minute, or call the clinic closest to you.
+# Insurance list
+ins_search_label: Search your insurance plan
+ins_search_placeholder: Type your insurance plan, like Aetna or Medicare
+insurance_note: Don't see your plan? Call us and we'll check. Cash rates are also available.
+# Forms
+first_name: First name
+last_name: Last name
+mobile_phone: Mobile phone
+preferred_clinic: Preferred clinic
+either: Either
+best_time: Best time to call
+morning: Morning
+afternoon: Afternoon
+evening: Evening
+no_medical: Please don't include medical details here.
+send_request: Send request
+callback_ok: Thanks. We'll call you back during clinic hours.
+# Booker
+how_to_book: How to book
+request_callback: Request a call back
+what_booking: What are you booking?
+kind_first: My first visit
+kind_first_sub: "New patients: your evaluation"
+kind_next: My next visit
+kind_next_sub: Already a patient
+kind_plan: My whole plan
+kind_plan_sub: All your visits at once
+clinic: Clinic
+day: Day
+time: Time
+pick_day_first: Pick a day first.
+your_plan: Your plan
+plan_hint: Your therapist gives you this at your evaluation. Not sure? Pick your best guess and we'll adjust it.
+visits_week: Visits a week
+how_many_weeks: For how many weeks
+days_and_time: Days and time
+which_days: Which days work for you?
+what_time: What time?
+your_details: Your details
+sms_optin: Text me appointment reminders (optional). Message and data rates may apply. Reply STOP to opt out.
+booker_note: Please don't include medical details here. We'll go over everything by phone.
+book_eval: Book evaluation
+# Body map (/where-does-it-hurt/)
+bm_title: Where does it hurt?
+bm_seo: "Where Does It Hurt? Find the Right Physical Therapy | Mobility PT"
+bm_desc: Tap the spot that hurts to see how our Tustin and Lake Forest physical therapists can help, then book or call.
+bm_intro: Tap the spot that bothers you. We'll show you how we can help and how to get started.
+bm_front: Front
+bm_back: Back
+bm_list_label: Or pick from the list
+bm_start: Tap a spot on the body, or pick from the list, to see how we can help.
+bm_common: People often come to us for
+bm_learn: Learn more
+bm_book: Book a visit
+bm_not_sure: Not sure, or it hurts in more than one place? Call us and we'll help you figure out the next step.
+bm_safety: "This page is general information, not a diagnosis. If your pain is sudden or severe, or came from a fall or accident, see a doctor first. In an emergency, call 911."
+bm_tile_sub: Tap the spot, see how we help
+# Strings used by assets/script.js
+js:
+  locale: en-US
+  open_now: Open now until 7 pm
+  opens_today: Opens today 8 am
+  opens_tomorrow: Opens tomorrow 8 am
+  opens_monday: Opens Monday 8 am
+  fill_in: "Please fill in:"
+  demo_sent: "(Demo: nothing was sent.)"
+  thanks: Thanks! We received your request.
+  taken: taken
+  book_eval: Book evaluation
+  book_visit: Book visit
+  book_plan: Book my plan
+  weeks: weeks
+  visit_week_1: visit a week
+  visit_week_n: visits a week
+  pick_more: (pick {n} more)
+  pick_days_time: Pick {n} days and a time to see all {total} visits.
+  pick_day_time_1: Pick 1 day and a time to see all {total} visits.
+  plan_summary: "{total} visits, {from} to {to}."
+  plan_moved: "{n} moved to the closest open time (marked)."
+  plan_all: All at your time.
+  we_will_call: We will call
+  pick_day_and_time: Please pick a day and a time.
+  pick_plan: Please pick {n} days and a time.
+  pick_plan_1: Please pick 1 day and a time.
+  booked_plan: "Your plan is booked at our {clinic} clinic: {total} visits starting {date}. We'll text or call to confirm, and you can change any visit by calling us."
+  booked_next: "You're booked at our {clinic} clinic on {date} at {time}. See you then!"
+  booked_first: "You're booked at our {clinic} clinic on {date} at {time}. We'll call to confirm your insurance."
+  ins_one: we work with this plan
+  ins_many: "{n} matching plans"
+  ins_good: "Good news: {what}. We'll confirm your coverage before your first visit."
+  ins_none: We didn't find that plan in our list. Call us and we'll check. Cash rates are also available.
+  am: am
+  pm: pm

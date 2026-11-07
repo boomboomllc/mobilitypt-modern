@@ -1,0 +1,61 @@
+{%- comment -%}"Where does it hurt?" body map. Areas come from _data/bodymap.yml (per language, falls back to English).{%- endcomment -%}
+{%- assign lang = page.lang | default: "en" -%}{%- assign t = site.data.i18n[lang] -%}
+{%- assign c = site.data.clinic -%}
+{%- assign areas = site.data.bodymap[lang] | default: site.data.bodymap.en -%}
+{%- assign svc = site.data.services_i18n[lang] | default: c.services -%}
+<div class="bm" data-bodymap>
+  <div class="bm-figures">
+    {%- assign views = "front,back" | split: "," %}
+    {%- for v in views %}
+    <figure class="bm-fig">
+      <div class="bm-stage">
+        {% include body-figure.html view=v %}
+        {%- for a in areas %}{% if a.view == v %}
+        <a class="bm-dot" href="#area-{{ a.key }}" data-area="{{ a.key }}" style="left:{{ a.x }}%;top:{{ a.y }}%"><span class="sr-only">{{ a.name }}</span><span class="bm-tip" aria-hidden="true">{{ a.name }}</span></a>
+        {%- endif %}{% endfor %}
+      </div>
+      <figcaption>{% if v == "front" %}{{ t.bm_front }}{% else %}{{ t.bm_back }}{% endif %}</figcaption>
+    </figure>
+    {%- endfor %}
+  </div>
+  <div class="bm-side">
+    <p class="bm-list-label" id="bm-list-label">{{ t.bm_list_label }}</p>
+    <div class="chip-row bm-chips" role="group" aria-labelledby="bm-list-label">
+      {%- for a in areas %}
+      <a class="chip" href="#area-{{ a.key }}" data-area="{{ a.key }}">{{ a.name }}</a>
+      {%- endfor %}
+    </div>
+    <p class="bm-start" data-bm-start>{{ t.bm_start }}</p>
+    {%- for a in areas %}
+    <section class="bm-area panel" id="area-{{ a.key }}" tabindex="-1" aria-labelledby="area-{{ a.key }}-h">
+      <h2 id="area-{{ a.key }}-h">{{ a.name }}</h2>
+      <p class="bm-sub">{{ t.bm_common }}:</p>
+      <ul class="check-list">
+        {%- for line in a.common %}
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>{{ line }}</span></li>
+        {%- endfor %}
+      </ul>
+      <p class="bm-sub">{{ t.bm_learn }}:</p>
+      <ul class="link-list">
+        {%- for slug in a.links %}{% assign s = svc | where: "slug", slug | first %}{% assign s_en = c.services | where: "slug", slug | first %}
+        <li><a href="{{ s_en.url | relative_url }}">{{ s.title }}</a></li>
+        {%- endfor %}
+      </ul>
+      <div class="loc-actions">
+        <a class="btn btn-primary" href="{{ t.prefix | append: '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>{{ t.bm_book }}</a>
+        {%- for l in c.locations %}
+        <a class="btn btn-secondary" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>{{ l.name }}</a>
+        {%- endfor %}
+      </div>
+    </section>
+    {%- endfor %}
+    {%- assign sh = site.data.sheet[lang] %}
+    <a class="bm-sheet-cta" href="{{ t.prefix | append: '/visit-sheet/' | relative_url }}">
+      <svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>
+      <span><strong>{{ sh.cta_bodymap }}</strong>{{ sh.cta_bodymap_sub }}</span>
+      <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+    </a>
+    <p class="muted small">{{ t.bm_not_sure }}</p>
+    <p class="form-note">{{ t.bm_safety }}</p>
+  </div>
+</div>

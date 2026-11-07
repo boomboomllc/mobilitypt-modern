@@ -1,0 +1,128 @@
+---
+layout: default
+lang: es
+ref: insurance
+title: Seguros
+seo_title: Seguros que aceptamos | Mobility Physical Therapy
+description: Vea los planes de seguro con los que trabaja Mobility Physical Therapy, como Medicare Parte B, planes PPO, grupos médicos locales, MedPay de auto y compensación laboral.
+heading: Seguros con los que trabajamos
+intro: Trabajamos con Medicare Parte B, muchos planes PPO y grupos médicos locales. Busque su plan abajo, y confirmaremos su cobertura antes de su primera visita.
+breadcrumbs:
+  - name: Seguros
+    url: /es/insurance/
+faq:
+  - q: ¿Aceptan mi seguro?
+    a: "<p>Busque su plan en esta página. Si no lo ve, llame a cualquiera de las dos clínicas y lo revisamos. También tenemos precios para pago en efectivo.</p>"
+  - q: ¿Necesito una referencia si tengo un plan HMO o de grupo médico?
+    a: "<p>Normalmente, sí. Los planes HMO y de grupos médicos muchas veces necesitan una referencia y una autorización de su médico antes de empezar la terapia física. Pida al consultorio de su médico que envíe la referencia a la clínica donde tiene su cita. Le avisaremos si se necesita algo más.</p>"
+  - q: ¿Cuánto voy a pagar por cada visita?
+    a: "<p>Depende de su plan. Los copagos, el coseguro y los deducibles los fija su seguro. Revisaremos sus beneficios y los hablaremos con usted antes de su primera visita.</p>"
+  - q: ¿Puedo venir sin seguro?
+    a: "<p>Sí. Tenemos precios para pago en efectivo. Llame a cualquiera de las dos clínicas para preguntar.</p>"
+  - q: Me lastimé en un accidente de auto. ¿Quién paga?
+    a: "<p>Muchas pólizas de auto incluyen cobertura de pagos médicos, muchas veces llamada MedPay, que puede ayudar a pagar la terapia física. Trabajamos con MedPay de auto de todas las aseguradoras. Traiga su número de reclamo y los datos de contacto de su ajustador a su primera visita.</p>"
+  - q: ¿Tratan lesiones de trabajo?
+    a: "<p>Sí, aceptamos compensación laboral (workers' compensation). Traiga su número de reclamo, el nombre y teléfono de su ajustador de reclamos, y los datos de su empleador a su primera visita.</p>"
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html %}
+
+<section class="section" id="plans">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Planes con los que trabajamos</h2>
+      <p class="lead">Empiece a escribir el nombre de su plan para buscarlo en la lista.</p>
+    </div>
+    {% include insurance-list.html search=true %}
+  </div>
+</section>
+
+<section class="section section-alt" id="check-benefits">
+  <div class="wrap split split-top">
+    <div>
+      <h2>Revisar mis beneficios</h2>
+      <p class="lead">¿No sabe qué cubre su plan? Déjenos su nombre y número, y le llamaremos para explicarle sus beneficios.</p>
+      <ul class="trust">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Aquí no necesita su número de miembro. Se lo pediremos por teléfono.</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Le diremos si su plan necesita una referencia o autorización.</li>
+      </ul>
+      {% include demo.html title="Online benefits check" does="Patients ask for a benefits check from the website, and staff call back with their coverage, copay and referral needs. Later, an eligibility tool could check some plans automatically." needs="A secure form tool with a signed HIPAA business associate agreement (BAA), since a name with an insurance plan is patient information. An automatic eligibility check would need a HIPAA-covered eligibility service, usually through the clinic's billing software." anchor="insurance-check" %}
+    </div>
+    <div class="panel">
+      <form class="demo-form" data-demo-form data-ok="Gracias. Le llamaremos con sus beneficios durante el horario de la clínica." novalidate>
+        <label>Nombre completo<input name="name" autocomplete="name" required></label>
+        <label>Teléfono<input name="phone" type="tel" autocomplete="tel" required></label>
+        <label>Compañía de seguro
+          <select name="insurance" required>
+            <option value="">Elija su plan</option>
+            {%- for i in c.insurance %}
+            <option>{{ i }}</option>
+            {%- endfor %}
+            <option>Otro</option>
+          </select>
+        </label>
+        <p class="form-note">Por favor, no incluya aquí su número de miembro ni información médica.</p>
+        <button class="btn btn-primary btn-lg" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Revisar mis beneficios</button>
+        <p class="form-msg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="billing">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cómo funciona el cobro</h2>
+      <p class="lead">Cada plan es un poco diferente. Esta es la idea general. Confirmaremos los detalles de su plan.</p>
+      {%- if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> para que la clínica lo revise.</p>{% endif %}
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+        <h3>Planes HMO y de grupos médicos</h3>
+        <p>Estos planes muchas veces necesitan una referencia y una autorización de su médico antes de empezar la terapia física. Pida al consultorio de su médico que envíe la referencia a la clínica donde tiene su cita.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+        <h3>Planes PPO</h3>
+        <p>Los planes PPO normalmente no necesitan una referencia. Su copago, coseguro o deducible sí aplica. Revisaremos sus beneficios antes de su primera visita.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+        <h3>Medicare Parte B</h3>
+        <p>Normalmente no necesita una referencia para empezar, pero su médico tendrá que aprobar su plan de tratamiento. Se aplican su deducible y coseguro de la Parte B.</p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg></span>
+        <h3>MedPay de auto después de un accidente</h3>
+        <p>Trabajamos con MedPay de auto de todas las aseguradoras. Traiga su número de reclamo y los datos de contacto de su ajustador. <a href="{{ '/resources/after-a-car-accident/' | relative_url }}">Qué hacer después de un accidente de auto</a></p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+        <h3>Compensación laboral</h3>
+        <p>¿Se lastimó en el trabajo? Traiga su número de reclamo, el nombre y teléfono de su ajustador, y los datos de su empleador. <a href="{{ '/services/work-injuries/' | relative_url }}">Cómo tratamos las lesiones de trabajo</a></p>
+      </div>
+      <div class="feature">
+        <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-dollar"/></svg></span>
+        <h3>Precios para pago en efectivo</h3>
+        <p>¿No tiene seguro, o prefiere pagar usted mismo? Tenemos precios para pago en efectivo. <span class="ph-tag">Placeholder</span> Precio por visita en efectivo: $[amount].</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Preguntas sobre seguros</h2>
+    </div>
+    {% include faq.html %}
+    <ul class="link-list">
+      <li><a href="{{ '/resources/do-i-need-a-referral/' | relative_url }}">¿Necesito una referencia para terapia física?</a></li>
+      <li><a href="{{ '/es/new-patients-center/' | relative_url }}">Cómo prepararse para su primera visita</a></li>
+      <li><a href="{{ '/es/locations/' | relative_url }}">Llame a una clínica</a></li>
+    </ul>
+  </div>
+</section>
+
+{% include cta.html heading="¿Preguntas sobre su cobertura?" text="Haga su cita en línea y revisaremos su seguro antes de su primera visita, o llame a la clínica más cercana." %}

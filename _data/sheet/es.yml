@@ -1,0 +1,102 @@
+# Spanish machine translation of en.yml. Needs review by a bilingual staff member before launch.
+title: Mi hoja para la visita
+seo_title: "Hoja para su visita: diga a su terapeuta dónde le duele | Mobility PT"
+description: Conteste unas preguntas en su idioma e imprima o muestre una hoja en inglés y en español para su visita de terapia física.
+intro: Conteste unas preguntas en su idioma. Hacemos una hoja en inglés y en español que puede imprimir o mostrar en su visita.
+privacy: Privado. Sus respuestas se quedan en su teléfono o computadora. No se nos envía nada ni se guarda.
+name_label: Su nombre (opcional)
+areas_label: ¿Dónde le duele? Toque todas las que correspondan.
+other_area: En otra parte
+questions:
+  - k: side
+    type: single
+    label: ¿De qué lado?
+    options:
+      - {k: left, l: Izquierdo}
+      - {k: right, l: Derecho}
+      - {k: both, l: Los dos lados}
+      - {k: middle, l: En el centro}
+  - k: pain
+    type: scale
+    label: ¿Cuánto le duele ahora? (0 = nada de dolor, 10 = el peor dolor)
+  - k: how_long
+    type: single
+    label: ¿Desde cuándo lo tiene?
+    options:
+      - {k: lt1w, l: Menos de 1 semana}
+      - {k: 1to4w, l: De 1 a 4 semanas}
+      - {k: 1to3m, l: De 1 a 3 meses}
+      - {k: gt3m, l: Más de 3 meses}
+  - k: start
+    type: single
+    label: ¿Cómo empezó?
+    options:
+      - {k: fall, l: Una caída o lesión}
+      - {k: car, l: Un accidente de auto}
+      - {k: work, l: En el trabajo}
+      - {k: sports, l: Deporte o ejercicio}
+      - {k: surgery, l: Después de una cirugía}
+      - {k: slowly, l: Poco a poco, con el tiempo}
+      - {k: unsure, l: No estoy seguro}
+  - k: surgery
+    type: single
+    label: ¿Le han operado por esto?
+    options:
+      - {k: "no", l: "No"}
+      - {k: "yes", l: "Sí"}
+      - {k: planned, l: Tengo una cirugía programada}
+  - k: worse
+    type: multi
+    label: ¿Qué lo empeora?
+    options:
+      - {k: sitting, l: Estar sentado}
+      - {k: standing, l: Estar de pie}
+      - {k: walking, l: Caminar}
+      - {k: stairs, l: Subir o bajar escaleras}
+      - {k: bending, l: Agacharse}
+      - {k: lifting, l: Levantar cosas}
+      - {k: overhead, l: Alzar los brazos}
+      - {k: sleeping, l: Acostarse o dormir}
+      - {k: driving, l: Manejar}
+  - k: goals
+    type: multi
+    label: ¿Qué quiere volver a hacer?
+    options:
+      - {k: walk, l: Caminar más}
+      - {k: stairs, l: Usar escaleras}
+      - {k: work, l: Mi trabajo}
+      - {k: sleep, l: Dormir bien}
+      - {k: sports, l: Deporte o ejercicio}
+      - {k: family, l: Cuidar a mi familia o jugar con los niños}
+      - {k: chores, l: Quehaceres y mandados}
+      - {k: drive, l: Manejar}
+  - k: language
+    type: single
+    label: ¿En qué idioma prefiere hablar en su visita?
+    options:
+      - {k: mine, l: En mi idioma}
+      - {k: english, l: En inglés}
+      - {k: either, l: Cualquiera}
+  - k: notes
+    type: text
+    label: ¿Algo más que quiera que sepa su terapeuta?
+    placeholder: Escriba en su propio idioma.
+translating: Traduciendo su nota…
+make: Hacer mi hoja
+edit: Cambiar mis respuestas
+print: Imprimir
+show: Mostrar en pantalla
+close: Cerrar
+sheet_title: Hoja del paciente para la visita
+sheet_for: Para
+sheet_written: Llenada por el paciente en
+sheet_date: Fecha
+sheet_where: Dónde le duele
+sheet_notes_mt: Traducido en el dispositivo del paciente. Confírmelo con el paciente.
+sheet_notes_original: Sin traducir. Palabras del paciente.
+sheet_footer: Llenada por el paciente antes de la visita. No es un expediente médico.
+none: Sin respuesta
+need_area: Toque por lo menos un lugar donde le duele.
+safety: Esta hoja le ayuda a hablar con su terapeuta. No es un diagnóstico. En una emergencia, llame al 911.
+cta_bodymap: Haga una hoja para su visita
+cta_bodymap_sub: Conteste en su idioma. Imprímala en inglés y en español.

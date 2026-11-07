@@ -1,0 +1,13 @@
+# Spanish service titles (machine translation, needs review). Slugs match _data/clinic.yml.
+- slug: back-neck-pain
+  title: Dolor de espalda y cuello
+- slug: post-surgery-rehab
+  title: Recuperación después de una cirugía
+- slug: joint-pain-sprains-strains
+  title: Dolor de articulaciones, esguinces y torceduras
+- slug: car-accident-injuries
+  title: Lesiones por accidentes de auto
+- slug: work-injuries
+  title: Lesiones de trabajo
+- slug: education-prevention
+  title: Educación y prevención

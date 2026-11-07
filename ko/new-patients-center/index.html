@@ -1,0 +1,211 @@
+---
+layout: default
+lang: ko
+ref: new-patients-center
+title: 신규 환자
+seo_title: 신규 환자 안내 및 서류 | Mobility Physical Therapy
+description: Mobility Physical Therapy가 처음이신가요? 무엇을 가져오고 무엇을 입으면 되는지 확인하시고, 신규 환자 서류를 작성하시고, 예약 변경과 집에서 하는 운동에 대한 도움도 받으세요.
+heading: 신규 환자 센터
+intro: 첫 방문에 필요한 모든 것을 한곳에 모았습니다. 궁금한 점이 있으면 클리닉에 전화 주세요. 차근차근 안내해 드리겠습니다.
+breadcrumbs:
+  - name: 신규 환자
+    url: /ko/new-patients-center/
+faq:
+  - q: 의사의 의뢰서가 필요한가요?
+    a: "<p>보험에 따라 다릅니다. 캘리포니아 법에 따르면 일정한 범위 안에서 의사의 의뢰서 없이도 물리치료를 시작할 수 있습니다. 하지만 많은 보험 플랜에는 자체 규정이 있습니다. HMO와 의료 그룹 플랜은 대개 첫 방문 전에 의사의 의뢰서와 사전 승인이 필요합니다. 예약하실 때 플랜에 무엇이 필요한지 저희가 확인해서 알려 드립니다.</p>"
+  - q: 몇 번 방문해야 하나요?
+    a: "<p>사람마다 다릅니다. 부상이나 수술의 종류, 목표, 보험에 따라 달라집니다. 첫 평가 후 치료사가 치료 계획을 권해 드리고 함께 이야기합니다. 회복 상태에 따라 계획이 바뀔 수도 있습니다.</p>"
+  - q: 1:1 치료나 소그룹 치료를 고를 수 있나요?
+    a: "<p>두 가지 모두 있습니다. 집중적인 1:1 시간이 가장 잘 맞는 환자도 있고, 소그룹의 격려를 좋아하시는 환자도 있습니다. 원하시는 방식을 말씀해 주시면 치료사가 고객님의 치료에 맞는 방식을 함께 정해 드립니다.</p>"
+  - q: 늦을 것 같으면 어떻게 하나요?
+    a: "<p>방문하실 클리닉에 되도록 빨리 전화해 주세요. 그날 가능한 방법을 알려 드리겠습니다.</p>"
+---
+{%- assign c = site.data.clinic -%}
+{% include page-hero.html actions=true %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>첫 방문, 단계별 안내</h2>
+      <p class="lead">예약부터 전체 치료 계획까지.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <h3>온라인으로 예약하시거나 전화하세요</h3>
+        <p>가장 가까운 클리닉과 편한 시간을 고르세요.</p>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <h3>보장 내용을 확인해 드립니다</h3>
+        <p>보험을 확인하고, 플랜에 의사의 의뢰서가 필요한지 알아봅니다.</p>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <h3>첫 평가</h3>
+        <p>사진이 있는 신분증, 보험 카드, <a href="{{ '/ko/new-patients-center/#forms' | relative_url }}">신규 환자 서류</a>를 가져오세요.</p>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <h3>전체 치료 계획 예약 완료{% if site.draft %} <span class="ph-tag">Clinic to confirm</span>{% endif %}</h3>
+        <p>가시기 전에 모든 방문 일정을 함께 잡아 드립니다. 시간이 확보되어 치료 계획을 끝까지 잘 마치실 수 있습니다.</p>
+      </li>
+    </ol>
+    <p><a class="text-link" href="{{ '/resources/first-visit-what-to-expect/' | relative_url }}">첫 방문 때 무엇을 하는지 더 알아보기 <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+  </div>
+</section>
+
+<section class="section section-alt" id="prepare">
+  <div class="wrap split split-top">
+    <div>
+      <h2>가져오실 것</h2>
+      <ul class="check-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>사진이 있는 신분증</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>보험 카드</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>작성을 마친 <a href="#forms">신규 환자 서류</a></span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>함께 방문 일정을 잡을 수 있도록 일정표</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>복용 중인 약 목록{% if site.draft %} <span class="ph-tag">Draft copy</span>{% endif %}</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>의사의 물리치료 처방전이나 의뢰서(있는 경우){% if site.draft %} <span class="ph-tag">Draft copy</span>{% endif %}</span></li>
+      </ul>
+      <div class="notice">
+        <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+        <p><strong>소요 시간:</strong> <span class="ph-tag">Placeholder</span> 첫 방문은 약 [number]분 걸립니다. 접수를 위해 [number]분 일찍 와 주세요.</p>
+      </div>
+    </div>
+    <div>
+      <h2>입고 오실 옷</h2>
+      {%- if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> 클리닉 검토용입니다.</p>{% endif %}
+      <p>움직이기 편한 옷을 입고 오세요. 치료사가 아픈 부위가 어떻게 움직이는지 보아야 합니다.</p>
+      <ul class="check-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>무릎, 고관절, 발목: 반바지나 쉽게 걷어 올릴 수 있는 헐렁한 바지</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>어깨, 목, 등·허리: 티셔츠나 헐렁한 상의</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>운동화처럼 발을 잘 받쳐 주는 신발</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="forms">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>신규 환자 서류</h2>
+      <p class="lead">방문 전에 서류를 작성하시면 접수 시간이 줄어듭니다.</p>
+    </div>
+    <div class="split split-top">
+      <div class="panel">
+        <h3>온라인 서류</h3>
+        <p class="muted">몇 분이면 됩니다. 중간에 멈췄다가 나중에 이어서 하셔도 됩니다.</p>
+        <label class="small" for="intake-progress">4단계 중 1단계</label>
+        <progress id="intake-progress" value="1" max="4">4단계 중 1단계</progress>
+        <ol class="check-list">
+          <li><span class="lg-num">1</span><span><strong>개인 정보</strong><br><span class="muted">이름, 생년월일, 연락처</span></span></li>
+          <li><span class="lg-num">2</span><span><strong>보험</strong><br><span class="muted">보험 플랜과 보험 카드 사진</span></span></li>
+          <li><span class="lg-num">3</span><span><strong>건강 기록</strong><br><span class="muted">부상, 과거 수술, 복용 중인 약</span></span></li>
+          <li><span class="lg-num">4</span><span><strong>동의 및 서명</strong><br><span class="muted">클리닉 서류를 읽고 서명하기</span></span></li>
+        </ol>
+        <form class="demo-form" data-demo-form data-ok="안전한 온라인 서류가 여기에서 열립니다." novalidate>
+          <button class="btn btn-primary btn-lg" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg>온라인 서류 작성 시작</button>
+          <p class="form-msg" role="status"></p>
+        </form>
+      </div>
+      <div>
+        {% include demo.html title="Online intake forms" does="New patients fill out and sign their paperwork on their phone before the first visit. Answers go straight to the clinic, so the front desk doesn't retype them." needs="A HIPAA-compliant e-forms or intake tool that signs a Business Associate Agreement (BAA). Health history must never go through a plain web form or email." anchor="intake" %}
+        <h3>종이 서류가 더 편하신가요?</h3>
+        <p>서류를 인쇄해서 집에서 작성하신 뒤 첫 방문 때 가져오세요.</p>
+        <p><button class="btn btn-secondary" type="button" disabled><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>인쇄용 서류 다운로드 (PDF)</button></p>
+        {%- if site.draft %}
+        <p class="muted small"><span class="ph-tag">Placeholder</span> 클리닉의 현재 신규 환자 서류(PDF)가 여기에 들어갑니다.</p>
+        {%- endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="attendance">
+  <div class="wrap prose">
+    <h2>치료 계획을 끝까지 지키는 것이 중요한 이유</h2>
+    {%- if site.draft %}<p class="muted small"><span class="ph-tag">Draft copy</span> 클리닉 검토용입니다.</p>{% endif %}
+    <p>물리치료의 효과는 대부분 시간을 두고 꾸준히 노력할 때 나타납니다. 매번의 방문이 지난 방문 위에 쌓이고, 규칙적으로 오시면 치료 계획의 효과를 최대한 얻으실 수 있습니다.</p>
+    <p>그래서 첫 방문 때 전체 치료 계획을 함께 예약해 드리며, <a href="{{ '/ko/book/' | relative_url }}">온라인으로 모든 방문을 한 번에 예약</a>하실 수도 있습니다. 시간이 확보되니 꾸준히 이어 가실 수 있습니다. 사정이 생기면 전화 주세요. 새로운 시간을 찾아 드리겠습니다.</p>
+    <div class="notice">
+      <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+      <p><span class="ph-tag">Placeholder</span> 클리닉의 예약 취소 및 불참 규정이 여기에 들어갑니다. 예를 들어 취소하려면 얼마나 미리 알려야 하는지 등입니다.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="current-patients">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>다니고 계신 환자분께</h2>
+      <p class="lead">방문 사이에 필요한 간단한 도움.</p>
+    </div>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>예약 변경 요청</h3>
+        <p>연락처를 남겨 주시면 새로운 시간을 정하기 위해 전화드리겠습니다.</p>
+        <form class="demo-form" data-demo-form data-ok="감사합니다. 진료 시간 중에 전화드려 새로운 시간을 정해 드리겠습니다." novalidate>
+          <label>성함<input name="name" autocomplete="name" required></label>
+          <label>전화번호<input name="phone" type="tel" autocomplete="tel" required></label>
+          <label>클리닉
+            <select name="clinic">
+              {%- for l in c.locations %}
+              <option>{{ l.name }}</option>
+              {%- endfor %}
+            </select>
+          </label>
+          <fieldset>
+            <legend>가능한 요일</legend>
+            <label class="check"><input type="checkbox" name="days" value="Monday"> 월요일</label>
+            <label class="check"><input type="checkbox" name="days" value="Tuesday"> 화요일</label>
+            <label class="check"><input type="checkbox" name="days" value="Wednesday"> 수요일</label>
+            <label class="check"><input type="checkbox" name="days" value="Thursday"> 목요일</label>
+          </fieldset>
+          <p class="form-note">여기에는 의료 정보를 적지 마세요. 오늘 취소하셔야 하나요? 다니시는 클리닉에 전화해 주세요.</p>
+          <button class="btn btn-primary" type="submit">요청 보내기</button>
+          <p class="form-msg" role="status"></p>
+        </form>
+        {% include demo.html title="Reschedule requests" does="Requests land in one shared inbox or task list for the front desk, so nothing gets lost between phone calls." needs="A secure form tool with a signed BAA that sends to the front desk. Even a name and phone from a current patient count as patient information." anchor="callback" %}
+      </div>
+      <div class="card">
+        <h3>집에서 하는 운동 프로그램</h3>
+        <p>치료사가 알려 드린 운동을 사진과 동영상으로 보세요.</p>
+        <form class="demo-form" data-demo-form data-ok="운동 프로그램이 여기에서 열립니다." novalidate>
+          <label>이메일<input name="email" type="email" autocomplete="email" required></label>
+          <label>치료사에게 받은 접속 코드<input name="code" autocomplete="off" required></label>
+          <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg>내 운동 보기</button>
+          <p class="form-msg" role="status"></p>
+        </form>
+        {% include demo.html title="Home exercise program" does="Patients log in to see their own exercises with videos, and therapists update them after each visit." needs="A home exercise program service the clinic signs up for, with a BAA. This box would link to its patient login." anchor="home-exercise" %}
+      </div>
+      <div class="card">
+        <h3>진료비 납부</h3>
+        <p>청구서에 있는 번호로 남은 금액을 온라인으로 납부하세요.</p>
+        <form class="demo-form" data-demo-form data-ok="청구서와 안전한 결제 페이지가 여기에서 열립니다." novalidate>
+          <label>청구서 번호<input name="statement" autocomplete="off" required></label>
+          <label>성<input name="last" autocomplete="family-name" required></label>
+          <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-dollar"/></svg>내 청구서 찾기</button>
+          <p class="form-msg" role="status"></p>
+        </form>
+        <p class="form-note">청구서에 대해 궁금하신 점이 있나요? 치료받으신 클리닉에 전화 주세요.</p>
+        {% include demo.html title="Online bill pay" does="Patients pay a statement online any time, which can cut down on billing calls and mailed checks." needs="The clinic's billing or payment provider's secure payment page. Card details are only ever entered on the provider's page, never on this site." anchor="payments" %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>신규 환자 질문</h2>
+    </div>
+    {% include faq.html %}
+    <ul class="link-list">
+      <li><a href="{{ '/resources/do-i-need-a-referral/' | relative_url }}">의뢰서가 필요한지 더 알아보기</a></li>
+      <li><a href="{{ '/ko/insurance/' | relative_url }}">저희가 받는 보험 플랜</a></li>
+      <li><a href="{{ '/services/' | relative_url }}">치료하는 질환</a></li>
+    </ul>
+  </div>
+</section>
+
+{% include cta.html heading="첫 방문을 준비하셨나요?" %}
