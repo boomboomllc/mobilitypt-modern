@@ -1,0 +1,49 @@
+# Korean machine translation of en.yml. Needs review by a bilingual staff member before launch.
+title: 나의 회복 기록
+seo_title: "물리치료 회복 기록 | Mobility PT"
+description: 무료이고 비공개인 물리치료 기록 도구입니다. 방문할 때마다 기록하고 통증이 줄고 할 수 있는 일이 느는 것을 확인하세요.
+intro: 방문할 때마다 기록하세요. 통증이 줄고 할 수 있는 일이 늘어나는 것을 볼 수 있습니다.
+privacy: 비공개. 이 휴대폰이나 컴퓨터에만 저장됩니다. 저희에게 전송되지 않습니다.
+goal_label: 나의 목표
+goal_placeholder: "예: 강아지와 동네 한 바퀴 걷기"
+goal_save: 목표 저장
+checkin_h: 오늘 기록하기
+pain_q: 오늘 통증은 어느 정도인가요?
+pain_lo: 안 아픔
+pain_hi: 가장 심한 통증
+func_q: 평소 하루 일을 얼마나 할 수 있나요?
+func_lo: 전혀 못 함
+func_hi: 모두 할 수 있음
+save: 오늘 기록 저장
+saved: 저장했습니다. 그래프가 업데이트되었습니다.
+updated: 오늘 기록을 수정했습니다.
+need_both: 두 질문에 모두 답해 주세요.
+chart_h: 나의 회복
+pain: 통증
+func: 할 수 있는 일
+empty: 첫 기록 후에 그래프가 시작됩니다.
+one: 다음 방문 때 다시 기록하면 변화를 볼 수 있습니다.
+pain_down: "통증: {from} → {to}, {date} 이후 {n}점 줄었습니다."
+pain_up: "통증: {from} → {to} ({date} 이후). 치료사에게 알려 주세요."
+pain_same: "통증: {to}, {date}와 같습니다."
+func_up: "할 수 있는 일: {from} → {to}, {date} 이후 {n}점 늘었습니다."
+func_down: "할 수 있는 일: {from} → {to} ({date} 이후). 치료사에게 알려 주세요."
+func_same: "할 수 있는 일: {to}, {date}와 같습니다."
+checkins: "지금까지 {n}번 기록했습니다."
+keep_going: 계속하세요. 치료사가 전체 방문 일정을 하나의 계획으로 세웠기 때문에 끝까지 마치는 것이 중요합니다.
+history_h: 모든 기록
+date: 날짜
+delete: 삭제
+install_h: 홈 화면에 추가하기
+install_text: "iPhone: 공유를 누른 뒤 홈 화면에 추가. Android: 메뉴(⋮)를 누른 뒤 홈 화면에 추가 또는 설치."
+install_btn: 설치
+backup_h: 백업
+backup_text: 기록은 이 기기에만 있습니다. 브라우저 데이터를 지우거나 휴대폰을 바꾸면 사라집니다. 백업 파일을 내려받아 보관하세요.
+backup_download: 백업 내려받기
+backup_restore: 백업 파일에서 복원
+restored: "{n}개의 기록을 복원했습니다."
+bad_file: 그 파일은 회복 기록 백업이 아닙니다.
+clear: 모두 삭제
+clear_confirm: 이 기기에서 모든 기록과 목표를 삭제할까요? 되돌릴 수 없습니다.
+safety: 이 기록은 본인을 위한 것입니다. 의학적 조언이 아닙니다. 통증이 많이 심해지면 치료사나 의사에게 전화하세요. 응급 시 911에 전화하세요.
+footer_link: 나의 회복 기록

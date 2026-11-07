@@ -26,6 +26,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
+{%- if page.app %}
+<link rel="manifest" href="{{ page.url | append: 'manifest.webmanifest' | relative_url }}">
+<meta name="theme-color" content="#1f3488">
+<link rel="apple-touch-icon" href="{{ '/assets/icons/apple-touch-icon.png' | relative_url }}">
+<meta name="apple-mobile-web-app-title" content="{{ site.data.progress[lang].title | escape }}">
+{%- endif %}
 {%- if page.ref %}
 {%- assign versions = site.pages | where: "ref", page.ref %}
 {%- for v in versions %}
@@ -96,6 +102,7 @@
         <a href="{{ t.prefix | append: '/book/' | relative_url }}">{{ t.book_online }}</a><br>
         <a href="{{ t.prefix | append: '/where-does-it-hurt/' | relative_url }}">{{ t.where_hurts }}</a><br>
         <a href="{{ t.prefix | append: '/visit-sheet/' | relative_url }}">{{ site.data.sheet[lang].title }}</a><br>
+        <a href="{{ t.prefix | append: '/my-progress/' | relative_url }}">{{ site.data.progress[lang].footer_link }}</a><br>
         <a href="{{ t.prefix | append: '/new-patients-center/' | relative_url }}">{{ t.new_patients }}</a><br>
         <a href="{{ t.prefix | append: '/insurance/' | relative_url }}">{{ t.insurance }}</a><br>
         <a href="{{ '/resources/' | relative_url }}">{{ t.patient_resources }}</a><br>
@@ -123,5 +130,8 @@
 
 <script>window.T = {{ en.js | jsonify }};{% if lang != "en" %}Object.assign(window.T, {{ t.js | jsonify }});{% endif %}</script>
 <script src="{{ '/assets/script.js' | relative_url }}"></script>
+{%- if page.app %}
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}", { scope: "{{ '/' | relative_url }}" }).catch(() => {});</script>
+{%- endif %}
 </body>
 </html>

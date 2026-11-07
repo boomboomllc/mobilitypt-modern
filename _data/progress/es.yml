@@ -1,0 +1,49 @@
+# Spanish machine translation of en.yml. Needs review by a bilingual staff member before launch.
+title: Mi progreso
+seo_title: "Siga su progreso en terapia física | Mobility PT"
+description: Un registro gratis y privado para su terapia física. Anote cómo se siente en cada visita y vea bajar su dolor y subir lo que puede hacer.
+intro: Anote cómo se siente en cada visita. Vea cómo baja su dolor y sube lo que puede hacer.
+privacy: Privado. Se guarda solo en este teléfono o computadora. No se nos envía nada.
+goal_label: Mi meta
+goal_placeholder: "Por ejemplo: caminar con mi perro alrededor de la cuadra"
+goal_save: Guardar meta
+checkin_h: Anote cómo está hoy
+pain_q: ¿Cuánto le duele hoy?
+pain_lo: Nada de dolor
+pain_hi: El peor dolor
+func_q: ¿Cuánto de su día normal puede hacer?
+func_lo: Nada
+func_hi: Todo
+save: Guardar lo de hoy
+saved: Guardado. Su gráfica está al día.
+updated: Se actualizó lo de hoy.
+need_both: Conteste las dos preguntas, por favor.
+chart_h: Su progreso
+pain: Dolor
+func: Lo que puede hacer
+empty: Su gráfica empieza después de la primera vez que anote.
+one: Vuelva a anotar en su próxima visita para empezar a ver el cambio.
+pain_down: "Dolor: {from} → {to}, {n} puntos menos desde el {date}."
+pain_up: "Dolor: {from} → {to} desde el {date}. Dígaselo a su terapeuta."
+pain_same: "Dolor: {to}, igual que el {date}."
+func_up: "Lo que puede hacer: {from} → {to}, {n} puntos más desde el {date}."
+func_down: "Lo que puede hacer: {from} → {to} desde el {date}. Dígaselo a su terapeuta."
+func_same: "Lo que puede hacer: {to}, igual que el {date}."
+checkins: "{n} registros hasta ahora."
+keep_going: Siga adelante. Su terapeuta planeó sus visitas como un plan completo, así que terminarlo es importante.
+history_h: Todos sus registros
+date: Fecha
+delete: Borrar
+install_h: Póngalo en su pantalla de inicio
+install_text: "En iPhone: toque Compartir y luego Agregar a inicio. En Android: toque el menú (⋮) y luego Agregar a la pantalla principal o Instalar."
+install_btn: Instalar
+backup_h: Copia de seguridad
+backup_text: Sus registros viven solo en este aparato. Si borra su navegador o cambia de teléfono, se pierden. Descargue una copia para guardarlos.
+backup_download: Descargar copia
+backup_restore: Restaurar desde una copia
+restored: "Se restauraron {n} registros."
+bad_file: Ese archivo no es una copia de su progreso.
+clear: Borrar todo
+clear_confirm: ¿Borrar todos sus registros y su meta de este aparato? No se puede deshacer.
+safety: Este registro es para usted. No es consejo médico. Si su dolor empeora mucho, llame a su terapeuta o doctor. En una emergencia, llame al 911.
+footer_link: Mi progreso

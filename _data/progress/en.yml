@@ -1,0 +1,49 @@
+# "My progress" tracker (/my-progress/). Everything is saved only in the patient's own browser.
+title: My progress
+seo_title: "Track Your Physical Therapy Progress | Mobility PT"
+description: A free, private tracker for your physical therapy. Check in at each visit and watch your pain go down and your activity go up.
+intro: Check in at each visit. Watch your pain go down and what you can do go up.
+privacy: Private. Saved only on this phone or computer. Nothing is sent to us.
+goal_label: My goal
+goal_placeholder: "For example: walk my dog around the block"
+goal_save: Save goal
+checkin_h: Check in today
+pain_q: How bad is your pain today?
+pain_lo: No pain
+pain_hi: Worst pain
+func_q: How much of your normal day can you do?
+func_lo: Nothing
+func_hi: Everything
+save: Save today's check-in
+saved: Saved. Your chart is updated.
+updated: Today's check-in was updated.
+need_both: Please answer both questions.
+chart_h: Your progress
+pain: Pain
+func: What you can do
+empty: Your chart starts after your first check-in.
+one: Check in again at your next visit to start seeing a trend.
+pain_down: "Pain: {from} → {to}, {n} points less since {date}."
+pain_up: "Pain: {from} → {to} since {date}. Tell your therapist."
+pain_same: "Pain: {to}, same as {date}."
+func_up: "What you can do: {from} → {to}, {n} points more since {date}."
+func_down: "What you can do: {from} → {to} since {date}. Tell your therapist."
+func_same: "What you can do: {to}, same as {date}."
+checkins: "{n} check-ins so far."
+keep_going: Keep going. Your therapist planned your visits as a full set, so finishing your plan matters.
+history_h: All check-ins
+date: Date
+delete: Delete
+install_h: Put it on your home screen
+install_text: "On iPhone: tap Share, then Add to Home Screen. On Android: tap the menu (⋮), then Add to Home screen or Install."
+install_btn: Install
+backup_h: Backup
+backup_text: Your check-ins live only on this device. If you clear your browser or get a new phone, they're gone. Download a backup file to keep them.
+backup_download: Download backup
+backup_restore: Restore from a backup file
+restored: "Restored {n} check-ins."
+bad_file: That file isn't a progress backup.
+clear: Delete everything
+clear_confirm: Delete all your check-ins and your goal from this device? This can't be undone.
+safety: This tracker is for you. It is not medical advice. If your pain gets much worse, call your therapist or doctor. In an emergency, call 911.
+footer_link: My progress

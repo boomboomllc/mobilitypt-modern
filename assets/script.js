@@ -465,3 +465,151 @@ if (sheetBox) {
     dialog.showModal();
   });
 }
+
+// "My progress" tracker: check-ins live only in this browser (localStorage). Nothing is sent.
+const pgBox = document.querySelector('[data-progress]');
+if (pgBox) {
+  const P = JSON.parse(document.getElementById('pg-data').textContent);
+  const KEY = 'mobilitypt-progress-v1';
+  const L = T.locale || 'en-US';
+  const tfp = (s, v) => s.replace(/\{(\w+)\}/g, (_, k) => v[k]);
+  const load = () => {
+    try { const d = JSON.parse(localStorage.getItem(KEY)); if (d && Array.isArray(d.entries)) return d; } catch (e) { /* storage blocked */ }
+    return { goal: '', entries: [] };
+  };
+  let data = load();
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) { /* storage blocked */ } };
+  const todayKey = () => { const n = pacificNow(); return `${n.y}-${String(n.m).padStart(2, '0')}-${String(n.d).padStart(2, '0')}`; };
+  const fmt = (k, long) => new Date(`${k}T12:00:00Z`).toLocaleDateString(L, long ? { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' } : { month: 'short', day: 'numeric', timeZone: 'UTC' });
+  const esc = (x) => String(x).replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+
+  const chart = () => {
+    const box = document.getElementById('pg-chart');
+    const e = data.entries;
+    if (!e.length) { box.innerHTML = `<p class="pg-empty">${esc(P.empty)}</p>`; return; }
+    const small = matchMedia('(max-width: 600px)').matches;
+    const W = 600, H = small ? 340 : 280, l = small ? 40 : 34, r = small ? 30 : 16, t = 14, b = small ? 44 : 34;
+    const x = (i) => (e.length === 1 ? (l + W - r) / 2 : l + (i * (W - l - r)) / (e.length - 1));
+    const y = (v) => t + ((10 - v) * (H - t - b)) / 10;
+    const grid = [0, 2, 4, 6, 8, 10].map((v) => `<line x1="${l}" x2="${W - r}" y1="${y(v)}" y2="${y(v)}" class="pg-gl"/><text x="${l - 8}" y="${y(v) + 4}" class="pg-ax" text-anchor="end">${v}</text>`).join('');
+    const line = (k, cls) => `<polyline class="${cls}" points="${e.map((d, i) => `${x(i)},${y(d[k])}`).join(' ')}"/>${e.map((d, i) => `<circle class="${cls}-dot" cx="${x(i)}" cy="${y(d[k])}" r="5"/>`).join('')}`;
+    const step = Math.max(1, Math.ceil(e.length / (small ? 4 : 6)));
+    const labels = e.map((d, i) => (((i % step === 0 && e.length - 1 - i >= step) || i === e.length - 1) ? `<text x="${x(i)}" y="${H - 10}" class="pg-ax" text-anchor="middle">${esc(fmt(d.d))}</text>` : '')).join('');
+    const desc = `${P.pain}: ${e.map((d) => d.pain).join(', ')}. ${P.func}: ${e.map((d) => d.func).join(', ')}.`;
+    box.innerHTML = `<svg class="pg-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(P.chart_h)}. ${esc(desc)}">${grid}${line('pain', 'pg-pain')}${line('func', 'pg-func')}${labels}</svg>`;
+  };
+
+  const summary = () => {
+    const e = data.entries;
+    const el = document.getElementById('pg-summary');
+    if (e.length < 2) { el.innerHTML = e.length ? `<p>${esc(P.one)}</p>` : ''; return; }
+    const a = e[0], z = e[e.length - 1];
+    const date = fmt(a.d, true);
+    const pk = z.pain < a.pain ? 'pain_down' : (z.pain > a.pain ? 'pain_up' : 'pain_same');
+    const fk = z.func > a.func ? 'func_up' : (z.func < a.func ? 'func_down' : 'func_same');
+    el.innerHTML = `
+      <p class="pg-stat ${pk === 'pain_down' ? 'good' : ''}">${esc(tfp(P[pk], { from: a.pain, to: z.pain, n: Math.abs(a.pain - z.pain), date }))}</p>
+      <p class="pg-stat ${fk === 'func_up' ? 'good' : ''}">${esc(tfp(P[fk], { from: a.func, to: z.func, n: Math.abs(z.func - a.func), date }))}</p>
+      <p>${esc(tfp(P.checkins, { n: e.length }))} ${esc(P.keep_going)}</p>`;
+  };
+
+  const rows = () => {
+    const tb = document.getElementById('pg-rows');
+    tb.innerHTML = data.entries.slice().reverse().map((d) => `<tr><td>${esc(fmt(d.d, true))}</td><td>${d.pain}</td><td>${d.func}</td><td><button class="btn-link" type="button" data-del="${d.d}">${esc(P.delete)}</button></td></tr>`).join('');
+    document.getElementById('pg-history-box').hidden = !data.entries.length;
+  };
+
+  const goalShow = () => {
+    const g = document.getElementById('pg-goal-show');
+    g.hidden = !data.goal;
+    g.innerHTML = data.goal ? `<strong>${esc(P.goal_label)}:</strong> ${esc(data.goal)}` : '';
+    document.querySelector('#pg-goal [name=goal]').value = data.goal || '';
+  };
+
+  const render = () => { chart(); summary(); rows(); goalShow(); };
+
+  // Prefill today's answers if already checked in
+  const prefill = () => {
+    const today = data.entries.find((d) => d.d === todayKey());
+    if (!today) return;
+    pgBox.querySelector(`#pg-form input[name=pain][value="${today.pain}"]`).checked = true;
+    pgBox.querySelector(`#pg-form input[name=func][value="${today.func}"]`).checked = true;
+  };
+
+  document.getElementById('pg-form').addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const fd = new FormData(ev.target);
+    const msg = document.getElementById('pg-msg');
+    msg.classList.remove('ok');
+    if (fd.get('pain') === null || fd.get('func') === null) { msg.textContent = P.need_both; return; }
+    const entry = { d: todayKey(), pain: Number(fd.get('pain')), func: Number(fd.get('func')) };
+    const i = data.entries.findIndex((d) => d.d === entry.d);
+    if (i >= 0) data.entries[i] = entry; else data.entries.push(entry);
+    data.entries.sort((p, q) => p.d.localeCompare(q.d));
+    save();
+    render();
+    msg.classList.add('ok');
+    msg.textContent = i >= 0 ? P.updated : P.saved;
+  });
+
+  document.getElementById('pg-goal').addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    data.goal = new FormData(ev.target).get('goal').trim().slice(0, 200);
+    save();
+    goalShow();
+  });
+
+  document.getElementById('pg-rows').addEventListener('click', (ev) => {
+    const b = ev.target.closest('[data-del]');
+    if (!b) return;
+    data.entries = data.entries.filter((d) => d.d !== b.dataset.del);
+    save();
+    render();
+  });
+
+  // Backup: download / restore a small JSON file (stays with the patient)
+  const bmsg = document.getElementById('pg-backup-msg');
+  document.getElementById('pg-download').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify({ app: 'mobilitypt-progress', v: 1, ...data }, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `my-progress-${todayKey()}.json`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+  document.getElementById('pg-restore').addEventListener('change', async (ev) => {
+    const file = ev.target.files[0];
+    ev.target.value = '';
+    bmsg.classList.remove('ok');
+    if (!file) return;
+    try {
+      const d = JSON.parse(await file.text());
+      const ok = d && d.app === 'mobilitypt-progress' && Array.isArray(d.entries)
+        && d.entries.every((x) => /^\d{4}-\d\d-\d\d$/.test(x.d) && Number.isInteger(x.pain) && Number.isInteger(x.func) && x.pain >= 0 && x.pain <= 10 && x.func >= 0 && x.func <= 10);
+      if (!ok) throw new Error('bad');
+      const byDay = new Map(data.entries.map((x) => [x.d, x]));
+      d.entries.forEach((x) => byDay.set(x.d, { d: x.d, pain: x.pain, func: x.func }));
+      data = { goal: typeof d.goal === 'string' && d.goal ? d.goal.slice(0, 200) : data.goal, entries: [...byDay.values()].sort((p, q) => p.d.localeCompare(q.d)) };
+      save();
+      render();
+      bmsg.classList.add('ok');
+      bmsg.textContent = tfp(P.restored, { n: d.entries.length });
+    } catch (e) { bmsg.textContent = P.bad_file; }
+  });
+  document.getElementById('pg-clear').addEventListener('click', () => {
+    if (!window.confirm(P.clear_confirm)) return;
+    data = { goal: '', entries: [] };
+    save();
+    pgBox.querySelectorAll('#pg-form input').forEach((i) => { i.checked = false; });
+    render();
+  });
+
+  // Install button where the browser supports it (Chrome / Android); iPhone uses Share > Add to Home Screen
+  let installEvt = null;
+  const installBtn = document.getElementById('pg-install');
+  window.addEventListener('beforeinstallprompt', (ev) => { ev.preventDefault(); installEvt = ev; installBtn.hidden = false; });
+  installBtn.addEventListener('click', async () => { if (!installEvt) return; installEvt.prompt(); await installEvt.userChoice; installEvt = null; installBtn.hidden = true; });
+
+  render();
+  prefill();
+}

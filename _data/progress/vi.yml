@@ -1,0 +1,49 @@
+# Vietnamese machine translation of en.yml. Needs review by a bilingual staff member before launch.
+title: Tiến triển của tôi
+seo_title: "Theo dõi tiến triển vật lý trị liệu | Mobility PT"
+description: Công cụ miễn phí và riêng tư cho việc vật lý trị liệu. Ghi lại mỗi lần đến hẹn và xem cơn đau giảm, việc làm được tăng lên.
+intro: Ghi lại mỗi lần đến hẹn. Xem cơn đau giảm xuống và những việc quý vị làm được tăng lên.
+privacy: Riêng tư. Chỉ lưu trên điện thoại hoặc máy tính này. Không có gì được gửi cho chúng tôi.
+goal_label: Mục tiêu của tôi
+goal_placeholder: "Ví dụ: dắt chó đi một vòng quanh khu phố"
+goal_save: Lưu mục tiêu
+checkin_h: Ghi lại hôm nay
+pain_q: Hôm nay quý vị đau mức nào?
+pain_lo: Không đau
+pain_hi: Đau nhất
+func_q: Quý vị làm được bao nhiêu việc thường ngày?
+func_lo: Không được gì
+func_hi: Làm được hết
+save: Lưu ghi chép hôm nay
+saved: Đã lưu. Biểu đồ đã được cập nhật.
+updated: Đã cập nhật ghi chép hôm nay.
+need_both: Xin trả lời cả hai câu hỏi.
+chart_h: Tiến triển của quý vị
+pain: Đau
+func: Việc làm được
+empty: Biểu đồ sẽ bắt đầu sau lần ghi đầu tiên.
+one: Hãy ghi lại ở lần hẹn tới để bắt đầu thấy sự thay đổi.
+pain_down: "Đau: {from} → {to}, giảm {n} điểm từ ngày {date}."
+pain_up: "Đau: {from} → {to} từ ngày {date}. Xin báo cho chuyên viên trị liệu."
+pain_same: "Đau: {to}, giống như ngày {date}."
+func_up: "Việc làm được: {from} → {to}, tăng {n} điểm từ ngày {date}."
+func_down: "Việc làm được: {from} → {to} từ ngày {date}. Xin báo cho chuyên viên trị liệu."
+func_same: "Việc làm được: {to}, giống như ngày {date}."
+checkins: "Đã ghi {n} lần."
+keep_going: Hãy tiếp tục. Chuyên viên trị liệu đã lên kế hoạch các buổi hẹn thành một liệu trình trọn vẹn, nên đi cho hết liệu trình rất quan trọng.
+history_h: Tất cả các lần ghi
+date: Ngày
+delete: Xóa
+install_h: Đưa ra màn hình chính
+install_text: "Trên iPhone: chạm Chia sẻ, rồi Thêm vào MH chính. Trên Android: chạm menu (⋮), rồi Thêm vào màn hình chính hoặc Cài đặt."
+install_btn: Cài đặt
+backup_h: Bản sao lưu
+backup_text: Các lần ghi chỉ nằm trên máy này. Nếu xóa dữ liệu trình duyệt hoặc đổi điện thoại, chúng sẽ mất. Hãy tải bản sao lưu về để giữ lại.
+backup_download: Tải bản sao lưu
+backup_restore: Khôi phục từ bản sao lưu
+restored: "Đã khôi phục {n} lần ghi."
+bad_file: Tập tin đó không phải là bản sao lưu tiến triển.
+clear: Xóa hết
+clear_confirm: Xóa tất cả các lần ghi và mục tiêu khỏi máy này? Không thể hoàn tác.
+safety: Công cụ này dành cho quý vị. Đây không phải lời khuyên y tế. Nếu đau nặng hơn nhiều, hãy gọi chuyên viên trị liệu hoặc bác sĩ. Khi khẩn cấp, gọi 911.
+footer_link: Tiến triển của tôi

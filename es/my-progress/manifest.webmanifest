@@ -1,0 +1,20 @@
+---
+layout: null
+sitemap: false
+---
+{%- assign p = site.data.progress.es -%}
+{
+  "name": {{ p.title | prepend: "Mobility PT: " | jsonify }},
+  "short_name": {{ p.title | jsonify }},
+  "lang": "es",
+  "start_url": "{{ '/es/my-progress/' | relative_url }}",
+  "scope": "{{ '/' | relative_url }}",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1f3488",
+  "icons": [
+    { "src": "{{ '/assets/icons/icon-192.png' | relative_url }}", "sizes": "192x192", "type": "image/png" },
+    { "src": "{{ '/assets/icons/icon-512.png' | relative_url }}", "sizes": "512x512", "type": "image/png" },
+    { "src": "{{ '/assets/icons/icon-maskable-512.png' | relative_url }}", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
