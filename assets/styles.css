@@ -792,3 +792,19 @@ progress::-moz-progress-bar { background: var(--navy); }
   .locations-compact .loc-img { display: none; }
   .reviews { padding: 44px 0; }
 }
+
+/* Booking: first visit, next visit or whole plan */
+.choice-stack { display: grid; grid-template-columns: 1fr; }
+.pane .choice-stack .choice { padding: 10px 14px; align-items: flex-start; line-height: 1.3; }
+.choice-stack .choice input { margin-top: 2px; flex: none; }
+.choice-stack .choice small { display: block; font-weight: 400; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.plan-hint { margin: -4px 0 12px; }
+.plan-label { font-weight: 500; font-size: 14.5px; margin: 14px 0 8px; }
+.plan-label:first-of-type { margin-top: 0; }
+.plan-list { margin-top: 16px; }
+.plan-sum { font-size: 14.5px; margin: 0 0 8px; }
+.plan-visits { list-style: none; margin: 0; padding: 0; max-height: 220px; overflow-y: auto; border: 1px solid var(--border); border-radius: var(--radius-sm); }
+.plan-visits li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 12px; font-size: 14px; border-top: 1px solid var(--border); }
+.plan-visits li:first-child { border-top: 0; }
+.plan-visits li.moved { background: var(--alt); }
+.plan-hint + .plan-label { margin-top: 0; }

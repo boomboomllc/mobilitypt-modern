@@ -96,78 +96,161 @@ document.querySelectorAll('.tab').forEach((tab) => {
   });
 });
 
-// Booking demo: sample openings for the next 8 clinic days
+// Booking demo: a first visit, a next visit, or a whole plan of care. Openings are samples.
 const bookForm = document.getElementById('book-form');
 if (bookForm) {
   const dayRow = document.getElementById('day-row');
   const timeRow = document.getElementById('time-row');
   const bookMsg = document.getElementById('book-msg');
+  const submitBtn = document.getElementById('book-submit');
+  const singleBox = bookForm.querySelector('[data-mode=single]');
+  const planBox = bookForm.querySelector('[data-mode=plan]');
   const SLOTS = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+  const WEEKDAYS = { Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday', Sun: 'Sunday' };
   let pick = { day: null, time: null };
+  const plan = { per: 2, weeks: 6, days: [], time: null };
 
-  const clinicDays = (count) => {
+  const tomorrow = () => {
     const now = pacificNow();
-    const days = [];
     const date = new Date(Date.UTC(now.y, now.m - 1, now.d, 12));
+    date.setUTCDate(date.getUTCDate() + 1);
+    return date;
+  };
+  const wdOf = (d) => d.toLocaleDateString('en-US', { weekday: 'short', timeZone: 'UTC' });
+  const clinicDays = (count) => {
+    const days = [];
+    const date = tomorrow();
     while (days.length < count) {
+      if (OPEN_DAYS.includes(wdOf(date))) days.push(new Date(date));
       date.setUTCDate(date.getUTCDate() + 1);
-      const wd = date.toLocaleDateString('en-US', { weekday: 'short', timeZone: 'UTC' });
-      if (OPEN_DAYS.includes(wd)) days.push(new Date(date));
     }
     return days;
   };
   const fmtDay = (d) => d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
+  const fmtShort = (d) => d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC' });
   const fmtTime = (h) => `${h > 12 ? h - 12 : h}:00 ${h >= 12 ? 'pm' : 'am'}`;
   const clinic = () => bookForm.querySelector('input[name=clinic]:checked').value;
+  const kind = () => bookForm.querySelector('input[name=kind]:checked').value;
+  const dayKey = (d) => Math.round(d.getTime() / 86400000);
 
-  const slotTaken = (dayIdx, h) => {
-    const seed = dayIdx * 13 + h * 17 + clinic().length * 29;
+  const slotTaken = (key, h) => {
+    const seed = key * 13 + h * 17 + clinic().length * 29;
     let t = seed + 0x6D2B79F5;
     t = Math.imul(t ^ (t >>> 15), t | 1);
     t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
     return ((t ^ (t >>> 14)) >>> 0) % 10 < 3;
   };
 
+  const chip = (html, pressed, onClick, label) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'chip';
+    b.innerHTML = html;
+    b.setAttribute('aria-pressed', pressed);
+    if (label) b.setAttribute('aria-label', label);
+    b.addEventListener('click', onClick);
+    return b;
+  };
+
+  // One visit (first or next)
   const renderTimes = () => {
     if (pick.day === null) return;
     timeRow.innerHTML = '';
     SLOTS.forEach((h) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'chip';
-      b.textContent = fmtTime(h);
-      b.disabled = slotTaken(pick.day, h);
-      b.setAttribute('aria-pressed', pick.time === h);
-      if (b.disabled) b.setAttribute('aria-label', `${fmtTime(h)}, taken`);
-      b.addEventListener('click', () => { pick.time = h; renderTimes(); });
+      const taken = slotTaken(pick.day, h);
+      const b = chip(fmtTime(h), pick.time === h, () => { pick.time = h; renderTimes(); }, taken ? `${fmtTime(h)}, taken` : null);
+      b.disabled = taken;
       timeRow.appendChild(b);
     });
   };
-
   const renderDays = () => {
     dayRow.innerHTML = '';
-    clinicDays(8).forEach((d, i) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'chip';
-      b.setAttribute('aria-pressed', pick.day === i);
-      b.setAttribute('aria-label', fmtDay(d));
-      b.innerHTML = `${d.toLocaleDateString('en-US', { weekday: 'short', timeZone: 'UTC' })}<small>${d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })}</small>`;
-      b.addEventListener('click', () => { pick = { day: i, time: null, date: d }; renderDays(); renderTimes(); });
-      dayRow.appendChild(b);
+    clinicDays(8).forEach((d) => {
+      const key = dayKey(d);
+      dayRow.appendChild(chip(`${wdOf(d)}<small>${d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })}</small>`,
+        pick.day === key, () => { pick = { day: key, time: null, date: d }; renderDays(); renderTimes(); }, fmtDay(d)));
     });
   };
 
+  // Whole plan: same days and time each week; a full slot moves to the closest open hour that day
+  const planVisits = () => {
+    if (plan.days.length !== plan.per || plan.time === null) return [];
+    const visits = [];
+    const date = tomorrow();
+    const total = plan.per * plan.weeks;
+    while (visits.length < total) {
+      if (plan.days.includes(wdOf(date))) {
+        const key = dayKey(date);
+        let h = plan.time;
+        if (slotTaken(key, h)) {
+          const open = SLOTS.filter((x) => !slotTaken(key, x)).sort((x, y) => Math.abs(x - plan.time) - Math.abs(y - plan.time));
+          h = open.length ? open[0] : null;
+        }
+        visits.push({ date: new Date(date), h, moved: h !== plan.time });
+      }
+      date.setUTCDate(date.getUTCDate() + 1);
+    }
+    return visits;
+  };
+  const renderPlan = () => {
+    const per = document.getElementById('plan-per');
+    const weeks = document.getElementById('plan-weeks');
+    const days = document.getElementById('plan-days');
+    const time = document.getElementById('plan-time');
+    const list = document.getElementById('plan-list');
+    per.innerHTML = ''; weeks.innerHTML = ''; days.innerHTML = ''; time.innerHTML = '';
+    [1, 2, 3].forEach((n) => per.appendChild(chip(`${n}×`, plan.per === n, () => {
+      plan.per = n; plan.days = plan.days.slice(0, n); renderPlan();
+    }, `${n} ${n === 1 ? 'visit' : 'visits'} a week`)));
+    [4, 6, 8, 12].forEach((n) => weeks.appendChild(chip(`${n} weeks`, plan.weeks === n, () => { plan.weeks = n; renderPlan(); })));
+    OPEN_DAYS.forEach((wd) => days.appendChild(chip(wd, plan.days.includes(wd), () => {
+      if (plan.days.includes(wd)) plan.days = plan.days.filter((x) => x !== wd);
+      else { plan.days.push(wd); if (plan.days.length > plan.per) plan.days.shift(); }
+      plan.days.sort((x, y) => OPEN_DAYS.indexOf(x) - OPEN_DAYS.indexOf(y));
+      renderPlan();
+    }, WEEKDAYS[wd])));
+    SLOTS.forEach((h) => time.appendChild(chip(fmtTime(h), plan.time === h, () => { plan.time = h; renderPlan(); })));
+    const left = plan.per - plan.days.length;
+    document.getElementById('plan-days-need').textContent = left > 0 ? `(pick ${left} more)` : '';
+    const visits = planVisits();
+    if (!visits.length) {
+      list.innerHTML = `<p class="muted small">Pick ${plan.per} ${plan.per === 1 ? 'day' : 'days'} and a time to see all ${plan.per * plan.weeks} visits.</p>`;
+      return;
+    }
+    const moved = visits.filter((v) => v.moved).length;
+    list.innerHTML = `<p class="plan-sum"><strong>${visits.length} visits</strong>, ${fmtShort(visits[0].date)} to ${fmtShort(visits[visits.length - 1].date)}${moved ? `. ${moved} moved to the closest open time (marked).` : '. All at your time.'}</p>
+      <ol class="plan-visits">${visits.map((v) => `<li${v.moved ? ' class="moved"' : ''}><span>${fmtShort(v.date)}</span><span>${v.h === null ? 'We will call' : fmtTime(v.h)}${v.moved ? ' *' : ''}</span></li>`).join('')}</ol>`;
+  };
+
+  const setMode = () => {
+    const k = kind();
+    singleBox.hidden = k === 'plan';
+    planBox.hidden = k !== 'plan';
+    submitBtn.textContent = { first: 'Book evaluation', next: 'Book visit', plan: 'Book my plan' }[k];
+    bookMsg.textContent = '';
+    if (k === 'plan') renderPlan();
+  };
+  bookForm.querySelectorAll('input[name=kind]').forEach((r) => r.addEventListener('change', setMode));
   bookForm.querySelectorAll('input[name=clinic]').forEach((r) => r.addEventListener('change', () => {
     pick.time = null;
     renderTimes();
+    if (kind() === 'plan') renderPlan();
   }));
   renderDays();
+  setMode();
 
   bookForm.addEventListener('submit', (e) => {
     e.preventDefault();
     bookMsg.classList.remove('ok');
-    if (pick.day === null || pick.time === null) {
+    const k = kind();
+    let visits = [];
+    if (k === 'plan') {
+      visits = planVisits();
+      if (!visits.length) {
+        bookMsg.textContent = `Please pick ${plan.per} ${plan.per === 1 ? 'day' : 'days'} and a time.`;
+        return;
+      }
+    } else if (pick.day === null || pick.time === null) {
       bookMsg.textContent = 'Please pick a day and a time.';
       return;
     }
@@ -177,7 +260,10 @@ if (bookForm) {
       return;
     }
     bookMsg.classList.add('ok');
-    bookMsg.textContent = `You're booked at our ${clinic()} clinic on ${fmtDay(pick.date)} at ${fmtTime(pick.time)}. We'll call to confirm your insurance. (Demo: nothing was sent.)`;
+    const demo = ' (Demo: nothing was sent.)';
+    if (k === 'plan') bookMsg.textContent = `Your plan is booked at our ${clinic()} clinic: ${visits.length} visits starting ${fmtDay(visits[0].date)}. We'll text or call to confirm, and you can change any visit by calling us.${demo}`;
+    else if (k === 'next') bookMsg.textContent = `You're booked at our ${clinic()} clinic on ${fmtDay(pick.date)} at ${fmtTime(pick.time)}. See you then!${demo}`;
+    else bookMsg.textContent = `You're booked at our ${clinic()} clinic on ${fmtDay(pick.date)} at ${fmtTime(pick.time)}. We'll call to confirm your insurance.${demo}`;
   });
 }
 
