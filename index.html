@@ -5,28 +5,23 @@ description: Orthopedic, post-surgery and spine physical therapy in Tustin and L
 schema_all_locations: true
 ---
 {%- assign c = site.data.clinic -%}
-<section class="hero">
+<section class="hero hero-fast">
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <p class="eyebrow">Physical therapy in Tustin and Lake Forest</p>
         <h1>Healing today, <em>thriving tomorrow.</em></h1>
-        <p class="lead">Orthopedic, post-surgery and spine care from a team that has served Orange County since {{ c.founded }}. One-on-one and small-group sessions, and a plan you can keep up on your own.</p>
+        <p class="lead">Orthopedic, post-surgery and spine physical therapy in Tustin and Lake Forest since {{ c.founded }}.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book your first visit</a>
-          <a class="btn btn-secondary btn-lg" href="{{ '/locations/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call a clinic</a>
+          <a class="btn btn-primary btn-lg" href="{{ '/book/' | relative_url }}"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Book an appointment</a>
         </div>
-        <ul class="trust">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Medicare Part B, many PPO plans and local medical groups</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Not sure if you need a referral? We'll check for you.</li>
-        </ul>
+        <div class="hero-phones">
+          {%- for l in c.locations %}
+          <a class="hero-phone" href="tel:{{ l.phone_tel }}"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><small>{{ l.name }}</small>{{ l.phone }}</span></a>
+          {%- endfor %}
+        </div>
       </div>
       <figure class="hero-photo">
         <img src="{{ c.photos.hero }}" alt="{{ c.photos.hero_alt }}">
-        <div class="hero-card">
-          <strong><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Auto and work injuries</strong>
-          We work with auto MedPay and accept workers' compensation.
-        </div>
         <div class="hero-badge">
           <span class="status" data-status></span>
           <span>{{ c.hours_short }}</span>
@@ -36,123 +31,41 @@ schema_all_locations: true
   </div>
 </section>
 
-<section class="quick" aria-label="Quick links">
+<section class="quick" aria-label="What do you need?">
   <div class="wrap">
-    <div class="quick-grid">
-      <a class="quick-card" href="{{ '/book/' | relative_url }}">
+    <div class="tiles">
+      <a class="tile tile-primary" href="{{ '/book/' | relative_url }}">
         <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
-        <span><strong>Book online</strong><span class="qc-sub">Pick a day and time</span></span>
+        <strong>Make an appointment</strong><span>Book online or request a call</span>
       </a>
-      <a class="quick-card" href="{{ '/insurance/' | relative_url }}">
+      <a class="tile" href="{{ '/insurance/' | relative_url }}">
         <svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
-        <span><strong>Insurance</strong><span class="qc-sub">Check your plan</span></span>
+        <strong>Insurance</strong><span>See if we're in your network</span>
       </a>
-      <a class="quick-card" href="{{ '/locations/' | relative_url }}">
-        <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
-        <span><strong>Locations</strong><span class="qc-sub">Tustin and Lake Forest</span></span>
-      </a>
-      <a class="quick-card" href="{{ '/new-patients-center/#forms' | relative_url }}">
+      <a class="tile" href="{{ '/new-patients-center/#forms' | relative_url }}">
         <svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>
-        <span><strong>Patient forms</strong><span class="qc-sub">Fill out before you come</span></span>
+        <strong>Patient forms</strong><span>Fill out before your visit</span>
+      </a>
+      <a class="tile" href="{{ '/locations/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+        <strong>Locations</strong><span>Tustin and Lake Forest</span>
+      </a>
+      <a class="tile" href="{{ '/services/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg>
+        <strong>What we treat</strong><span>Back, neck, joints, surgery</span>
+      </a>
+      <a class="tile" href="{{ '/about/meet-our-staff/' | relative_url }}">
+        <svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>
+        <strong>Meet our team</strong><span>Get to know us</span>
       </a>
     </div>
   </div>
 </section>
 
-<section class="section" id="services">
+<section class="section-fast" id="locations">
   <div class="wrap">
-    <div class="section-head head-row">
-      <div>
-        <span class="kicker">What we treat</span>
-        <h2>From injury to <em>independence</em></h2>
-        <p class="lead">We go beyond recovery. We help you build the knowledge, confidence and strength to stay healthy for the long run.</p>
-      </div>
-      <a class="btn btn-secondary" href="{{ '/services/' | relative_url }}">All conditions we treat <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    </div>
-    {% include services-grid.html %}
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="wrap split">
-    <div>
-      <span class="kicker">How we work</span>
-      <h2>One-on-one when you need it. <em>A small group when it helps.</em></h2>
-      <p class="lead">Personal care and a little community on the way back.</p>
-      <div class="split-points">
-        <div class="point">
-          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg></span>
-          <div>
-            <h3>One-on-one sessions</h3>
-            <p>Hands-on time with your therapist for focused, personal care.</p>
-          </div>
-        </div>
-        <div class="point">
-          <span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
-          <div>
-            <h3>Small-group sessions</h3>
-            <p>Encouragement and accountability from others on the same road.</p>
-          </div>
-        </div>
-      </div>
-      <div class="stats stats-light">
-        <div class="stat"><span class="stat-num">{{ c.founded }}</span><span class="stat-label">Year our first clinic opened, in Lake Forest</span></div>
-        <div class="stat"><span class="stat-num">{{ c.locations | size }}</span><span class="stat-label">Clinics, in Tustin and Lake Forest</span></div>
-        <div class="stat"><span class="stat-num">{{ c.insurance | size }}</span><span class="stat-label">Insurance plans, medical groups and coverage types</span></div>
-        <div class="stat"><span class="stat-num">1:1</span><span class="stat-label">One-on-one time with your therapist</span></div>
-      </div>
-      <a class="text-link" href="{{ '/about/' | relative_url }}">More about how we work <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    </div>
-    <figure class="photo">
-      <img src="{{ c.photos.group }}" alt="{{ c.photos.group_alt }}" loading="lazy">
-      <figcaption class="photo-tag"><span class="point-icon"><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg></span><span><strong>You leave with your own program.</strong> Exercises, stretches and habits to stay strong after your last visit.</span></figcaption>
-    </figure>
-  </div>
-</section>
-
-{% include reviews.html %}
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">Getting started</span>
-      <h2>Your first visit, <em>step by step</em></h2>
-      <p class="lead">Simple from the first click.</p>
-    </div>
-    {% include steps.html %}
-    <div class="forms-bar">
-      <svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg>
-      <p><strong>Save time at check-in.</strong> Fill out your new patient forms online or print them before you come.</p>
-      <a class="btn btn-secondary" href="{{ '/new-patients-center/#forms' | relative_url }}">New patient forms</a>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt" id="book">
-  <div class="wrap split split-top">
-    <div>
-      <span class="kicker">Book online</span>
-      <h2>Book your <em>first visit</em></h2>
-      <p class="lead">Choose a clinic, a day and a time. We'll call to confirm your insurance before you come in.</p>
-      <ul class="trust">
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Takes about a minute</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Need to change it? Just call the clinic.</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>After your evaluation, we book the rest of your plan together.</li>
-      </ul>
-      {% include demo.html title="Online booking" does="Patients pick a real open time for their first evaluation, day or night. Times shown here are samples." needs="A HIPAA-covered calendar or scheduler (for example Google Workspace with Google's BAA)." anchor="booking" %}
-    </div>
-    {% include booker.html %}
-  </div>
-</section>
-
-<section class="section" id="locations">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">Locations</span>
-      <h2>Two clinics in <em>Orange County</em></h2>
-      <p class="lead">Choose the office nearest to you.</p>
-    </div>
-    <div class="locations">
+    <h2 class="fast-h">Our two locations</h2>
+    <div class="locations locations-compact">
       {%- for l in c.locations %}
       {% include location-card.html key=l.key %}
       {%- endfor %}
@@ -160,21 +73,11 @@ schema_all_locations: true
   </div>
 </section>
 
-<section class="section section-dark" id="physicians">
-  <div class="wrap split">
-    <div>
-      <span class="kicker">For physicians</span>
-      <h2>Referring a <em>patient?</em></h2>
-      <p class="lead">Thank you for trusting us with your patients. Fax a referral to either clinic and we'll call your patient to schedule.</p>
-    </div>
-    <div class="ref-box">
-      <dl class="loc-facts">
-        {%- for l in c.locations %}
-        <dt>{{ l.name }} fax</dt><dd>{{ l.fax }}</dd>
-        {%- endfor %}
-        <dt>We treat</dt><dd>Orthopedic, post-operative and spine conditions</dd>
-      </dl>
-      <a class="btn btn-light" href="{{ '/physicians/' | relative_url }}">Information for physicians <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    </div>
+{% include reviews.html limit=3 %}
+
+<section class="ref-strip">
+  <div class="wrap ref-strip-row">
+    <p><strong>Referring a patient?</strong> Fax{% for l in c.locations %} {{ l.name }} {{ l.fax }}{% unless forloop.last %} or{% endunless %}{% endfor %}.</p>
+    <a class="text-link" href="{{ '/physicians/' | relative_url }}">Information for physicians <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
 </section>

@@ -42,6 +42,7 @@
       <span><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>{% for l in c.locations %}{{ l.name }}: <a href="tel:{{ l.phone_tel }}">{{ l.phone }}</a>{% unless forloop.last %}&nbsp;&middot;&nbsp;{% endunless %}{% endfor %}</span>
     </div>
     <div class="top-social">
+      <a href="{{ '/physicians/' | relative_url }}">For physicians</a>
       <a href="{{ c.social.facebook }}" target="_blank" rel="noopener">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
       <a href="{{ c.social.instagram }}" target="_blank" rel="noopener">Instagram<span class="sr-only"> (opens in a new tab)</span></a>
       <a href="{{ c.social.yelp_tustin }}" target="_blank" rel="noopener">Yelp<span class="sr-only"> (opens in a new tab)</span></a>
@@ -53,7 +54,7 @@
   <div class="wrap header-row">
     <a class="brand" href="{{ '/' | relative_url }}"><img src="{{ c.logo }}" alt="{{ c.name }}, home" width="240" height="123"></a>
     <nav class="main-nav" id="main-nav" aria-label="Main">
-      {%- assign nav = "What we treat|/services/,Insurance|/insurance/,New patients|/new-patients-center/,Locations|/locations/,About|/about/,For physicians|/physicians/" | split: "," -%}
+      {%- assign nav = "What we treat|/services/,New patients|/new-patients-center/,Insurance|/insurance/,Locations|/locations/,About|/about/" | split: "," -%}
       {%- for item in nav -%}
         {%- assign parts = item | split: "|" -%}
         <a href="{{ parts[1] | relative_url }}"{% if page.url contains parts[1] or page.location and parts[1] == "/locations/" %} aria-current="page"{% endif %}>{{ parts[0] }}</a>
