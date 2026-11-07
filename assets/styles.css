@@ -647,3 +647,70 @@ progress::-moz-progress-bar { background: var(--navy); }
   .reveal { opacity: 1; transform: none; transition: none; }
   .btn, .card-link, .card-more .icon, .text-link .icon { transition: none; }
 }
+
+/* ===== Speed and ease of use (Nov 6) =====
+   Shorter hero so quick links show without scrolling, compact tap targets,
+   less scrolling between sections. */
+.hero { padding: 48px 0 104px; }
+.hero h1 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 14px; }
+.hero .lead { font-size: 18.5px; margin-bottom: 0; }
+.hero-actions { margin: 26px 0 22px; }
+.hero-grid { gap: 48px; }
+.hero-photo img { aspect-ratio: 5 / 4; }
+.eyebrow { margin-bottom: 18px; }
+
+.quick { margin-top: -72px; }
+.quick-card { flex-direction: row; align-items: center; gap: 14px; padding: 20px 22px; }
+.quick-card strong { display: block; font-size: 16.5px; line-height: 1.25; }
+.qc-sub { display: block; font-size: 14px; color: var(--muted); margin-top: 2px; }
+.quick-card .icon { width: 20px; height: 20px; padding: 9px; }
+.quick-card::after {
+  content: ""; margin-left: auto; width: 8px; height: 8px; flex: none;
+  border-right: 2px solid #9aa3bb; border-top: 2px solid #9aa3bb; transform: rotate(45deg);
+  transition: transform .15s, border-color .15s;
+}
+.quick-card:hover::after { border-color: var(--navy); transform: translateX(3px) rotate(45deg); }
+
+.section { padding: 80px 0; }
+.section-head { margin-bottom: 36px; }
+.card { padding: 26px; }
+.card-link { min-height: 0; }
+.card-link::before { margin-bottom: 10px; font-size: 18px; }
+.cta-band { padding-bottom: 80px; }
+
+/* Stats, light version under "How we work" */
+.stats-light { margin-top: 28px; border-top: 1px solid var(--border); }
+.stats-light .stat { padding-top: 18px; }
+.stats-light .stat + .stat { border-left-color: var(--border); }
+.stats-light .stat-num { color: var(--ink); font-size: 34px; margin-bottom: 4px; }
+.stats-light .stat-label { display: block; color: var(--muted); font-size: 13.5px; }
+.stats-light .stat, .stats-light .stat + .stat { padding-right: 12px; }
+.stats-light .stat + .stat { padding-left: 14px; }
+
+@media (max-width: 1000px) {
+  .hero { padding-bottom: 96px; }
+  .hero-photo { display: none; }
+  .stats-light { grid-template-columns: repeat(4, 1fr); }
+  .stats-light .stat:nth-child(3) { border-left: 1px solid var(--border); padding-left: 14px; }
+}
+@media (max-width: 640px) {
+  .hero { padding: 28px 0 84px; }
+  .hero h1 { font-size: 38px; }
+  .hero .lead { font-size: 17px; }
+  .hero-actions { margin: 20px 0 16px; gap: 10px; }
+  .hero .trust { display: none; }
+  .hero .eyebrow { display: none; }
+  .eyebrow { font-size: 13px; margin-bottom: 14px; }
+  .quick { margin-top: -60px; }
+  .quick-grid { grid-template-columns: 1fr 1fr; }
+  .quick-card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
+  .quick-card + .quick-card { border-top: 0; }
+  .quick-card:nth-child(2n) { border-left: 1px solid var(--border); }
+  .quick-card:nth-child(n+3) { border-top: 1px solid var(--border); }
+  .quick-card::after { display: none; }
+  .qc-sub { font-size: 13px; }
+  .section { padding: 56px 0; }
+  .stats-light { grid-template-columns: 1fr 1fr; }
+  .stats-light .stat:nth-child(3) { border-left: 0; padding-left: 0; }
+  .cta-band { padding-bottom: 56px; }
+}
